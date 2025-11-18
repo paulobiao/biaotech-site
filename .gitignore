@@ -1,0 +1,21 @@
+# Build / cache
+.next
+out
+dist
+
+# Dependências
+node_modules
+
+# Ambiente
+.env
+.env.local
+.env.development.local
+.env.production.local
+.env.test.local
+
+# Prisma
+prisma/dev.db
+
+# SO / editor
+.DS_Store
+.vscode
