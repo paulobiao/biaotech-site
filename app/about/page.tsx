@@ -101,11 +101,11 @@ export default function AboutPage() {
                 </div>
                 <div className="border-l-4 border-blue-600 pl-6">
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    Postgraduate Studies in Cloud Computing – PUC Minas (in progress)
+                    Postgraduate Studies in Cloud Computing – PUC Minas 
                   </h3>
                   <p className="text-gray-700">
                     He is currently pursuing a Postgraduate degree in Cloud Computing at PUC Minas
-                    (expected completion Nov/2025). The program focuses on cloud solution
+                    (expected completion Nov/2026). The program focuses on cloud solution
                     architecture, distributed systems, scalability, containerization, automation,
                     and information security—strengthening his ability to design cloud-native,
                     resilient, and highly scalable architectures.
