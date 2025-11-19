@@ -18,10 +18,8 @@ export async function POST(req: NextRequest) {
     // valida o body
     const data = contactSchema.parse(body)
 
-    // 🔎 Por enquanto só vamos logar no servidor
+    // 🔎 Por enquanto só vamos logar no servidor (Vercel Logs)
     console.log('📩 Nova mensagem de contato:', data)
-
-    // 👉 Aqui depois a gente pluga Resend / outro serviço de e-mail
 
     return NextResponse.json(
       {
