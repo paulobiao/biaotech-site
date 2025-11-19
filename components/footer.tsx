@@ -1,12 +1,12 @@
-
 import Link from 'next/link'
-import { Mail, Globe } from 'lucide-react'
+import { Mail, Globe, Github, Linkedin } from 'lucide-react'
 
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-4 max-w-6xl py-12">
         <div className="grid md:grid-cols-3 gap-8">
+          
           {/* Brand */}
           <div>
             <h3 className="text-xl font-bold mb-4">Paulo Fernandes Bião</h3>
@@ -36,10 +36,12 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Contact */}
+          {/* Contact + Social */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Connect</h4>
-            <div className="space-y-2">
+            <div className="space-y-3">
+
+              {/* Contact link */}
               <Link 
                 href="/contact" 
                 className="flex items-center text-gray-400 hover:text-white transition-colors"
@@ -47,12 +49,35 @@ export default function Footer() {
                 <Mail className="h-4 w-4 mr-2" />
                 Get in Touch
               </Link>
+
               <Link 
-                href="/testimonials" 
+                href="/testimonials"
                 className="block text-gray-400 hover:text-white transition-colors"
               >
                 Testimonials
               </Link>
+
+              {/* GitHub */}
+              <a 
+                href="https://github.com/paulobiao"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-gray-400 hover:text-white transition-colors"
+              >
+                <Github className="h-4 w-4 mr-2" />
+                GitHub
+              </a>
+
+              {/* LinkedIn */}
+              <a 
+                href="https://www.linkedin.com/in/paulobiao/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-gray-400 hover:text-white transition-colors"
+              >
+                <Linkedin className="h-4 w-4 mr-2" />
+                LinkedIn
+              </a>
             </div>
           </div>
         </div>
