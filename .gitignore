@@ -19,3 +19,4 @@ prisma/dev.db
 # SO / editor
 .DS_Store
 .vscode
+node_modules

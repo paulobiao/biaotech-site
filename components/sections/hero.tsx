@@ -11,19 +11,22 @@ const heroFrameworks = [
     icon: Shield,
     label: 'SecureBank™',
     href: '/frameworks/securebank',
-    colorClasses: 'bg-blue-500/15 text-blue-100 ring-blue-300/40 hover:bg-blue-500/25',
+    colorClasses:
+      'bg-blue-500/15 text-blue-100 ring-blue-300/40 hover:bg-blue-500/25',
   },
   {
     icon: Heart,
     label: 'HealthGuard™',
     href: '/frameworks/healthguard',
-    colorClasses: 'bg-emerald-500/15 text-emerald-100 ring-emerald-300/40 hover:bg-emerald-500/25',
+    colorClasses:
+      'bg-emerald-500/15 text-emerald-100 ring-emerald-300/40 hover:bg-emerald-500/25',
   },
   {
     icon: Zap,
     label: 'PhysiDigital™',
     href: '/frameworks/physi-digital',
-    colorClasses: 'bg-purple-500/15 text-purple-100 ring-purple-300/40 hover:bg-purple-500/25',
+    colorClasses:
+      'bg-purple-500/15 text-purple-100 ring-purple-300/40 hover:bg-purple-500/25',
   },
 ]
 
@@ -33,20 +36,18 @@ export default function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/photo-1498050108023-c5249f4df085.avif" // imagem em /public
+          src="/photo-1498050108023-c5249f4df085.avif"
           alt="Professional technology background"
           fill
           className="object-cover"
           priority
         />
-        {/* Overlay azul escuro translúcido para destacar texto */}
         <div className="absolute inset-0 bg-blue-900/80" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 max-w-6xl text-center text-white">
         <AnimatedSection>
-          {/* Pill de contexto */}
           <motion.div
             className="inline-flex items-center px-4 py-1 rounded-full bg-white/10 text-xs font-medium tracking-wide uppercase mb-6 border border-white/15 backdrop-blur-sm"
             initial={{ opacity: 0, y: -10 }}
@@ -56,7 +57,6 @@ export default function Hero() {
             Technology Innovation • Security • Digital Transformation
           </motion.div>
 
-          {/* Título */}
           <motion.h1
             className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-4"
             initial={{ opacity: 0, y: 30 }}
@@ -64,25 +64,39 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.1 }}
           >
             Innovation in
-            <span className="block text-blue-200">
-              Technology Frameworks
-            </span>
+            <span className="block text-blue-200">Technology Frameworks</span>
           </motion.h1>
 
-          {/* Subtítulo */}
           <motion.p
             className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed text-blue-100"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            Paulo Fernandes Bião designs next-generation security and digital transformation
-            frameworks that solve critical challenges in banking, healthcare, and enterprise
-            systems. By combining deep technical expertise with strategic vision, he delivers
-            resilient, scalable, and future-ready solutions.
+            Paulo Fernandes Bião designs next-generation security and digital
+            transformation frameworks that solve critical challenges in banking,
+            healthcare, and enterprise systems. By combining deep technical
+            expertise with strategic vision, he delivers resilient, scalable,
+            and future-ready solutions.
           </motion.p>
 
-          {/* Framework Icons – 1 de cada cor + clicáveis */}
+          {/* Professional e-mail */}
+          <motion.p
+            className="mt-3 text-sm md:text-base text-blue-100/80"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+          >
+            Professional contact:{' '}
+            <a
+              href="mailto:paulo@biaotech.dev"
+              className="font-semibold underline underline-offset-4 decoration-blue-300/70 hover:decoration-blue-100 hover:text-blue-50 transition"
+            >
+              paulo@biaotech.dev
+            </a>
+          </motion.p>
+
+          {/* Framework Icons */}
           <motion.div
             className="mt-10 mb-10 flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10"
             initial={{ opacity: 0, y: 30 }}

@@ -12,6 +12,18 @@ export const metadata: Metadata = {
 
 const publications = [
   {
+  title:
+    'SecureBank™: Base for the Next Generation of Financial Sector Security',
+  journal: 'DIO.me – Technology Articles',
+  year: '2025',
+  tag: 'Banking Security',
+  authors: 'Paulo Fernandes Biao',
+  abstract:
+    'Technical article presenting the SecureBank™ framework as a foundational architecture to strengthen cybersecurity and regulatory compliance in modern financial institutions.',
+  link: 'https://web.dio.me/articles/securebanktm-como-base-para-a-proxima-geracao-de-seguranca-no-setor-financeiro-329e8a3f84d9',
+  category: 'Banking Security'
+  },
+  {
     title: 'SecureBank: A Revolutionary Approach to Banking Security Framework',
     journal: 'International Journal of Financial Technology Security',
     year: '2023',
@@ -108,9 +120,10 @@ export default function PublicationsPage() {
                       </span>
                     </div>
                   </div>
-                  <div className="flex-shrink-0 mt-4 lg:mt-0">
-                    <ViewPaperButton title={publication.title} />
-                  </div>
+                 <div className="flex-shrink-0 mt-4 lg:mt-0">
+                 <ViewPaperButton title={publication.title} link={publication.link} />
+                </div>
+
                 </div>
                 
                 <p className="text-gray-700 mb-4 leading-relaxed">
