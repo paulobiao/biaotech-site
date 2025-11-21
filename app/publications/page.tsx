@@ -23,6 +23,18 @@ const publications = [
   link: 'https://web.dio.me/articles/securebanktm-como-base-para-a-proxima-geracao-de-seguranca-no-setor-financeiro-329e8a3f84d9',
   category: 'Banking Security'
   },
+   {
+    title:
+      'SecureBank™: An Adaptive Zero Trust Cybersecurity Architecture for Modern Financial Infrastructures',
+    journal: 'Zenodo – DOI 10.5281/zenodo.17666802',
+    year: '2025',
+    tag: 'Banking Security',
+    authors: 'Paulo Fernandes Biao',
+    abstract:
+      'Technical report published on Zenodo presenting SecureBank™, a next-generation Zero Trust cybersecurity architecture for modern financial infrastructures, integrating adaptive identity, contextual microsegmentation, encrypted east–west traffic, continuous verification, and automated incident response aligned with NIST CSF 2.0, ISO 27001, PCI-DSS and FFIEC.',
+    link: 'https://doi.org/10.5281/zenodo.17666802',
+    category: 'Banking Security',
+  },
   {
     title: 'SecureBank: A Revolutionary Approach to Banking Security Framework',
     journal: 'International Journal of Financial Technology Security',

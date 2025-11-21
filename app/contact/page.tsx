@@ -286,10 +286,10 @@ export default function ContactPage() {
               <div className="inline-flex items-center rounded-full bg-slate-800/70 px-3 py-2">
                 <Mail className="h-4 w-4 text-blue-400 mr-2" />
                 <a
-                  href="mailto:paulob@biaotech.dev"
+                  href="mailto:contactb@biaotech.dev"
                   className="text-sm text-blue-300 hover:text-blue-200"
                 >
-                  paulob@biaotech.dev
+                  contact@biaotech.dev
                 </a>
               </div>
             </div>
