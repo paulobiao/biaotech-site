@@ -14,11 +14,17 @@ export default function ViewPaperButton({ title, link }: ViewPaperButtonProps) {
       return
     }
 
-    // English warning message
-    alert(
-      "This publication is hosted on the DIO.me platform.\n\nTo access the full article, you must be logged in (free account).\n\nAfter logging in, the paper will open normally."
-    )
+    // Só mostra aviso se o artigo estiver na plataforma DIO.me
+    const isDio =
+      link.includes('dio.me') || link.includes('web.dio.me')
 
+    if (isDio) {
+      alert(
+        "This publication is hosted on the DIO.me platform.\n\nTo access the full article, you must be logged in (free account).\n\nAfter logging in, the paper will open normally."
+      )
+    }
+
+    // Abre sempre em nova aba
     window.open(link, '_blank', 'noopener,noreferrer')
   }
 
