@@ -23,6 +23,17 @@ const publications = [
   link: 'https://web.dio.me/articles/securebanktm-como-base-para-a-proxima-geracao-de-seguranca-no-setor-financeiro-329e8a3f84d9',
   category: 'Banking Security'
   },
+  {
+  title: "HealthGuard™: A Comprehensive Zero Trust Architecture for Healthcare Security",
+  journal: "Zenodo – DOI 10.5281/zenodo.17667022",
+  year: "2025",
+  tag: "Healthcare Security",
+  authors: "Paulo Fernandes Biao",
+  abstract:
+    "Technical report presenting HealthGuard™, a next-generation cybersecurity architecture for hospitals and healthcare infrastructures, integrating Zero Trust Healthcare, clinical interoperability, encrypted communications, IoMT protection, API hardening, microsegmentation, and operational resilience strategies.",
+  link: "https://doi.org/10.5281/zenodo.17667022",
+  category: "Healthcare Technology"
+},
    {
     title:
       'SecureBank™: An Adaptive Zero Trust Cybersecurity Architecture for Modern Financial Infrastructures',
