@@ -94,7 +94,7 @@ const publications = [
   authors: "Paulo Fernandes Biao",
   abstract:
     "Technical report published on OSF describing PhysiDigital™, a hybrid architecture connecting physical environments and digital ecosystems for healthcare, telerehabilitation, and clinical operations. The model integrates Zero Trust Healthcare, IoT/OT segmentation, automated governance, cloud interoperability, and secure physiotherapy workflows.",
-  link: "https://osf.io/preprints/metaarxiv/XXXXX_v1", // substitua com o link REAL assim que enviar
+  link: "https://osf.io/preprints/metaarxiv/xgcfw_v1", // substitua com o link REAL assim que enviar
   category: "Digital Transformation"
 },
   {
