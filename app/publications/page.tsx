@@ -84,6 +84,18 @@ const publications = [
     category: 'Banking Security',
   },
   {
+  title: "PhysiDigital™: A Secure and Interoperable Digital Ecosystem for Telerehabilitation and Smart Physiotherapy",
+  journal: "Zenodo – DOI 10.5281/zenodo.17685536",
+  year: "2025",
+  tag: "Digital Transformation",
+  authors: "Paulo Fernandes Biao",
+  abstract:
+    "PhysiDigital™ introduces a unified ecosystem integrating Zero Trust cybersecurity, operational risk management, IoT/OT protection, cloud-edge interoperability, and automated governance to support telerehabilitation workflows, physiotherapy devices, and hybrid clinical operations.",
+  link: "https://doi.org/10.5281/zenodo.17685536",
+  category: "Digital Transformation",
+  doi: "https://doi.org/10.5281/zenodo.17685536"
+},
+  {
     title:
       'HealthGuard: Comprehensive Protection Systems for Healthcare Infrastructure',
     journal: 'Journal of Healthcare Information Systems',
