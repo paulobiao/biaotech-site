@@ -75,15 +75,6 @@ const publications = [
     doi: 'https://doi.org/10.5281/zenodo.17666802',
   },
   {
-    title: 'SecureBank: A Revolutionary Approach to Banking Security Framework',
-    journal: 'International Journal of Financial Technology Security',
-    year: '2023',
-    abstract:
-      'This paper presents the SecureBank framework, a comprehensive security solution for modern banking systems that addresses current cyber threats and regulatory compliance requirements.',
-    authors: 'Paulo Fernandes Biao, et al.',
-    category: 'Banking Security',
-  },
-  {
   title: "PhysiDigital™: A Secure and Interoperable Digital Ecosystem for Telerehabilitation and Smart Physiotherapy",
   journal: "Zenodo – DOI 10.5281/zenodo.17685536",
   year: "2025",
@@ -95,25 +86,17 @@ const publications = [
   category: "Digital Transformation",
   doi: "https://doi.org/10.5281/zenodo.17685536"
 },
-  {
-    title:
-      'HealthGuard: Comprehensive Protection Systems for Healthcare Infrastructure',
-    journal: 'Journal of Healthcare Information Systems',
-    year: '2023',
-    abstract:
-      'A detailed analysis of the HealthGuard framework and its implementation in healthcare environments to ensure patient data protection and operational continuity.',
-    authors: 'Paulo Fernandes Biao, et al.',
-    category: 'Healthcare Technology',
-  },
-  {
-    title: 'PhysiDigital: Bridging Physical and Digital Transformation Methodologies',
-    journal: 'Digital Transformation Quarterly',
-    year: '2022',
-    abstract:
-      'This research introduces the PhysiDigital framework for seamless integration of physical operations with digital transformation initiatives.',
-    authors: 'Paulo Fernandes Biao, et al.',
-    category: 'Digital Transformation',
-  },
+{
+  title: "PhysiDigital™: Bridging Physical and Digital Transformation Through Hybrid Integration Frameworks",
+  journal: "OSF Preprints – MetaArXiv",
+  year: "2025",
+  tag: "Digital Health",
+  authors: "Paulo Fernandes Biao",
+  abstract:
+    "Technical report published on OSF describing PhysiDigital™, a hybrid architecture connecting physical environments and digital ecosystems for healthcare, telerehabilitation, and clinical operations. The model integrates Zero Trust Healthcare, IoT/OT segmentation, automated governance, cloud interoperability, and secure physiotherapy workflows.",
+  link: "https://osf.io/preprints/metaarxiv/XXXXX_v1", // substitua com o link REAL assim que enviar
+  category: "Digital Transformation"
+},
   {
     title: 'Innovative Security Architectures for Modern Financial Systems',
     journal: 'Cybersecurity and Banking Review',
@@ -123,24 +106,7 @@ const publications = [
     authors: 'Paulo Fernandes Biao, et al.',
     category: 'Banking Security',
   },
-  {
-    title: 'Healthcare Data Protection in Digital Age: Methods and Frameworks',
-    journal: 'Medical Informatics and Security Journal',
-    year: '2021',
-    abstract:
-      'Exploration of advanced methodologies for protecting healthcare data while maintaining accessibility and operational efficiency.',
-    authors: 'Paulo Fernandes Biao, et al.',
-    category: 'Healthcare Technology',
-  },
-  {
-    title: 'Digital Transformation Strategies for Enterprise Organizations',
-    journal: 'Enterprise Technology Management',
-    year: '2021',
-    abstract:
-      'Strategic approaches to digital transformation in enterprise environments, focusing on sustainable and scalable implementation methods.',
-    authors: 'Paulo Fernandes Biao, et al.',
-    category: 'Digital Transformation',
-  },
+
 ]
 
 export default function PublicationsPage() {
