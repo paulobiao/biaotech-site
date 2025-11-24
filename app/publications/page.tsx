@@ -236,14 +236,14 @@ export default function PublicationsPage() {
           </p>
         </AnimatedSection>
 
-        {/* Featured */}
+        {/* Featured – AGORA COM “Zenodo” NO TÍTULO */}
         {featuredPublications.length > 0 && (
           <AnimatedSection className="mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              Featured DOI Publications
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
+              Zenodo – DOI Publications
             </h2>
             <p className="text-gray-600 mb-6">
-              The core frameworks developed by Paulo Fernandes Biao, indexed with DOIs and focused on critical infrastructures in banking, healthcare, and digital health.
+              The core frameworks developed by Paulo Fernandes Biao, indexed on Zenodo with DOIs and focused on critical infrastructures in banking, healthcare, and digital health.
             </p>
 
             <div className="space-y-6">
