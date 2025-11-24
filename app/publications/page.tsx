@@ -85,6 +85,50 @@ const publications: Publication[] = [
     featured: true,
   },
 
+  // ========= Figshare – DOIs =========
+  {
+    title:
+      'SecureBank™: A Next-Generation Cybersecurity Architecture for Modern Financial Institutions',
+    journal: 'Figshare – DOI 10.6084/m9.figshare.30690095',
+    platform: 'Figshare',
+    year: '2025',
+    tag: 'Banking Security',
+    authors: 'Paulo Fernandes Biao',
+    abstract:
+      'Whitepaper on Figshare presenting SecureBank™, a next-generation cybersecurity framework for modern financial institutions, integrating Zero Trust Financial Architecture, adaptive identity, contextual microsegmentation and impact-driven automation to enhance operational resilience and regulatory compliance.',
+    link: 'https://doi.org/10.6084/m9.figshare.30690095',
+    category: 'Banking Security',
+    doi: 'https://doi.org/10.6084/m9.figshare.30690095',
+  },
+  {
+    title:
+      'PhysiDigital™: A Cyber-Physical Security Framework for Medical, Biometric and IoT-Enabled Healthcare Systems',
+    journal: 'Figshare – DOI 10.6084/m9.figshare.30690146',
+    platform: 'Figshare',
+    year: '2025',
+    tag: 'Healthcare Security',
+    authors: 'Paulo Fernandes Biao',
+    abstract:
+      'Whitepaper on Figshare describing PhysiDigital™, a cyber-physical security framework for medical devices, biometric systems and IoT-enabled healthcare infrastructures, integrating Zero Trust Healthcare, device integrity verification, real-time risk scoring and secure clinical workflows.',
+    link: 'https://doi.org/10.6084/m9.figshare.30690146',
+    category: 'Healthcare Technology',
+    doi: 'https://doi.org/10.6084/m9.figshare.30690146',
+  },
+  {
+    title:
+      'HealthGuard™: An Integrated Cybersecurity and Data Protection Architecture for Digital Healthcare Ecosystems',
+    journal: 'Figshare – DOI 10.6084/m9.figshare.30690155',
+    platform: 'Figshare',
+    year: '2025',
+    tag: 'Healthcare Security',
+    authors: 'Paulo Fernandes Biao',
+    abstract:
+      'Whitepaper on Figshare presenting HealthGuard™, an integrated cybersecurity and data protection architecture for digital healthcare ecosystems, combining adaptive access control, behavior-based threat detection, clinical data governance and secure medical workflows to strengthen resilience across healthcare environments.',
+    link: 'https://doi.org/10.6084/m9.figshare.30690155',
+    category: 'Healthcare Technology',
+    doi: 'https://doi.org/10.6084/m9.figshare.30690155',
+  },
+
   // ========= OSF Preprints – MetaArXiv =========
   {
     title:
@@ -198,7 +242,14 @@ export default function PublicationsPage() {
   const grouped = groupByPlatform(nonFeaturedPublications)
 
   // ordena plataformas em uma ordem lógica
-  const platformOrder = ['Zenodo', 'OSF Preprints – MetaArXiv', 'Academia.edu', 'DIO.me', 'Journals & Legacy']
+  const platformOrder = [
+    'Zenodo',
+    'Figshare',
+    'OSF Preprints – MetaArXiv',
+    'Academia.edu',
+    'DIO.me',
+    'Journals & Legacy',
+  ]
 
   const sortedPlatforms = Object.keys(grouped).sort((a, b) => {
     const ia = platformOrder.indexOf(a)
@@ -236,7 +287,7 @@ export default function PublicationsPage() {
           </p>
         </AnimatedSection>
 
-        {/* Featured – AGORA COM “Zenodo” NO TÍTULO */}
+        {/* Featured – Zenodo */}
         {featuredPublications.length > 0 && (
           <AnimatedSection className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-2">
