@@ -129,49 +129,6 @@ const publications: Publication[] = [
     doi: 'https://doi.org/10.6084/m9.figshare.30690155',
   },
 
-  // ========= OSF Preprints – MetaArXiv =========
-  {
-    title:
-      'HealthGuard™: An Adaptive Zero Trust Cybersecurity and Clinical Interoperability Architecture for Modern Healthcare Systems',
-    journal: 'OSF Preprints – MetaArXiv',
-    platform: 'OSF Preprints – MetaArXiv',
-    year: '2025',
-    tag: 'Healthcare Security',
-    authors: 'Paulo Fernandes Biao',
-    abstract:
-      'Technical report presenting HealthGuard™, a next-generation cybersecurity and clinical interoperability architecture for modern healthcare systems. The framework integrates Health Zero Trust, real-time clinical behavioral analytics, API/FHIR-based access control, IoMT risk segmentation, interoperability enforcement, and automated governance aligned with NIST CSF 2.0, Zero Trust maturity models, HIPAA, and FDA guidelines.',
-    link: 'https://osf.io/preprints/metaarxiv/hxqwr_v1',
-    category: 'Healthcare Security',
-    doi: 'https://doi.org/10.5281/zenodo.17667022',
-  },
-  {
-    title:
-      'SecureBank™: An Adaptive Zero Trust Cybersecurity Architecture for Modern Financial Infrastructures',
-    journal: 'OSF Preprints – MetaArXiv',
-    platform: 'OSF Preprints – MetaArXiv',
-    year: '2025',
-    tag: 'Banking Security',
-    authors: 'Paulo Fernandes Biao',
-    abstract:
-      'Technical report published on OSF presenting SecureBank™, a next-generation Zero Trust cybersecurity architecture for modern financial infrastructures, integrating adaptive identity, contextual microsegmentation, encrypted east-west traffic, continuous verification, and automated incident response aligned with NIST CSF 2.0, PCI-DSS, and FFIEC.',
-    link: 'https://osf.io/preprints/metaarxiv/q3cma_v1',
-    category: 'Banking Security',
-    doi: 'https://doi.org/10.5281/zenodo.17666802',
-  },
-  {
-    title:
-      'PhysiDigital™: Bridging Physical and Digital Transformation Through Hybrid Integration Frameworks',
-    journal: 'OSF Preprints – MetaArXiv',
-    platform: 'OSF Preprints – MetaArXiv',
-    year: '2025',
-    tag: 'Digital Health',
-    authors: 'Paulo Fernandes Biao',
-    abstract:
-      'Technical report published on OSF describing PhysiDigital™, a hybrid architecture connecting physical environments and digital ecosystems for healthcare, telerehabilitation, and clinical operations. The model integrates Zero Trust Healthcare, IoT/OT segmentation, automated governance, cloud interoperability, and secure physiotherapy workflows.',
-    link: 'https://osf.io/preprints/metaarxiv/xgcfw_v1',
-    category: 'Digital Transformation',
-  },
-
   // ========= Academia.edu =========
   {
     title:
@@ -226,6 +183,39 @@ const publications: Publication[] = [
   },
 ]
 
+// ========== MEDIA & PRESS ==========
+type MediaItem = {
+  title: string
+  outlet: string
+  year: string
+  language: string
+  summary: string
+  link: string
+}
+
+const mediaItems: MediaItem[] = [
+  {
+    title:
+      'Liderança Em Cibersegurança: Paulo Fernandes Biao, O Especialista Que Protege O Futuro Das Instituições Financeiras',
+    outlet: 'PicNews',
+    year: '2020',
+    language: 'Portuguese (BR)',
+    summary:
+      'News article highlighting Paulo Fernandes Biao’s leadership in large-scale security projects for major Brazilian financial institutions such as Banco do Brasil, Banco Central do Brasil, HSBC and Banco Safra.',
+    link: 'https://picnews.com.br/lideranca-em-ciberseguranca-paulo-fernandes-biao-o-especialista-que-protege-o-futuro-das-instituicoes-financeiras/',
+  },
+  {
+    title:
+      'Paulo Fernandes Biao: O Especialista Em Cibersegurança Que Está Revolucionando A Proteção De Dados',
+    outlet: 'Celefu Notícias',
+    year: '2023',
+    language: 'Portuguese (BR)',
+    summary:
+      'Profile article presenting Paulo Fernandes Biao as a reference in cybersecurity and data protection, featuring the SecureBank™, HealthGuard™ and PhysiDigital™ frameworks and his international work.',
+    link: 'https://celefu.com.br/paulo-fernandes-biao-o-especialista-em-ciberseguranca-que-esta-revolucionando-a-protecao-de-dados/',
+  },
+]
+
 // util simples para agrupar por plataforma
 function groupByPlatform(items: Publication[]) {
   return items.reduce<Record<string, Publication[]>>((acc, pub) => {
@@ -245,7 +235,6 @@ export default function PublicationsPage() {
   const platformOrder = [
     'Zenodo',
     'Figshare',
-    'OSF Preprints – MetaArXiv',
     'Academia.edu',
     'DIO.me',
     'Journals & Legacy',
@@ -283,7 +272,8 @@ export default function PublicationsPage() {
             Publications & Research
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Academic contributions and research publications in banking security, healthcare technology, and digital transformation.
+            Academic contributions and research publications in banking security, healthcare technology,
+            and digital transformation.
           </p>
         </AnimatedSection>
 
@@ -294,7 +284,8 @@ export default function PublicationsPage() {
               Zenodo – DOI Publications
             </h2>
             <p className="text-gray-600 mb-6">
-              The core frameworks developed by Paulo Fernandes Biao, indexed on Zenodo with DOIs and focused on critical infrastructures in banking, healthcare, and digital health.
+              The core frameworks developed by Paulo Fernandes Biao, indexed on Zenodo with DOIs and
+              focused on critical infrastructures in banking, healthcare, and digital health.
             </p>
 
             <div className="space-y-6">
@@ -462,6 +453,56 @@ export default function PublicationsPage() {
                   Innovative methodologies for enterprise digital transformation initiatives.
                 </p>
               </div>
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* Media & Press */}
+        <AnimatedSection className="mt-20">
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">
+              Media &amp; Press
+            </h2>
+            <p className="text-gray-600 mb-8 max-w-3xl mx-auto text-center">
+              Selected news articles and media features highlighting Paulo Fernandes Biao&apos;s
+              work in cybersecurity, banking security, and data protection.
+            </p>
+
+            <div className="grid gap-6 md:grid-cols-2">
+              {mediaItems.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col justify-between bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300"
+                >
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2 leading-snug">
+                      {item.title}
+                    </h3>
+                    <div className="flex flex-wrap items-center gap-3 mb-3 text-sm text-gray-600">
+                      <span className="font-medium text-blue-700">{item.outlet}</span>
+                      <span>• {item.year}</span>
+                      <span className="px-2 py-0.5 rounded-full bg-gray-100 text-gray-700 text-xs">
+                        {item.language}
+                      </span>
+                    </div>
+                    <p className="text-gray-700 text-sm leading-relaxed">
+                      {item.summary}
+                    </p>
+                  </div>
+
+                  <div className="mt-4">
+                    <Link
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800"
+                    >
+                      Read full article
+                      <ExternalLink className="h-4 w-4 ml-1" />
+                    </Link>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </AnimatedSection>
