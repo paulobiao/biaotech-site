@@ -183,7 +183,9 @@ const publications: Publication[] = [
   },
 ]
 
-// ========== MEDIA & PRESS ==========
+// ========================================================================
+// 🆕 MEDIA ITEMS ATUALIZADOS COM OS 5 ARTIGOS
+// ========================================================================
 type MediaItem = {
   title: string
   outlet: string
@@ -214,9 +216,41 @@ const mediaItems: MediaItem[] = [
       'Profile article presenting Paulo Fernandes Biao as a reference in cybersecurity and data protection, featuring the SecureBank™, HealthGuard™ and PhysiDigital™ frameworks and his international work.',
     link: 'https://celefu.com.br/paulo-fernandes-biao-o-especialista-em-ciberseguranca-que-esta-revolucionando-a-protecao-de-dados/',
   },
+  {
+    title:
+      'Os Bastidores da Segurança Bancária: Como Paulo Fernandes Biao Atuou em Sistemas que Protegem Operações Financeiras de Grande Porte',
+    outlet: 'Agência Informa',
+    year: '2025',
+    language: 'Portuguese (BR)',
+    summary:
+      'Article focusing on the “behind the scenes” of large-scale banking security, detailing Paulo Fernandes Biao’s work in CCTV, alarms and integrated platforms that protect high-volume financial operations across Brazil.',
+    link: 'https://agenciainforma.app.br/os-bastidores-da-seguranca-bancaria-como-paulo-fernandes-biao-atuou-em-sistemas-que-protegem-operacoes-financeiras-de-grande-porte/',
+  },
+  {
+    title:
+      'Da Segurança Eletrônica às Arquiteturas Avançadas: Como Paulo Biao Conecta o Mundo Físico e Digital na Era dos Mega Ataques Cibernéticos',
+    outlet: 'PautaPop – Faixa Cultural',
+    year: '2025',
+    language: 'Portuguese (BR)',
+    summary:
+      'Feature article showing the evolution from electronic security to advanced cyber architectures, highlighting how Paulo Biao bridges physical infrastructures and digital systems using frameworks such as SecureBank™, HealthGuard™ and PhysiDigital™.',
+    link: 'https://pautapop.faixacultural.com.br/2025/05/da-seguranca-eletronica-as-arquiteturas.html',
+  },
+  {
+    title:
+      'O Brasileiro que Está Modernizando a Segurança de Infraestrutura Crítica: Quem é Paulo Fernandes Biao?',
+    outlet: 'Gazeta São Paulo – Faixa Cultural',
+    year: '2023',
+    language: 'Portuguese (BR)',
+    summary:
+      'In-depth profile presenting Paulo Fernandes Biao as a Brazilian specialist modernizing critical-infrastructure security, combining experience in physical security, banking systems and next-generation cybersecurity.',
+    link: 'https://gazetasp.faixacultural.com.br/2023/01/o-brasileiro-que-esta-modernizando.html',
+  },
 ]
 
-// util simples para agrupar por plataforma
+// ========================================================
+// FUNÇÃO DE AGRUPAMENTO
+// ========================================================
 function groupByPlatform(items: Publication[]) {
   return items.reduce<Record<string, Publication[]>>((acc, pub) => {
     const key = pub.platform || 'Other'
@@ -226,6 +260,9 @@ function groupByPlatform(items: Publication[]) {
   }, {})
 }
 
+// ========================================================
+// PAGE COMPONENT
+// ========================================================
 export default function PublicationsPage() {
   const featuredPublications = publications.filter((p) => p.featured)
   const nonFeaturedPublications = publications.filter((p) => !p.featured)
@@ -277,7 +314,7 @@ export default function PublicationsPage() {
           </p>
         </AnimatedSection>
 
-        {/* Featured – Zenodo */}
+        {/* Featured Zenodo */}
         {featuredPublications.length > 0 && (
           <AnimatedSection className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-2">
@@ -344,7 +381,7 @@ export default function PublicationsPage() {
           </AnimatedSection>
         )}
 
-        {/* Seções por plataforma */}
+        {/* Publicações agrupadas */}
         <div className="space-y-10">
           {sortedPlatforms.map((platform) => {
             const list = grouped[platform]
@@ -464,8 +501,7 @@ export default function PublicationsPage() {
               Media &amp; Press
             </h2>
             <p className="text-gray-600 mb-8 max-w-3xl mx-auto text-center">
-              Selected news articles and media features highlighting Paulo Fernandes Biao&apos;s
-              work in cybersecurity, banking security, and data protection.
+              Selected news articles and media features highlighting Paulo Fernandes Biao&apos;s work in cybersecurity, banking security, and data protection.
             </p>
 
             <div className="grid gap-6 md:grid-cols-2">
