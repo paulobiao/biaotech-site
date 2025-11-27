@@ -184,7 +184,7 @@ const publications: Publication[] = [
 ]
 
 // ========================================================================
-// 🆕 MEDIA ITEMS ATUALIZADOS COM OS 5 ARTIGOS
+// 🆕 MEDIA ITEMS (todos os títulos em inglês + entrevista O DIA)
 // ========================================================================
 type MediaItem = {
   title: string
@@ -198,7 +198,7 @@ type MediaItem = {
 const mediaItems: MediaItem[] = [
   {
     title:
-      'Liderança Em Cibersegurança: Paulo Fernandes Biao, O Especialista Que Protege O Futuro Das Instituições Financeiras',
+      'Leadership in Cybersecurity: Paulo Fernandes Biao, the Specialist Protecting the Future of Financial Institutions',
     outlet: 'PicNews',
     year: '2020',
     language: 'Portuguese (BR)',
@@ -208,7 +208,7 @@ const mediaItems: MediaItem[] = [
   },
   {
     title:
-      'Paulo Fernandes Biao: O Especialista Em Cibersegurança Que Está Revolucionando A Proteção De Dados',
+      'Paulo Fernandes Biao: The Cybersecurity Expert Who Is Revolutionizing Data Protection',
     outlet: 'Celefu Notícias',
     year: '2023',
     language: 'Portuguese (BR)',
@@ -218,7 +218,7 @@ const mediaItems: MediaItem[] = [
   },
   {
     title:
-      'Os Bastidores da Segurança Bancária: Como Paulo Fernandes Biao Atuou em Sistemas que Protegem Operações Financeiras de Grande Porte',
+      'Behind the Scenes of Banking Security: How Paulo Fernandes Biao Worked on Systems that Protect Large-Scale Financial Operations',
     outlet: 'Agência Informa',
     year: '2025',
     language: 'Portuguese (BR)',
@@ -228,7 +228,7 @@ const mediaItems: MediaItem[] = [
   },
   {
     title:
-      'Da Segurança Eletrônica às Arquiteturas Avançadas: Como Paulo Biao Conecta o Mundo Físico e Digital na Era dos Mega Ataques Cibernéticos',
+      'From Electronic Security to Advanced Architectures: How Paulo Biao Connects the Physical and Digital Worlds in the Era of Mega Cyber Attacks',
     outlet: 'PautaPop – Faixa Cultural',
     year: '2025',
     language: 'Portuguese (BR)',
@@ -238,13 +238,23 @@ const mediaItems: MediaItem[] = [
   },
   {
     title:
-      'O Brasileiro que Está Modernizando a Segurança de Infraestrutura Crítica: Quem é Paulo Fernandes Biao?',
+      'The Brazilian Modernizing Critical Infrastructure Security: Who Is Paulo Fernandes Biao?',
     outlet: 'Gazeta São Paulo – Faixa Cultural',
     year: '2023',
     language: 'Portuguese (BR)',
     summary:
       'In-depth profile presenting Paulo Fernandes Biao as a Brazilian specialist modernizing critical-infrastructure security, combining experience in physical security, banking systems and next-generation cybersecurity.',
     link: 'https://gazetasp.faixacultural.com.br/2023/01/o-brasileiro-que-esta-modernizando.html',
+  },
+  {
+    title:
+      'Interview with Paulo Fernandes Biao: From Electronic Security to Critical Infrastructure Cybersecurity',
+    outlet: 'O DIA – TanaRede',
+    year: '2025',
+    language: 'Portuguese (BR)',
+    summary:
+      'Interview in O DIA where Paulo Fernandes Biao talks about his trajectory from electronic security and CCTV to advanced cybersecurity architectures for banking systems and critical infrastructures, highlighting his international work and frameworks.',
+    link: 'https://odia.tanarede.com.br/entrevista-com-paulo-fernandes-biao/',
   },
 ]
 
