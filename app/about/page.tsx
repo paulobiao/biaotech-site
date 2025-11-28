@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { GraduationCap, Briefcase, Award, Globe } from 'lucide-react'
 import AnimatedSection from '@/components/ui/animated-section'
 import CertificationsSection from '@/components/sections/CertificationsSection'
+// ❌ Removido: PeerReviewSection – ele fica só na página /peer-review
 
 export const metadata: Metadata = {
   title: 'About',
@@ -101,7 +102,7 @@ export default function AboutPage() {
                 </div>
                 <div className="border-l-4 border-blue-600 pl-6">
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    Postgraduate Studies in Cloud Computing – PUC Minas 
+                    Postgraduate Studies in Cloud Computing – PUC Minas
                   </h3>
                   <p className="text-gray-700">
                     He is currently pursuing a Postgraduate degree in Cloud Computing at PUC Minas
@@ -131,7 +132,7 @@ export default function AboutPage() {
             </div>
           </AnimatedSection>
 
-          {/* Certifications & Specializations (com clique + zoom) */}
+          {/* Certifications & Specializations */}
           <CertificationsSection />
 
           {/* Professional Experience */}

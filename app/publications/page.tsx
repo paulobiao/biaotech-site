@@ -6,7 +6,8 @@ import ViewPaperButton from '@/components/ui/view-paper-button'
 
 export const metadata: Metadata = {
   title: 'Publications',
-  description: 'Academic publications and research contributions by Paulo Fernandes Biao.',
+  description:
+    'Academic publications, technical whitepapers, and media features by Paulo Fernandes Biao in cybersecurity, banking security, healthcare technology, and digital transformation.',
 }
 
 type Publication = {
@@ -184,7 +185,7 @@ const publications: Publication[] = [
 ]
 
 // ========================================================================
-// 🆕 MEDIA ITEMS (todos os títulos em inglês + entrevista O DIA)
+// MEDIA ITEMS (Media & Press)
 // ========================================================================
 type MediaItem = {
   title: string
@@ -279,13 +280,7 @@ export default function PublicationsPage() {
   const grouped = groupByPlatform(nonFeaturedPublications)
 
   // ordena plataformas em uma ordem lógica
-  const platformOrder = [
-    'Zenodo',
-    'Figshare',
-    'Academia.edu',
-    'DIO.me',
-    'Journals & Legacy',
-  ]
+  const platformOrder = ['Zenodo', 'Figshare', 'Academia.edu', 'DIO.me', 'Journals & Legacy']
 
   const sortedPlatforms = Object.keys(grouped).sort((a, b) => {
     const ia = platformOrder.indexOf(a)
@@ -298,6 +293,7 @@ export default function PublicationsPage() {
 
   return (
     <div className="min-h-screen py-20">
+      {/* Background com overlay claro */}
       <div
         className="absolute inset-0 z-0"
         style={{
@@ -316,23 +312,37 @@ export default function PublicationsPage() {
         <AnimatedSection className="text-center mb-16">
           <BookOpen className="h-16 w-16 text-blue-600 mx-auto mb-6" />
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Publications & Research
+            Publications &amp; Media
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Academic contributions and research publications in banking security, healthcare technology,
+            Academic and technical publications, plus selected media coverage highlighting Paulo
+            Fernandes Biao&apos;s work in cybersecurity, banking security, healthcare technology,
             and digital transformation.
+          </p>
+        </AnimatedSection>
+
+        {/* ============================
+            Academic & Technical Publications
+           ============================ */}
+        <AnimatedSection className="mb-10">
+          <h2 className="text-3xl font-bold text-gray-900 mb-3 text-left">
+            Academic &amp; Technical Publications
+          </h2>
+          <p className="text-gray-600 max-w-3xl">
+            Core frameworks such as SecureBank™, HealthGuard™ and PhysiDigital™ are documented in
+            DOIs, whitepapers and technical reports across Zenodo, Figshare and Academia.edu.
           </p>
         </AnimatedSection>
 
         {/* Featured Zenodo */}
         {featuredPublications.length > 0 && (
           <AnimatedSection className="mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">
+            <h3 className="text-2xl font-semibold text-gray-900 mb-2">
               Zenodo – DOI Publications
-            </h2>
+            </h3>
             <p className="text-gray-600 mb-6">
-              The core frameworks developed by Paulo Fernandes Biao, indexed on Zenodo with DOIs and
-              focused on critical infrastructures in banking, healthcare, and digital health.
+              Highlighted Zenodo reports indexed with DOIs, focusing on financial, healthcare and
+              digital health critical infrastructures.
             </p>
 
             <div className="space-y-6">
@@ -343,9 +353,9 @@ export default function PublicationsPage() {
                 >
                   <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-4">
                     <div className="flex-1">
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2 leading-tight">
+                      <h4 className="text-2xl font-bold text-gray-900 mb-2 leading-tight">
                         {publication.title}
-                      </h3>
+                      </h4>
                       <div className="flex flex-wrap items-center gap-4 mb-4">
                         <span className="text-blue-600 font-medium">
                           {publication.journal}
@@ -391,7 +401,7 @@ export default function PublicationsPage() {
           </AnimatedSection>
         )}
 
-        {/* Publicações agrupadas */}
+        {/* Publicações agrupadas por plataforma */}
         <div className="space-y-10">
           {sortedPlatforms.map((platform) => {
             const list = grouped[platform]
@@ -399,9 +409,7 @@ export default function PublicationsPage() {
 
             return (
               <AnimatedSection key={platform}>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                  {platform}
-                </h2>
+                <h3 className="text-2xl font-semibold text-gray-900 mb-4">{platform}</h3>
                 <div className="space-y-6">
                   {list.map((publication, index) => (
                     <div
@@ -410,9 +418,9 @@ export default function PublicationsPage() {
                     >
                       <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-4">
                         <div className="flex-1">
-                          <h3 className="text-xl font-bold text-gray-900 mb-2 leading-tight">
+                          <h4 className="text-xl font-bold text-gray-900 mb-2 leading-tight">
                             {publication.title}
-                          </h3>
+                          </h4>
                           <div className="flex flex-wrap items-center gap-4 mb-4">
                             <span className="text-blue-600 font-medium">
                               {publication.journal}
@@ -475,7 +483,8 @@ export default function PublicationsPage() {
                   Banking Security
                 </h3>
                 <p className="text-gray-600">
-                  Advanced security frameworks and methodologies for financial institutions.
+                  Advanced cybersecurity architectures and methodologies for financial
+                  institutions and payment ecosystems.
                 </p>
               </div>
               <div className="text-center">
@@ -486,7 +495,8 @@ export default function PublicationsPage() {
                   Healthcare Technology
                 </h3>
                 <p className="text-gray-600">
-                  Protection systems and data security solutions for healthcare organizations.
+                  Protection of clinical data, medical devices and digital healthcare workflows,
+                  with a focus on Zero Trust Healthcare.
                 </p>
               </div>
               <div className="text-center">
@@ -497,7 +507,8 @@ export default function PublicationsPage() {
                   Digital Transformation
                 </h3>
                 <p className="text-gray-600">
-                  Innovative methodologies for enterprise digital transformation initiatives.
+                  Frameworks and methodologies that guide organizations through secure and
+                  resilient digital transformation initiatives.
                 </p>
               </div>
             </div>
@@ -511,7 +522,8 @@ export default function PublicationsPage() {
               Media &amp; Press
             </h2>
             <p className="text-gray-600 mb-8 max-w-3xl mx-auto text-center">
-              Selected news articles and media features highlighting Paulo Fernandes Biao&apos;s work in cybersecurity, banking security, and data protection.
+              Selected news articles and media features highlighting Paulo Fernandes Biao&apos;s
+              work in cybersecurity, banking security and critical infrastructure protection.
             </p>
 
             <div className="grid gap-6 md:grid-cols-2">
@@ -553,12 +565,13 @@ export default function PublicationsPage() {
           </div>
         </AnimatedSection>
 
-        {/* CTA */}
+        {/* CTA final */}
         <AnimatedSection className="text-center mt-16">
           <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-8 text-white">
             <h2 className="text-3xl font-bold mb-4">Collaborate on Research</h2>
             <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Interested in collaborating on research or learning more about these publications?
+              Interested in collaborating on research, co-authoring future whitepapers, or
+              exploring how these frameworks can be applied to your organization?
             </p>
             <Link
               href="/contact"
