@@ -170,18 +170,6 @@ const publications: Publication[] = [
     link: 'https://www.academia.edu/145108207/PhysiDigital_A_Secure_and_Interoperable_Digital_Ecosystem_for_Telerehabilitation_and_Smart_Physiotherapy',
     category: 'Digital Transformation',
   },
-
-  // ========= Journals & Legacy =========
-  {
-    title: 'Innovative Security Architectures for Modern Financial Systems',
-    journal: 'Cybersecurity and Banking Review',
-    platform: 'Journals & Legacy',
-    year: '2022',
-    abstract:
-      'Comprehensive analysis of security architectures and their implementation in contemporary financial technology infrastructure.',
-    authors: 'Paulo Fernandes Biao, et al.',
-    category: 'Banking Security',
-  },
 ]
 
 // ========================================================================
