@@ -8,39 +8,38 @@ import CertificationsSection from '@/components/sections/CertificationsSection'
 export const metadata: Metadata = {
   title: 'About',
   description:
-    "Learn about Paulo Fernandes Bião's professional background, education, and career journey in technology innovation.",
+    "Learn about Paulo Fernandes Biao's professional background, education, and career journey in technology innovation.",
 }
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen py-20 bg-gray-50">
+    <div className="min-h-screen py-20 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Header */}
         <AnimatedSection className="text-center mb-16">
-          <p className="text-sm font-semibold tracking-wide text-blue-600 uppercase mb-2">
+          <p className="text-sm font-semibold tracking-wide text-blue-400 uppercase mb-2">
             About
           </p>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Paulo Fernandes Bião
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-4">
+            Paulo Fernandes Biao
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Technology innovator and systems architect specializing in security and digital
-            transformation frameworks for critical industries.
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Technology innovator and systems architect specializing in security frameworks and digital transformation for critical industries.
           </p>
         </AnimatedSection>
 
         {/* Profile Section */}
         <AnimatedSection className="grid lg:grid-cols-2 gap-12 mb-20">
           <div
-            className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/5] flex items-center justify-center"
+            className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/5] flex items-center justify-center border border-slate-700/50"
             style={{
               background:
-                'radial-gradient(120% 120% at 30% 20%, #e8eef7 0%, #f2f5f9 60%, #f7fafc 100%)',
+                'radial-gradient(120% 120% at 30% 20%, #1e293b 0%, #0f172a 60%, #020617 100%)',
             }}
           >
             <Image
               src="/paulo.jpg"
-              alt="Paulo Fernandes Bião"
+              alt="Paulo Fernandes Biao"
               fill
               className="object-contain"
               priority
@@ -49,28 +48,26 @@ export default function AboutPage() {
           </div>
 
           <div className="flex flex-col justify-center">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Professional Overview</h2>
-            <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-              Paulo Fernandes Bião is a seasoned technology professional with a strong track
-              record in systems architecture, security, and digital transformation. Over his
-              career, he has designed and implemented solutions that connect complex technical
-              environments with real business outcomes.
+            <h2 className="text-4xl font-black text-white mb-6">Professional Overview</h2>
+            <p className="text-lg text-slate-300 mb-4 leading-relaxed">
+              Paulo Fernandes Biao is a seasoned technology professional with a strong track record in systems architecture, security, and digital transformation. Throughout his career, he has designed and implemented solutions that connect complex technical environments with real business outcomes.
             </p>
-            <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-              His work on the SecureBank™, HealthGuard™, and PhysiDigital™ frameworks reflects a
-              structured, strategic approach to solving challenges in banking, healthcare, and
-              enterprise operations—always with a focus on resilience, scalability, and
-              long-term impact.
+            <p className="text-lg text-slate-300 mb-8 leading-relaxed">
+              His work on the SecureBank™, HealthGuard™, and PhysiDigital™ frameworks reflects a structured and strategic approach to solving challenges in banking, healthcare, and enterprise operations—always with a focus on resilience, scalability, and long-term impact.
             </p>
 
-            <div className="grid grid-cols-2 gap-6">
-              <div className="text-center p-4 bg-blue-50 rounded-xl">
-                <div className="text-2xl font-bold text-blue-600 mb-1">25+</div>
-                <div className="text-sm text-gray-600">Years in Technology</div>
+            <div className="grid grid-cols-3 gap-4">
+              <div className="text-center p-4 bg-gradient-to-br from-blue-600/20 to-cyan-600/20 border border-blue-500/30 rounded-xl">
+                <div className="text-3xl font-black bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-1">25+</div>
+                <div className="text-sm text-slate-400">Years in Technology</div>
               </div>
-              <div className="text-center p-4 bg-blue-50 rounded-xl">
-                <div className="text-2xl font-bold text-blue-600 mb-1">3</div>
-                <div className="text-sm text-gray-600">Core Frameworks</div>
+              <div className="text-center p-4 bg-gradient-to-br from-purple-600/20 to-pink-600/20 border border-purple-500/30 rounded-xl">
+                <div className="text-3xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-1">3</div>
+                <div className="text-sm text-slate-400">Core Frameworks</div>
+              </div>
+              <div className="text-center p-4 bg-gradient-to-br from-emerald-600/20 to-teal-600/20 border border-emerald-500/30 rounded-xl">
+                <div className="text-3xl font-black bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent mb-1">25+</div>
+                <div className="text-sm text-slate-400">Publications</div>
               </div>
             </div>
           </div>

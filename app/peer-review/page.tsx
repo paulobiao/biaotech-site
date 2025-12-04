@@ -83,10 +83,10 @@ export default function PeerReviewPage() {
           </aside>
         </section>
 
-        {/* Seção principal (já existente, reaproveitada) */}
+        {/* Main section (reused from existing component) */}
         <PeerReviewSection />
 
-        {/* Formulário profissional */}
+        {/* Professional Form */}
         <PeerReviewForm />
       </div>
     </div>

@@ -2,7 +2,8 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { Shield, Heart, Zap, ArrowRight } from 'lucide-react'
+import { Shield, Heart, Zap, ArrowRight, CheckCircle2 } from 'lucide-react'
+import { motion } from 'framer-motion'
 import AnimatedSection from '@/components/ui/animated-section'
 
 const frameworks = [
@@ -11,14 +12,16 @@ const frameworks = [
     title: 'SecureBank™',
     subtitle: 'Banking Security Framework',
     description:
-      'SecureBank™ is an advanced multi-layered security framework that protects digital banking channels and core financial systems while simplifying regulatory compliance and operational risk management.',
+      'Multi-layered security framework that protects digital banking channels and core financial systems, simplifying regulatory compliance and operational risk management.',
     image: 'https://static.abacusaicdn.net/images/cf8680fd-15e7-42fa-bdc1-8ba5d8e97589.jpg',
     icon: Shield,
     color: 'blue',
+    gradient: 'from-blue-600 to-cyan-600',
     features: [
-      'Multi-layered security for core and digital channels',
-      'Real-time monitoring and incident detection',
-      'Compliance automation & audit readiness',
+      'Zero Trust Architecture for digital banking',
+      'Real-time detection with adaptive AI',
+      'Regulatory compliance automation',
+      'NIST & PCI-DSS Alignment',
     ],
   },
   {
@@ -26,14 +29,16 @@ const frameworks = [
     title: 'HealthGuard™',
     subtitle: 'Healthcare Protection System',
     description:
-      'HealthGuard™ secures patient data, clinical systems, and healthcare workflows with an architecture designed for privacy, availability, and regulatory-grade protection.',
+      'Protects patient data, clinical systems, and healthcare workflows with an architecture designed for privacy, availability, and regulatory-grade protection.',
     image: 'https://static.abacusaicdn.net/images/c5a74abb-b427-4ace-9178-81d5d432e1d6.jpg',
     icon: Heart,
-    color: 'green',
+    color: 'emerald',
+    gradient: 'from-emerald-600 to-teal-600',
     features: [
       'End-to-end patient data protection',
-      'Support for HIPAA and healthcare compliance',
+      'Integrated HIPAA compliance',
       'Resilience for critical clinical operations',
+      'Secure clinical interoperability',
     ],
   },
   {
@@ -41,106 +46,164 @@ const frameworks = [
     title: 'PhysiDigital™',
     subtitle: 'Digital Transformation Framework',
     description:
-      'PhysiDigital™ connects physical operations and digital ecosystems through structured process mapping, integration, and automation to accelerate transformation with measurable impact.',
+      'Connects physical operations and digital ecosystems through structured process mapping, integration, and automation to accelerate transformation with measurable impact.',
     image: 'https://static.abacusaicdn.net/images/d4efe466-ab21-4428-aaf8-5ba98b5a2fc6.jpg',
     icon: Zap,
     color: 'purple',
+    gradient: 'from-purple-600 to-pink-600',
     features: [
       'End-to-end process and system integration',
       'Real-time analytics and performance visibility',
-      'Automation for repetitive and manual workflows',
+      'Automation of repetitive workflows',
+      'Integrated cyber-physical security',
     ],
   },
 ]
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.1,
+    },
+  },
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6 },
+  },
+}
+
 export default function FeaturedFrameworks() {
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4 max-w-6xl">
+    <section className="relative py-24 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full mix-blend-multiply filter blur-3xl" />
+        <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full mix-blend-multiply filter blur-3xl" />
+        <div className="absolute bottom-0 left-1/2 w-96 h-96 bg-cyan-600/10 rounded-full mix-blend-multiply filter blur-3xl" />
+      </div>
+
+      <div className="relative z-10 container mx-auto px-4 max-w-7xl">
         {/* Header */}
-        <AnimatedSection className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Revolutionary Frameworks
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-20"
+        >
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
+            Frameworks
+            <span className="block bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">
+              Revolutionary
+            </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Three strategic frameworks designed to address critical challenges in banking
-            security, healthcare protection, and digital transformation.
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Three strategic frameworks designed to solve critical challenges in banking security, healthcare protection, and digital transformation.
           </p>
-        </AnimatedSection>
+        </motion.div>
 
-        {/* Cards */}
-        <div className="grid lg:grid-cols-3 gap-8">
-          {frameworks.map((framework, index) => (
-            <AnimatedSection key={framework.id} delay={index * 0.15}>
-              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 h-full flex flex-col">
-                {/* Image */}
-                <div className="relative aspect-square mb-6 rounded-xl overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
-                  <Image
-                    src={framework.image}
-                    alt={framework.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+        {/* Cards Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid lg:grid-cols-3 gap-8"
+        >
+          {frameworks.map((framework, index) => {
+            const Icon = framework.icon
+            return (
+              <motion.div
+                key={framework.id}
+                variants={itemVariants}
+                className="group relative"
+              >
+                {/* Card Background Glow */}
+                <div className={`absolute inset-0 bg-gradient-to-r ${framework.gradient} rounded-2xl blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
 
-                {/* Icon + title */}
-                <div className="flex items-center mb-3">
-                  <framework.icon className={`h-7 w-7 text-${framework.color}-600 mr-3`} />
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900">{framework.title}</h3>
-                    <p className={`text-sm text-${framework.color}-600 font-semibold`}>
-                      {framework.subtitle}
+                {/* Card */}
+                <Link href={`/frameworks/${framework.id}`}>
+                  <div className="relative bg-slate-800/80 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50 hover:border-slate-600/80 transition-all duration-300 h-full flex flex-col group-hover:shadow-2xl group-hover:shadow-slate-900/50">
+                    {/* Top Badge */}
+                    <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r ${framework.gradient} bg-opacity-10 border border-current/20 w-fit mb-6`}>
+                      <Icon className="w-4 h-4" />
+                      <span className="text-xs font-semibold">{framework.subtitle}</span>
+                    </div>
+
+                    {/* Image */}
+                    <div className="relative aspect-video mb-8 rounded-xl overflow-hidden bg-slate-700/50 border border-slate-600/50 group-hover:border-slate-500/50 transition-colors">
+                      <Image
+                        src={framework.image}
+                        alt={framework.title}
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                      <div className={`absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-40`} />
+                    </div>
+
+                    {/* Title */}
+                    <h3 className={`text-2xl md:text-3xl font-black text-white mb-3 flex items-center gap-3 group-hover:text-transparent group-hover:bg-gradient-to-r ${framework.gradient} group-hover:bg-clip-text transition-all`}>
+                      {framework.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-slate-300 mb-8 leading-relaxed flex-grow">
+                      {framework.description}
                     </p>
+
+                    {/* Features */}
+                    <div className="space-y-3 mb-8 pt-6 border-t border-slate-700/50">
+                      {framework.features.map((feature, idx) => (
+                        <motion.div
+                          key={idx}
+                          initial={{ opacity: 0, x: -10 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ delay: idx * 0.1 }}
+                          viewport={{ once: true }}
+                          className="flex items-start gap-3"
+                        >
+                          <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                          <span className="text-sm text-slate-300">{feature}</span>
+                        </motion.div>
+                      ))}
+                    </div>
+
+                    {/* CTA Button */}
+                    <div className={`inline-flex items-center gap-2 px-4 py-3 rounded-lg bg-gradient-to-r ${framework.gradient} text-white font-semibold group-hover:shadow-lg group-hover:shadow-slate-900/50 transition-all w-fit`}>
+                      Explore Framework
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
                   </div>
-                </div>
+                </Link>
+              </motion.div>
+            )
+          })}
+        </motion.div>
 
-                {/* Description */}
-                <p className="text-gray-700 mb-5 leading-relaxed">
-                  {framework.description}
-                </p>
-
-                {/* Features */}
-                <div className="mb-6">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">
-                    Key Highlights
-                  </p>
-                  <div className="space-y-2">
-                    {framework.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-start">
-                        <div
-                          className={`mt-1 h-2 w-2 bg-${framework.color}-600 rounded-full mr-3`}
-                        ></div>
-                        <span className="text-sm text-gray-600">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* CTA */}
-                <div className="mt-auto">
-                  <Link
-                    href={`/frameworks/${framework.id}`}
-                    className={`inline-flex items-center text-${framework.color}-600 hover:text-${framework.color}-800 font-semibold group`}
-                  >
-                    {`Explore ${framework.title}`}
-                    <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
-              </div>
-            </AnimatedSection>
-          ))}
-        </div>
-
-        {/* View all CTA */}
-        <AnimatedSection className="text-center mt-12">
+        {/* Bottom CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="mt-20 text-center"
+        >
           <Link
             href="/frameworks"
-            className="inline-flex items-center px-8 py-4 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors font-semibold shadow-md"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
           >
             View All Frameworks
-            <ArrowRight className="h-4 w-4 ml-2" />
+            <ArrowRight className="w-5 h-5" />
           </Link>
-        </AnimatedSection>
+        </motion.div>
       </div>
     </section>
   )

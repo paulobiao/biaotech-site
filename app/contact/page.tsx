@@ -35,7 +35,7 @@ export default function ContactPage() {
   const [success, setSuccess] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
 
-  // limpa mensagens após alguns segundos
+  // clears messages after a few seconds
   useEffect(() => {
     if (!success && !error) return
     const timer = setTimeout(() => {
@@ -66,10 +66,10 @@ export default function ContactPage() {
       })
 
       if (!res.ok) {
-        throw new Error('Erro ao enviar mensagem')
+        throw new Error('Error sending message')
       }
 
-      setSuccess('Mensagem enviada com sucesso! Vou retornar em breve.')
+      setSuccess('Message sent successfully! I will get back to you soon.')
       setForm({
         name: '',
         email: '',
@@ -80,7 +80,7 @@ export default function ContactPage() {
       })
     } catch (err) {
       console.error(err)
-      setError('Não foi possível enviar sua mensagem. Tente novamente.')
+      setError('Could not send your message. Please try again.')
     } finally {
       setIsSubmitting(false)
     }
@@ -254,7 +254,7 @@ export default function ContactPage() {
                 />
               </div>
 
-              {/* Botão */}
+              {/* Button */}
               <div className="pt-2">
                 <button
                   type="submit"

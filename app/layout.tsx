@@ -12,41 +12,41 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXTAUTH_URL || "http://localhost:3000"),
   title: {
-    default: "Paulo Fernandes Bião - Professional Portfolio",
-    template: "%s | Paulo Fernandes Bião",
+    default: "Paulo Fernandes Biao - Professional Portfolio",
+    template: "%s | Paulo Fernandes Biao",
   },
   description:
-    "Professional portfolio of Paulo Fernandes Bião - Innovation in SecureBank™, HealthGuard™, and PhysiDigital™ frameworks. Academic and technology leadership.",
+    "Professional portfolio of Paulo Fernandes Biao - Innovation in SecureBank™, HealthGuard™, and PhysiDigital™ frameworks. Academic and technology leadership.",
   keywords: [
-    "Paulo Fernandes Bião",
+    "Paulo Fernandes Biao",
     "SecureBank",
     "HealthGuard",
     "PhysiDigital",
     "Technology Innovation",
     "Academic Research",
   ],
-  authors: [{ name: "Paulo Fernandes Bião" }],
-  creator: "Paulo Fernandes Bião",
+  authors: [{ name: "Paulo Fernandes Biao" }],
+  creator: "Paulo Fernandes Biao",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "/",
-    title: "Paulo Fernandes Bião - Professional Portfolio",
+    title: "Paulo Fernandes Biao - Professional Portfolio",
     description:
       "Professional portfolio showcasing innovation in SecureBank™, HealthGuard™, and PhysiDigital™ frameworks.",
-    siteName: "Paulo Fernandes Bião Portfolio",
+    siteName: "Paulo Fernandes Biao Portfolio",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Paulo Fernandes Bião Professional Portfolio",
+        alt: "Paulo Fernandes Biao Professional Portfolio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Paulo Fernandes Bião - Professional Portfolio",
+    title: "Paulo Fernandes Biao - Professional Portfolio",
     description:
       "Professional portfolio showcasing innovation in technology frameworks.",
     images: ["/og-image.png"],
