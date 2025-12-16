@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ChevronRight, ShieldCheck, Globe2 } from 'lucide-react'
+
 import PeerReviewSection from '@/components/sections/peer-review-section'
-import PeerReviewForm from '@/components/sections/peer-review-form' // ⬅ NOVO IMPORT
+import PeerReviewForm from '@/components/sections/peer-review-form'
 
 export const metadata: Metadata = {
   title: 'Peer Review & Technical Advisory',
@@ -33,18 +34,21 @@ export default function PeerReviewPage() {
             <p className="text-xs font-semibold tracking-[0.3em] uppercase text-cyan-400 mb-3">
               Peer Review · Technical Advisory · Cybersecurity
             </p>
+
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">
               Independent Peer Review in{' '}
               <span className="text-cyan-300">
                 Cybersecurity, Zero Trust & Critical Infrastructure
               </span>
             </h1>
+
             <p className="text-base md:text-lg text-slate-300 max-w-2xl leading-relaxed mb-6">
               Paulo Fernandes Bião is available to act as an independent technical reviewer
               for cybersecurity architectures, research articles, innovation awards and
               high-impact digital transformation initiatives in finance, healthcare and
               critical infrastructures.
             </p>
+
             <div className="flex flex-wrap gap-3 text-sm">
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/70 border border-slate-700">
                 <ShieldCheck className="w-4 h-4 text-cyan-300" />
@@ -62,31 +66,32 @@ export default function PeerReviewPage() {
             <h2 className="text-lg font-semibold mb-3 text-slate-50">
               Now accepting peer review invitations for 2025
             </h2>
+
             <p className="text-sm text-slate-300 mb-4">
               Institutions, journals, award committees and organizations looking for
               expert evaluation in cybersecurity, financial sector security or
               mission-critical architectures can invite Paulo as a peer reviewer or
               technical advisor.
             </p>
+
             <ul className="text-sm text-slate-300 space-y-1.5 mb-5">
               <li>• Technical and scientific articles (cybersecurity & architecture)</li>
               <li>• Frameworks and reference architectures (Zero Trust, SOAR, API Security)</li>
               <li>• Award and innovation submissions in cybersecurity and digital trust</li>
               <li>• Cloud, banking and healthcare security initiatives</li>
             </ul>
-            <Link
+
+            {/* ✅ mailto deve ser <a>, não next/link */}
+            <a
               href="mailto:contact@biaotech.dev?subject=Peer%20Review%20Request"
               className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-cyan-500 text-slate-950 text-sm font-semibold hover:bg-cyan-400 transition-colors"
             >
               Request Peer Review via Email
-            </Link>
+            </a>
           </aside>
         </section>
 
-        {/* Main section (reused from existing component) */}
         <PeerReviewSection />
-
-        {/* Professional Form */}
         <PeerReviewForm />
       </div>
     </div>
