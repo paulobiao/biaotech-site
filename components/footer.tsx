@@ -33,6 +33,9 @@ export default function Footer() {
               <Link href="/publications" className="block text-gray-400 hover:text-white transition-colors">
                 Publications
               </Link>
+              <Link href="/engagement" className="block text-gray-400 hover:text-white transition-colors">
+                Engagement
+              </Link>
             </nav>
           </div>
 
@@ -40,21 +43,12 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4">Connect</h4>
             <div className="space-y-3">
-
-              {/* Contact link */}
               <Link 
                 href="/contact" 
                 className="flex items-center text-gray-400 hover:text-white transition-colors"
               >
                 <Mail className="h-4 w-4 mr-2" />
                 Get in Touch
-              </Link>
-
-              <Link 
-                href="/testimonials"
-                className="block text-gray-400 hover:text-white transition-colors"
-              >
-                Testimonials
               </Link>
 
               {/* GitHub */}

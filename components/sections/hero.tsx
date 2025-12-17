@@ -91,7 +91,7 @@ export default function Hero() {
                 <div className="text-sm text-slate-400">Core Frameworks</div>
               </div>
               <div className="space-y-2">
-                <div className="text-3xl font-bold text-purple-400">25+</div>
+                <div className="text-3xl font-bold text-purple-400">10+</div>
                 <div className="text-sm text-slate-400">Publications</div>
               </div>
             </motion.div>

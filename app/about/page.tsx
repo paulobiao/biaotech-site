@@ -31,21 +31,25 @@ export default function AboutPage() {
         {/* Profile Section */}
         <AnimatedSection className="grid lg:grid-cols-2 gap-12 mb-20">
           <div
-            className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/5] flex items-center justify-center border border-slate-700/50"
+            className="relative w-[280px] h-[380px] md:w-[300px] md:h-[400px] mx-auto my-4"
+
             style={{
               background:
                 'radial-gradient(120% 120% at 30% 20%, #1e293b 0%, #0f172a 60%, #020617 100%)',
             }}
           >
-            <Image
-              src="/paulo.jpg"
-              alt="Paulo Fernandes Biao"
-              fill
-              className="object-contain"
-              priority
-              sizes="(max-width: 1024px) 100vw, 560px"
-            />
+            <div className="relative w-[320px] h-[420px] md:w-[360px] md:h-[480px]">
+              <Image
+                src="/pauloNN.jpg"
+                alt="Paulo Fernandes Biao"
+                fill
+                className="object-cover rounded-xl"
+                priority
+              />
+            </div>
           </div>
+           
+         
 
           <div className="flex flex-col justify-center">
             <h2 className="text-4xl font-black text-white mb-6">Professional Overview</h2>
@@ -66,7 +70,7 @@ export default function AboutPage() {
                 <div className="text-sm text-slate-400">Core Frameworks</div>
               </div>
               <div className="text-center p-4 bg-gradient-to-br from-emerald-600/20 to-teal-600/20 border border-emerald-500/30 rounded-xl">
-                <div className="text-3xl font-black bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent mb-1">25+</div>
+                <div className="text-3xl font-black bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent mb-1">10+</div>
                 <div className="text-sm text-slate-400">Publications</div>
               </div>
             </div>

@@ -6,14 +6,16 @@ import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
+
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
   { name: 'Peer Review', href: '/peer-review' },
   { name: 'Frameworks', href: '/frameworks' },
   { name: 'Publications', href: '/publications' },
-  { name: 'Testimonials', href: '/testimonials' },
   { name: 'Contact', href: '/contact' },
+  { name: 'Engagement', href: '/engagement' },
+
 ]
 
 export default function Navigation() {

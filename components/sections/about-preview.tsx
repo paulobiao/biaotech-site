@@ -21,7 +21,7 @@ export default function AboutPreview() {
             }}
           >
             <Image
-              src="/paulo.jpg"
+              src="/pauloNN.jpg"
               alt="Paulo Fernandes Bião"
               fill
               className="object-contain"
@@ -51,21 +51,21 @@ export default function AboutPreview() {
                 <div className="h-12 w-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
                   <Award className="h-6 w-6 text-blue-600" />
                 </div>
-                <div className="text-2xl font-bold text-gray-900 mb-1">10+</div>
+                <div className="text-2xl font-bold text-gray-900 mb-1">25+</div>
                 <div className="text-sm text-gray-600">Years Experience</div>
               </div>
               <div className="text-center">
                 <div className="h-12 w-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
                   <BookOpen className="h-6 w-6 text-green-600" />
                 </div>
-                <div className="text-2xl font-bold text-gray-900 mb-1">25+</div>
+                <div className="text-2xl font-bold text-gray-900 mb-1">10+</div>
                 <div className="text-sm text-gray-600">Publications</div>
               </div>
               <div className="text-center">
                 <div className="h-12 w-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
                   <Users className="h-6 w-6 text-purple-600" />
                 </div>
-                <div className="text-2xl font-bold text-gray-900 mb-1">50+</div>
+                <div className="text-2xl font-bold text-gray-900 mb-1">10+</div>
                 <div className="text-sm text-gray-600">Collaborations</div>
               </div>
             </div>
