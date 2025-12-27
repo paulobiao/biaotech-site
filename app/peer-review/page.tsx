@@ -60,6 +60,22 @@ export default function PeerReviewPage() {
               </span>
             </div>
           </div>
+                  {/* Link para metodologia */}
+        <section className="bg-slate-900/50 border border-slate-700/70 rounded-2xl p-6">
+          <h2 className="text-lg font-semibold text-slate-50 mb-2">Evaluation methodology</h2>
+          <p className="text-sm text-slate-300 mb-3">
+            For transparency, I use structured, vendor-agnostic criteria to assess architectures and submissions.
+          </p>
+          <Link
+            href="/evalution"
+            className="text-sm font-semibold text-cyan-300 hover:text-cyan-200 underline underline-offset-4"
+          >
+            View SecureBank™ Evaluation Methodology →
+          </Link>
+        </section>
+
+       
+
 
           {/* Highlight Box */}
           <aside className="bg-slate-900/80 border border-slate-700/70 rounded-2xl p-6 md:p-7 shadow-lg shadow-cyan-500/10">

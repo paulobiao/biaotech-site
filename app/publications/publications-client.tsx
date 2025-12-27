@@ -22,9 +22,33 @@ type Publication = {
   peerReviewed?: boolean
   doiIndexed?: boolean
   academicPublished?: boolean
+
+  // ✅ NEW
+  isScientificArticle?: boolean
+  publicationType?: string
 }
 
 const publications: Publication[] = [
+  // ✅ NEW — SCIENTIFIC ARTICLE (TOP)
+  {
+    title: 'SecureBank™: A Financially-Aware Zero-Trust Architecture for High-Assurance Banking Systems',
+    journal: 'Zenodo – Preprint (Scientific Article)',
+    platform: 'Zenodo',
+    year: '2025',
+    tag: 'Scientific Article',
+    authors: 'Paulo Fernandes Biao',
+    abstract:
+      'This record provides the preprint of “SecureBank™: A Financially-Aware Zero-Trust Architecture for High-Assurance Banking Systems.” The paper introduces SecureBank™, a financially-aware and context-adaptive Zero Trust architecture designed for modern banking environments. The framework integrates Financial Zero Trust, Adaptive Identity Scoring, Contextual Micro-Segmentation, and Impact-Driven Security Automation. The evaluation uses a Monte Carlo simulation and reports key metrics including Transactional Integrity Index (TII), Identity Trust Adaptation Level (ITAL), and Security Automation Efficiency (SAE).',
+    link: 'https://zenodo.org/records/18071268',
+    category: 'Banking Security',
+    doi: 'https://doi.org/10.5281/zenodo.18071268',
+    doiIndexed: true,
+    academicPublished: true,
+    peerReviewed: false,
+    isScientificArticle: true,
+    publicationType: 'Scientific Article (Preprint)',
+  },
+
   // ========= DIO.me =========
   {
     title: 'SecureBank™: Base for the Next Generation of Financial Sector Security',
@@ -277,8 +301,9 @@ export default function PublicationsClient() {
     journal?: string
   } | null>(null)
 
-  const featuredPublications = publications.filter((p) => p.featured)
-  const nonFeaturedPublications = publications.filter((p) => !p.featured)
+  const scientificPublications = publications.filter((p) => p.isScientificArticle)
+  const featuredPublications = publications.filter((p) => p.featured && !p.isScientificArticle)
+  const nonFeaturedPublications = publications.filter((p) => !p.featured && !p.isScientificArticle)
   const grouped = groupByPlatform(nonFeaturedPublications)
 
   const platformOrder = ['Zenodo', 'Figshare', 'Academia.edu', 'DIO.me', 'Journals & Legacy']
@@ -332,6 +357,101 @@ export default function PublicationsClient() {
             DOIs, whitepapers and technical reports across Zenodo, Figshare and Academia.edu.
           </p>
         </AnimatedSection>
+
+        {/* ✅ Scientific Article (Top / Explicit) */}
+        {scientificPublications.length > 0 && (
+          <AnimatedSection className="mb-12">
+            <h3 className="text-2xl font-semibold text-gray-900 mb-2">
+              Scientific Article (Preprint)
+            </h3>
+            <p className="text-gray-600 mb-6">
+              Peer-facing scientific manuscript deposited on Zenodo with DOI for citation.
+            </p>
+
+            <div className="space-y-6">
+              {scientificPublications.map((publication, index) => (
+                <div
+                  key={`scientific-${index}`}
+                  className="relative bg-gradient-to-r from-emerald-50 to-cyan-50 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-emerald-400 hover:border-emerald-500 group"
+                >
+                  <div className="absolute -top-3 -right-3 bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg">
+                    Scientific Article
+                  </div>
+
+                  <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-4">
+                    <div className="flex-1">
+                      <h4 className="text-2xl font-bold text-gray-900 mb-2 leading-tight">
+                        {publication.title}
+                      </h4>
+
+                      <div className="flex flex-wrap items-center gap-4 mb-4">
+                        <span className="text-emerald-700 font-medium">
+                          {publication.publicationType ?? publication.journal}
+                        </span>
+
+                        <div className="flex items-center text-gray-600">
+                          <Calendar className="h-4 w-4 mr-1" />
+                          {publication.year}
+                        </div>
+
+                        <span className="px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-sm">
+                          {publication.category}
+                        </span>
+
+                        {publication.peerReviewed === false && (
+                          <span className="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">
+                            Preprint (not peer-reviewed)
+                          </span>
+                        )}
+                      </div>
+                    </div>
+
+                    <div className="flex-shrink-0 mt-4 lg:mt-0 flex gap-2">
+                      <ViewPaperButton title={publication.title} link={publication.link} />
+                      <button
+                        onClick={() =>
+                          setCitationModal({
+                            title: publication.title,
+                            authors: publication.authors,
+                            year: publication.year,
+                            doi: publication.doi,
+                            journal: publication.journal,
+                          })
+                        }
+                        className="flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-lg transition-colors"
+                      >
+                        <Quote className="w-4 h-4" />
+                        Cite
+                      </button>
+                    </div>
+                  </div>
+
+                  <p className="text-gray-700 mb-2 leading-relaxed">
+                    <strong>Authors:</strong> {publication.authors}
+                  </p>
+
+                  {publication.doi && (
+                    <p className="text-gray-700 mb-4 leading-relaxed">
+                      <strong>DOI:</strong>{' '}
+                      <a
+                        href={publication.doi}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-emerald-700 hover:text-emerald-900 underline"
+                      >
+                        {publication.doi}
+                      </a>
+                    </p>
+                  )}
+
+                  <p className="text-gray-700 leading-relaxed">
+                    <strong>Abstract:</strong> {publication.abstract}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </AnimatedSection>
+        )}
 
         {/* Featured Zenodo */}
         {featuredPublications.length > 0 && (
@@ -539,8 +659,7 @@ export default function PublicationsClient() {
               Media &amp; Press
             </h2>
             <p className="text-gray-600 mb-8 max-w-3xl mx-auto text-center">
-              Selected news articles and media features highlighting Paulo Fernandes Biao&apos;s
-              work in cybersecurity, banking security and critical infrastructure protection.
+              Selected news articles and content highlighting Paulo Fernandes Biao&apos;s work.
             </p>
 
             <div className="grid gap-6 md:grid-cols-2">
