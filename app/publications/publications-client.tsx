@@ -26,10 +26,34 @@ type Publication = {
   // ✅ NEW
   isScientificArticle?: boolean
   publicationType?: string
+
+  // ✅ NEW (arXiv top)
+  isArxivTop?: boolean
 }
 
 const publications: Publication[] = [
-  // ✅ NEW — SCIENTIFIC ARTICLE (TOP)
+  // ✅ NEW — SCIENTIFIC ARTICLE (TOP) — arXiv (HIGHEST)
+  {
+    title: 'SecureBank: A Financially-Aware Zero Trust Architecture for High-Assurance Banking Systems',
+    journal: 'arXiv – Preprint',
+    platform: 'arXiv',
+    year: '2025',
+    tag: 'arXiv Preprint',
+    authors: 'Paulo Fernandes Biao',
+    abstract:
+      'Financial institutions increasingly rely on distributed architectures, open banking APIs, cloud native infrastructures, and high frequency digital transactions. These transformations expand the attack surface and expose limitations in traditional perimeter based security models. While Zero Trust architectures provide essential security principles, most existing frameworks do not explicitly incorporate transactional semantics, financial risk modeling, adaptive identity trust, or automation weighted by economic impact.\n\nThis paper introduces SecureBank, a financially aware and context adaptive Zero Trust architecture designed specifically for high assurance banking systems. The proposed framework integrates Financial Zero Trust, Adaptive Identity Scoring, Contextual Micro Segmentation, and Impact Driven Security Automation. A Monte Carlo simulation evaluates SecureBank against a representative rule based baseline architecture using metrics such as the Transactional Integrity Index (TII), Identity Trust Adaptation Level (ITAL), and Security Automation Efficiency (SAE).\n\nThe results demonstrate that SecureBank significantly improves automated attack handling and accelerates identity trust adaptation while preserving conservative and regulator aligned levels of transactional integrity. Beyond experimental validation, SecureBank is intended to serve as a reference architecture and evaluation baseline for financially aware Zero Trust systems in regulated financial environments.',
+    link: 'https://arxiv.org/abs/2512.23124',
+    doi: 'https://doi.org/10.48550/arXiv.2512.23124',
+    category: 'Cryptography and Security (cs.CR)',
+    doiIndexed: true,
+    academicPublished: true,
+    peerReviewed: false,
+    isScientificArticle: true,
+    publicationType: 'Scientific Article (arXiv Preprint)',
+    isArxivTop: true,
+  },
+
+  // ✅ NEW — SCIENTIFIC ARTICLE (TOP) — Zenodo DOI (SECOND)
   {
     title: 'SecureBank™: A Financially-Aware Zero-Trust Architecture for High-Assurance Banking Systems',
     journal: 'Zenodo – Preprint (Scientific Article)',
@@ -46,7 +70,7 @@ const publications: Publication[] = [
     academicPublished: true,
     peerReviewed: false,
     isScientificArticle: true,
-    publicationType: 'Scientific Article (Preprint)',
+    publicationType: 'Scientific Article (Zenodo Preprint)',
   },
 
   // ========= DIO.me =========
@@ -301,7 +325,16 @@ export default function PublicationsClient() {
     journal?: string
   } | null>(null)
 
-  const scientificPublications = publications.filter((p) => p.isScientificArticle)
+  // ✅ ORDER: arXiv first, then Zenodo scientific
+  const scientificPublications = publications
+    .filter((p) => p.isScientificArticle)
+    .sort((a, b) => {
+      const af = a.isArxivTop ? 1 : 0
+      const bf = b.isArxivTop ? 1 : 0
+      if (bf !== af) return bf - af
+      return Number(b.year) - Number(a.year)
+    })
+
   const featuredPublications = publications.filter((p) => p.featured && !p.isScientificArticle)
   const nonFeaturedPublications = publications.filter((p) => !p.featured && !p.isScientificArticle)
   const grouped = groupByPlatform(nonFeaturedPublications)
@@ -365,90 +398,110 @@ export default function PublicationsClient() {
               Scientific Article (Preprint)
             </h3>
             <p className="text-gray-600 mb-6">
-              Peer-facing scientific manuscript deposited on Zenodo with DOI for citation.
+              Peer-facing scientific manuscript deposited on arXiv and Zenodo with DOI for citation.
             </p>
 
             <div className="space-y-6">
-              {scientificPublications.map((publication, index) => (
-                <div
-                  key={`scientific-${index}`}
-                  className="relative bg-gradient-to-r from-emerald-50 to-cyan-50 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-emerald-400 hover:border-emerald-500 group"
-                >
-                  <div className="absolute -top-3 -right-3 bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg">
-                    Scientific Article
-                  </div>
+              {scientificPublications.map((publication, index) => {
+                const isArxiv = publication.platform === 'arXiv' || publication.isArxivTop
 
-                  <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-4">
-                    <div className="flex-1">
-                      <h4 className="text-2xl font-bold text-gray-900 mb-2 leading-tight">
-                        {publication.title}
-                      </h4>
+                return (
+                  <div
+                    key={`scientific-${index}`}
+                    className={`relative bg-gradient-to-r ${
+                      isArxiv ? 'from-rose-50 to-amber-50' : 'from-emerald-50 to-cyan-50'
+                    } backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 ${
+                      isArxiv
+                        ? 'border-rose-400 hover:border-rose-500'
+                        : 'border-emerald-400 hover:border-emerald-500'
+                    } group`}
+                  >
+                    <div
+                      className={`absolute -top-3 -right-3 bg-gradient-to-r ${
+                        isArxiv ? 'from-rose-600 to-amber-600' : 'from-emerald-600 to-teal-600'
+                      } text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg`}
+                    >
+                      {isArxiv ? 'arXiv' : 'Scientific Article'}
+                    </div>
 
-                      <div className="flex flex-wrap items-center gap-4 mb-4">
-                        <span className="text-emerald-700 font-medium">
-                          {publication.publicationType ?? publication.journal}
-                        </span>
+                    <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-4">
+                      <div className="flex-1">
+                        <h4 className="text-2xl font-bold text-gray-900 mb-2 leading-tight">
+                          {publication.title}
+                        </h4>
 
-                        <div className="flex items-center text-gray-600">
-                          <Calendar className="h-4 w-4 mr-1" />
-                          {publication.year}
-                        </div>
-
-                        <span className="px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-sm">
-                          {publication.category}
-                        </span>
-
-                        {publication.peerReviewed === false && (
-                          <span className="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">
-                            Preprint (not peer-reviewed)
+                        <div className="flex flex-wrap items-center gap-4 mb-4">
+                          <span className={`${isArxiv ? 'text-rose-700' : 'text-emerald-700'} font-medium`}>
+                            {publication.publicationType ?? publication.journal}
                           </span>
-                        )}
+
+                          <div className="flex items-center text-gray-600">
+                            <Calendar className="h-4 w-4 mr-1" />
+                            {publication.year}
+                          </div>
+
+                          <span
+                            className={`px-3 py-1 ${
+                              isArxiv ? 'bg-rose-100 text-rose-800' : 'bg-emerald-100 text-emerald-800'
+                            } rounded-full text-sm`}
+                          >
+                            {publication.category}
+                          </span>
+
+                          {publication.peerReviewed === false && (
+                            <span className="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">
+                              Preprint (not peer-reviewed)
+                            </span>
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="flex-shrink-0 mt-4 lg:mt-0 flex gap-2">
+                        <ViewPaperButton title={publication.title} link={publication.link} />
+                        <button
+                          onClick={() =>
+                            setCitationModal({
+                              title: publication.title,
+                              authors: publication.authors,
+                              year: publication.year,
+                              doi: publication.doi,
+                              journal: publication.journal,
+                            })
+                          }
+                          className={`flex items-center gap-2 px-4 py-2 ${
+                            isArxiv ? 'bg-rose-600 hover:bg-rose-700' : 'bg-emerald-600 hover:bg-emerald-700'
+                          } text-white font-medium rounded-lg transition-colors`}
+                        >
+                          <Quote className="w-4 h-4" />
+                          Cite
+                        </button>
                       </div>
                     </div>
 
-                    <div className="flex-shrink-0 mt-4 lg:mt-0 flex gap-2">
-                      <ViewPaperButton title={publication.title} link={publication.link} />
-                      <button
-                        onClick={() =>
-                          setCitationModal({
-                            title: publication.title,
-                            authors: publication.authors,
-                            year: publication.year,
-                            doi: publication.doi,
-                            journal: publication.journal,
-                          })
-                        }
-                        className="flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-lg transition-colors"
-                      >
-                        <Quote className="w-4 h-4" />
-                        Cite
-                      </button>
-                    </div>
-                  </div>
-
-                  <p className="text-gray-700 mb-2 leading-relaxed">
-                    <strong>Authors:</strong> {publication.authors}
-                  </p>
-
-                  {publication.doi && (
-                    <p className="text-gray-700 mb-4 leading-relaxed">
-                      <strong>DOI:</strong>{' '}
-                      <a
-                        href={publication.doi}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-emerald-700 hover:text-emerald-900 underline"
-                      >
-                        {publication.doi}
-                      </a>
+                    <p className="text-gray-700 mb-2 leading-relaxed">
+                      <strong>Authors:</strong> {publication.authors}
                     </p>
-                  )}
 
-                  <p className="text-gray-700 leading-relaxed">
-                    <strong>Abstract:</strong> {publication.abstract}
-                  </p>
-                </div>
-              ))}
+                    {publication.doi && (
+                      <p className="text-gray-700 mb-4 leading-relaxed">
+                        <strong>DOI:</strong>{' '}
+                        <a
+                          href={publication.doi}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`${isArxiv ? 'text-rose-700 hover:text-rose-900' : 'text-emerald-700 hover:text-emerald-900'} underline`}
+                        >
+                          {publication.doi}
+                        </a>
+                      </p>
+                    )}
+
+                    <p className="text-gray-700 leading-relaxed">
+                      <strong>Abstract:</strong> {publication.abstract}
+                    </p>
+                  </div>
+                )
+              })}
             </div>
           </AnimatedSection>
         )}
@@ -479,9 +532,7 @@ export default function PublicationsClient() {
                         {publication.title}
                       </h4>
                       <div className="flex flex-wrap items-center gap-4 mb-4">
-                        <span className="text-blue-600 font-medium">
-                          {publication.journal}
-                        </span>
+                        <span className="text-blue-600 font-medium">{publication.journal}</span>
                         <div className="flex items-center text-gray-600">
                           <Calendar className="h-4 w-4 mr-1" />
                           {publication.year}
@@ -559,9 +610,7 @@ export default function PublicationsClient() {
                             {publication.title}
                           </h4>
                           <div className="flex flex-wrap items-center gap-4 mb-4">
-                            <span className="text-blue-600 font-medium">
-                              {publication.journal}
-                            </span>
+                            <span className="text-blue-600 font-medium">{publication.journal}</span>
                             <div className="flex items-center text-gray-600">
                               <Calendar className="h-4 w-4 mr-1" />
                               {publication.year}
@@ -608,17 +657,13 @@ export default function PublicationsClient() {
         {/* Research Areas */}
         <AnimatedSection className="mt-20">
           <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-              Research Areas
-            </h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Research Areas</h2>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
                 <div className="h-16 w-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <BookOpen className="h-8 w-8 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Banking Security
-                </h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Banking Security</h3>
                 <p className="text-gray-600">
                   Advanced cybersecurity architectures and methodologies for financial
                   institutions and payment ecosystems.
@@ -628,9 +673,7 @@ export default function PublicationsClient() {
                 <div className="h-16 w-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <BookOpen className="h-8 w-8 text-green-600" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Healthcare Technology
-                </h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Healthcare Technology</h3>
                 <p className="text-gray-600">
                   Protection of clinical data, medical devices and digital healthcare workflows,
                   with a focus on Zero Trust Healthcare.
@@ -640,9 +683,7 @@ export default function PublicationsClient() {
                 <div className="h-16 w-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <BookOpen className="h-8 w-8 text-purple-600" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Digital Transformation
-                </h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Digital Transformation</h3>
                 <p className="text-gray-600">
                   Frameworks and methodologies that guide organizations through secure and
                   resilient digital transformation initiatives.
@@ -655,9 +696,7 @@ export default function PublicationsClient() {
         {/* Media & Press */}
         <AnimatedSection className="mt-20">
           <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">
-              Media &amp; Press
-            </h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">Media &amp; Press</h2>
             <p className="text-gray-600 mb-8 max-w-3xl mx-auto text-center">
               Selected news articles and content highlighting Paulo Fernandes Biao&apos;s work.
             </p>
@@ -679,9 +718,7 @@ export default function PublicationsClient() {
                         {item.language}
                       </span>
                     </div>
-                    <p className="text-gray-700 text-sm leading-relaxed">
-                      {item.summary}
-                    </p>
+                    <p className="text-gray-700 text-sm leading-relaxed">{item.summary}</p>
                   </div>
 
                   <div className="mt-4">
