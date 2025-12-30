@@ -27,12 +27,12 @@ type Publication = {
   isScientificArticle?: boolean
   publicationType?: string
 
-  // ✅ NEW (arXiv top)
-  isArxivTop?: boolean
+  // ✅ NEW (ordering)
+  priority?: number
 }
 
 const publications: Publication[] = [
-  // ✅ NEW — SCIENTIFIC ARTICLE (TOP) — arXiv (HIGHEST)
+  // ✅ SCIENTIFIC ARTICLE (TOP) — arXiv (HIGHEST)
   {
     title: 'SecureBank: A Financially-Aware Zero Trust Architecture for High-Assurance Banking Systems',
     journal: 'arXiv – Preprint',
@@ -50,10 +50,33 @@ const publications: Publication[] = [
     peerReviewed: false,
     isScientificArticle: true,
     publicationType: 'Scientific Article (arXiv Preprint)',
-    isArxivTop: true,
+    priority: 3, // ✅ TOP
   },
 
-  // ✅ NEW — SCIENTIFIC ARTICLE (TOP) — Zenodo DOI (SECOND)
+  // ✅ NEW — OSF Registration (SECOND, right below arXiv)
+  {
+    title: 'SecureBank™: A Financially-Aware Zero-Trust Architecture for High-Assurance Banking Systems (OSF Registration)',
+    journal: 'OSF Registries – Open-Ended Registration',
+    platform: 'OSF',
+    year: '2025',
+    tag: 'OSF Registration',
+    authors: 'Paulo Fernandes Biao',
+    abstract:
+      'This registration documents the research artifacts, LaTeX source files, figures, tables, and bibliographic references supporting the preprint “SecureBank™: A Financially-Aware Zero-Trust Architecture for High-Assurance Banking Systems.” It provides a permanent, timestamped scholarly record designed to ensure transparency, reproducibility, and public accessibility of the supporting materials.',
+    // ✅ Use the public project link you have on the right side (Associated Project)
+    link: 'https://osf.io/56jk2',
+    // ✅ Registration DOI (shown on the right)
+    doi: 'https://doi.org/10.17605/OSF.IO/U6BN7',
+    category: 'Open Science / Registered Research Artifacts',
+    doiIndexed: true,
+    academicPublished: true,
+    peerReviewed: false,
+    isScientificArticle: true,
+    publicationType: 'Scientific Record (OSF Registration)',
+    priority: 2, // ✅ SECOND
+  },
+
+  // ✅ SCIENTIFIC ARTICLE (THIRD) — Zenodo DOI (AFTER OSF)
   {
     title: 'SecureBank™: A Financially-Aware Zero-Trust Architecture for High-Assurance Banking Systems',
     journal: 'Zenodo – Preprint (Scientific Article)',
@@ -71,6 +94,7 @@ const publications: Publication[] = [
     peerReviewed: false,
     isScientificArticle: true,
     publicationType: 'Scientific Article (Zenodo Preprint)',
+    priority: 1, // ✅ THIRD
   },
 
   // ========= DIO.me =========
@@ -325,13 +349,13 @@ export default function PublicationsClient() {
     journal?: string
   } | null>(null)
 
-  // ✅ ORDER: arXiv first, then Zenodo scientific
+  // ✅ ORDER: arXiv first, then OSF, then Zenodo scientific (via priority)
   const scientificPublications = publications
     .filter((p) => p.isScientificArticle)
     .sort((a, b) => {
-      const af = a.isArxivTop ? 1 : 0
-      const bf = b.isArxivTop ? 1 : 0
-      if (bf !== af) return bf - af
+      const ap = a.priority ?? 0
+      const bp = b.priority ?? 0
+      if (bp !== ap) return bp - ap
       return Number(b.year) - Number(a.year)
     })
 
@@ -398,30 +422,50 @@ export default function PublicationsClient() {
               Scientific Article (Preprint)
             </h3>
             <p className="text-gray-600 mb-6">
-              Peer-facing scientific manuscript deposited on arXiv and Zenodo with DOI for citation.
+              Peer-facing scientific manuscript and supporting scholarly records with DOI for citation.
             </p>
 
             <div className="space-y-6">
               {scientificPublications.map((publication, index) => {
-                const isArxiv = publication.platform === 'arXiv' || publication.isArxivTop
+                const isArxiv = publication.platform === 'arXiv'
+                const isOSF = publication.platform === 'OSF'
+
+                const cardTheme = isArxiv
+                  ? {
+                      bg: 'from-rose-50 to-amber-50',
+                      border: 'border-rose-400 hover:border-rose-500',
+                      badge: 'from-rose-600 to-amber-600',
+                      accentBtn: 'bg-rose-600 hover:bg-rose-700',
+                      accentLink: 'text-rose-700 hover:text-rose-900',
+                      badgeText: 'arXiv',
+                    }
+                  : isOSF
+                  ? {
+                      bg: 'from-indigo-50 to-sky-50',
+                      border: 'border-indigo-400 hover:border-indigo-500',
+                      badge: 'from-indigo-600 to-sky-600',
+                      accentBtn: 'bg-indigo-600 hover:bg-indigo-700',
+                      accentLink: 'text-indigo-700 hover:text-indigo-900',
+                      badgeText: 'OSF',
+                    }
+                  : {
+                      bg: 'from-emerald-50 to-cyan-50',
+                      border: 'border-emerald-400 hover:border-emerald-500',
+                      badge: 'from-emerald-600 to-teal-600',
+                      accentBtn: 'bg-emerald-600 hover:bg-emerald-700',
+                      accentLink: 'text-emerald-700 hover:text-emerald-900',
+                      badgeText: 'Scientific Article',
+                    }
 
                 return (
                   <div
                     key={`scientific-${index}`}
-                    className={`relative bg-gradient-to-r ${
-                      isArxiv ? 'from-rose-50 to-amber-50' : 'from-emerald-50 to-cyan-50'
-                    } backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 ${
-                      isArxiv
-                        ? 'border-rose-400 hover:border-rose-500'
-                        : 'border-emerald-400 hover:border-emerald-500'
-                    } group`}
+                    className={`relative bg-gradient-to-r ${cardTheme.bg} backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 ${cardTheme.border} group`}
                   >
                     <div
-                      className={`absolute -top-3 -right-3 bg-gradient-to-r ${
-                        isArxiv ? 'from-rose-600 to-amber-600' : 'from-emerald-600 to-teal-600'
-                      } text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg`}
+                      className={`absolute -top-3 -right-3 bg-gradient-to-r ${cardTheme.badge} text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg`}
                     >
-                      {isArxiv ? 'arXiv' : 'Scientific Article'}
+                      {cardTheme.badgeText}
                     </div>
 
                     <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-4">
@@ -431,7 +475,7 @@ export default function PublicationsClient() {
                         </h4>
 
                         <div className="flex flex-wrap items-center gap-4 mb-4">
-                          <span className={`${isArxiv ? 'text-rose-700' : 'text-emerald-700'} font-medium`}>
+                          <span className={`${isArxiv ? 'text-rose-700' : isOSF ? 'text-indigo-700' : 'text-emerald-700'} font-medium`}>
                             {publication.publicationType ?? publication.journal}
                           </span>
 
@@ -441,16 +485,14 @@ export default function PublicationsClient() {
                           </div>
 
                           <span
-                            className={`px-3 py-1 ${
-                              isArxiv ? 'bg-rose-100 text-rose-800' : 'bg-emerald-100 text-emerald-800'
-                            } rounded-full text-sm`}
+                            className={`px-3 py-1 ${isArxiv ? 'bg-rose-100 text-rose-800' : isOSF ? 'bg-indigo-100 text-indigo-800' : 'bg-emerald-100 text-emerald-800'} rounded-full text-sm`}
                           >
                             {publication.category}
                           </span>
 
                           {publication.peerReviewed === false && (
                             <span className="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">
-                              Preprint (not peer-reviewed)
+                              Preprint / Record (not peer-reviewed)
                             </span>
                           )}
                         </div>
@@ -468,9 +510,7 @@ export default function PublicationsClient() {
                               journal: publication.journal,
                             })
                           }
-                          className={`flex items-center gap-2 px-4 py-2 ${
-                            isArxiv ? 'bg-rose-600 hover:bg-rose-700' : 'bg-emerald-600 hover:bg-emerald-700'
-                          } text-white font-medium rounded-lg transition-colors`}
+                          className={`flex items-center gap-2 px-4 py-2 ${cardTheme.accentBtn} text-white font-medium rounded-lg transition-colors`}
                         >
                           <Quote className="w-4 h-4" />
                           Cite
@@ -489,7 +529,7 @@ export default function PublicationsClient() {
                           href={publication.doi}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`${isArxiv ? 'text-rose-700 hover:text-rose-900' : 'text-emerald-700 hover:text-emerald-900'} underline`}
+                          className={`${cardTheme.accentLink} underline`}
                         >
                           {publication.doi}
                         </a>
