@@ -9,13 +9,15 @@ import {
   FileText,
   Scale,
   Globe2,
+  BadgeCheck,
+  ExternalLink,
 } from 'lucide-react'
 import AnimatedSection from '@/components/ui/animated-section'
 
 export const metadata: Metadata = {
   title: 'Professional & Academic Engagement',
   description:
-    'Independent technical advisory, peer review support, research dissemination, and framework development in cybersecurity and critical infrastructures.',
+    'Independent technical advisory, peer review support, standards contributions, research dissemination, and framework development in cybersecurity and critical infrastructures.',
 }
 
 const pillars = [
@@ -52,10 +54,37 @@ const pillars = [
 ]
 
 const proofPoints = [
-  { icon: Award, label: 'Credentials & Certifications', text: 'Selected certifications and training aligned with cybersecurity and cloud.' },
-  { icon: Users, label: 'Professional Collaboration', text: 'Cross-functional work with engineers, stakeholders, and leadership teams.' },
-  { icon: Scale, label: 'Evidence-Based Practice', text: 'Decisions grounded in risk, controls, and measurable outcomes.' },
-  { icon: Globe2, label: 'International-Ready', text: 'Professional documentation in English for global audiences and formal review.' },
+  {
+    icon: Award,
+    label: 'Credentials & Certifications',
+    text: 'Selected certifications and training aligned with cybersecurity and cloud.',
+  },
+  {
+    icon: Users,
+    label: 'Professional Collaboration',
+    text: 'Cross-functional work with engineers, stakeholders, and leadership teams.',
+  },
+  {
+    icon: Scale,
+    label: 'Evidence-Based Practice',
+    text: 'Decisions grounded in risk, controls, and measurable outcomes.',
+  },
+  {
+    icon: Globe2,
+    label: 'International-Ready',
+    text: 'Professional documentation in English for global audiences and formal review.',
+  },
+]
+
+const standardsContributions = [
+  {
+    org: 'OWASP Application Security Verification Standard (ASVS)',
+    date: 'January 2026',
+    title: 'Public technical contribution on verification ambiguity for ASVS 3.2.2 in modern SPA frameworks',
+    summary:
+      'Focused on preserving the security intent (safe rendering of untrusted data) while clarifying that implementation functions listed are non-exhaustive examples, reducing misinterpretation during assessments.',
+    href: 'https://github.com/OWASP/ASVS/issues/3224',
+  },
 ]
 
 export default function EngagementPage() {
@@ -63,7 +92,7 @@ export default function EngagementPage() {
     <div className="min-h-screen bg-gray-50 py-20">
       <div className="container mx-auto max-w-6xl px-4">
         {/* HERO */}
-        <AnimatedSection className="text-center mb-14">
+        <AnimatedSection className="text-center mb-12">
           <div className="inline-flex items-center justify-center h-14 w-14 rounded-full bg-blue-100 mb-4">
             <ShieldCheck className="h-7 w-7 text-blue-600" />
           </div>
@@ -91,6 +120,62 @@ export default function EngagementPage() {
             >
               Request Advisory / Review <ArrowRight className="h-4 w-4 ml-2" />
             </Link>
+          </div>
+        </AnimatedSection>
+
+        {/* STANDARDS & COMMUNITY CONTRIBUTIONS (EB-1 critical proof block) */}
+        <AnimatedSection className="mb-14">
+          <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+            <div className="flex items-start gap-4">
+              <div className="h-12 w-12 rounded-xl bg-blue-50 flex items-center justify-center">
+                <BadgeCheck className="h-6 w-6 text-blue-600" />
+              </div>
+
+              <div className="flex-1">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-2">
+                  <h2 className="text-xl font-bold text-gray-900">
+                    Standards & Community Contributions
+                  </h2>
+                  <div className="text-sm text-gray-500">Public, dated, verifiable contributions</div>
+                </div>
+
+                <div className="grid gap-4">
+                  {standardsContributions.map((c) => (
+                    <div
+                      key={c.org}
+                      className="rounded-2xl border border-gray-100 bg-gray-50 p-5"
+                    >
+                      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
+                        <div>
+                          <div className="font-semibold text-gray-900">{c.org}</div>
+                          <div className="text-sm text-gray-600 mt-1">{c.title}</div>
+                        </div>
+                        <div className="text-sm text-gray-500 md:text-right">{c.date}</div>
+                      </div>
+
+                      <p className="text-sm text-gray-700 leading-relaxed mt-3">
+                        {c.summary}
+                      </p>
+
+                      <div className="mt-3">
+                        <a
+                          href={c.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center text-sm font-semibold text-blue-700 hover:text-blue-800"
+                        >
+                          View public discussion <ExternalLink className="h-4 w-4 ml-2" />
+                        </a>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-5 text-sm text-gray-600">
+                  Note: Links are provided for direct verification of public contributions and timelines.
+                </div>
+              </div>
+            </div>
           </div>
         </AnimatedSection>
 
@@ -150,7 +235,9 @@ export default function EngagementPage() {
                 <Award className="h-6 w-6 text-white" />
               </div>
               <div className="flex-1">
-                <h3 className="text-2xl font-bold mb-2">Need an independent review or advisory support?</h3>
+                <h3 className="text-2xl font-bold mb-2">
+                  Need an independent review or advisory support?
+                </h3>
                 <p className="text-slate-300 leading-relaxed mb-6 max-w-3xl">
                   If you’re organizing a technical evaluation, preparing a paper, or need an architecture review,
                   send the context and goals. I’ll reply with scope, expected deliverables, and timelines.
