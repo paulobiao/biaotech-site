@@ -6,18 +6,15 @@ import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
-
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
   { name: 'Peer Review', href: '/peer-review' },
   { name: 'Frameworks', href: '/frameworks' },
   { name: 'Publications', href: '/publications' },
+  { name: 'SecureBank Copilot', href: '/securebank-copilot' },
   { name: 'Contact', href: '/contact' },
-  { name: 'Engagement', href: '/engagement' },
-  { name: "Evalution", href: "/evalution" }
-
-
+  { name: 'Engagement', href: '/engagement' }
 ]
 
 export default function Navigation() {
@@ -28,12 +25,10 @@ export default function Navigation() {
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
           <Link href="/" className="text-lg md:text-xl font-bold text-gray-900">
             Paulo Fernandes Bião
           </Link>
 
-          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-2">
             {navigation.map((item) => {
               const isActive =
@@ -58,7 +53,6 @@ export default function Navigation() {
             })}
           </nav>
 
-          {/* Mobile menu button */}
           <button
             type="button"
             className="md:hidden p-2"
@@ -73,7 +67,6 @@ export default function Navigation() {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <div className="md:hidden border-t border-gray-200">
             <nav className="py-4 space-y-2">
