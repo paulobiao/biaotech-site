@@ -23,7 +23,7 @@ export default function SecureBankCopilotPage() {
 
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
-              href="https://youtu.be/YOUR_DEMO_VIDEO"
+              href="https://youtu.be/xcN0AthI5UY"
               target="_blank"
               className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-sm font-medium hover:bg-blue-500 transition"
             >
@@ -32,7 +32,7 @@ export default function SecureBankCopilotPage() {
             </Link>
 
             <Link
-              href="https://github.com/YOUR_GITHUB/securebank-copilot"
+              href="https://github.com/paulobiao/securebank-copilot-engine"
               target="_blank"
               className="inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3 text-sm font-medium hover:bg-white/10 transition"
             >
