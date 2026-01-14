@@ -17,7 +17,7 @@ import AnimatedSection from '@/components/ui/animated-section'
 export const metadata: Metadata = {
   title: 'Professional & Academic Engagement',
   description:
-    'Independent technical advisory, peer review support, standards contributions, research dissemination, and framework development in cybersecurity and critical infrastructures.',
+    'Independent technical evaluation, external peer review, standards contributions, research dissemination, and framework development in cybersecurity and critical infrastructures.',
 }
 
 const pillars = [
@@ -33,12 +33,12 @@ const pillars = [
   },
   {
     icon: BookOpen,
-    title: 'Peer Review & Research Support',
+    title: 'External Peer Review & Research Evaluation',
     bullets: [
-      'Technical peer review for manuscripts and whitepapers',
+      'Independent technical peer review for manuscripts and whitepapers',
       'Methodology refinement and clarity improvements',
       'Reproducibility checks (experiments, metrics, simulations)',
-      'Review-ready formatting and structured feedback',
+      'Structured, review-ready feedback aligned with editorial standards',
     ],
   },
   {
@@ -47,8 +47,8 @@ const pillars = [
     bullets: [
       'SecureBank™ — financially-aware Zero Trust for banking systems',
       'HealthGuard™ — security architecture for healthcare environments',
-      'PhysiDigital™ — digital transformation methods for resilient orgs',
-      'Open research artifacts: code, datasets, and technical docs',
+      'PhysiDigital™ — digital transformation methods for resilient organizations',
+      'Open research artifacts: code, datasets, and technical documentation',
     ],
   },
 ]
@@ -57,22 +57,22 @@ const proofPoints = [
   {
     icon: Award,
     label: 'Credentials & Certifications',
-    text: 'Selected certifications and training aligned with cybersecurity and cloud.',
+    text: 'Selected certifications and formal training aligned with cybersecurity and cloud systems.',
   },
   {
     icon: Users,
     label: 'Professional Collaboration',
-    text: 'Cross-functional work with engineers, stakeholders, and leadership teams.',
+    text: 'Independent collaboration with engineers, researchers, and technical leadership.',
   },
   {
     icon: Scale,
-    label: 'Evidence-Based Practice',
-    text: 'Decisions grounded in risk, controls, and measurable outcomes.',
+    label: 'Evidence-Based Evaluation',
+    text: 'Assessments grounded in risk modeling, controls, and measurable outcomes.',
   },
   {
     icon: Globe2,
     label: 'International-Ready',
-    text: 'Professional documentation in English for global audiences and formal review.',
+    text: 'Professional documentation prepared in English for global and formal review contexts.',
   },
 ]
 
@@ -80,10 +80,21 @@ const standardsContributions = [
   {
     org: 'OWASP Application Security Verification Standard (ASVS)',
     date: 'January 2026',
-    title: 'Public technical contribution on verification ambiguity for ASVS 3.2.2 in modern SPA frameworks',
+    title:
+      'Public technical contribution on verification ambiguity for ASVS 3.2.2 in modern SPA frameworks',
     summary:
-      'Focused on preserving the security intent (safe rendering of untrusted data) while clarifying that implementation functions listed are non-exhaustive examples, reducing misinterpretation during assessments.',
+      'Focused on preserving the security intent (safe rendering of untrusted data) while clarifying that listed implementation functions are non-exhaustive examples, reducing misinterpretation during security assessments.',
     href: 'https://github.com/OWASP/ASVS/issues/3224',
+  },
+]
+
+const externalEvaluation = [
+  {
+    org: 'International Hackathons & Open Innovation Programs',
+    date: '2025 – Present',
+    title: 'Technical Judge and Evaluator',
+    summary:
+      'Invited to evaluate submissions involving cybersecurity architectures, risk modeling, and applied security frameworks. Responsibilities include assessing technical soundness, feasibility, impact, and alignment with challenge or research objectives.',
   },
 ]
 
@@ -102,9 +113,9 @@ export default function EngagementPage() {
           </h1>
 
           <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            This page summarizes independent work related to cybersecurity frameworks, technical evaluation,
-            peer review support, and research dissemination. No testimonials — only verifiable, structured
-            contributions and capabilities.
+            This page summarizes independent work related to cybersecurity frameworks,
+            external peer review and technical evaluation, and research dissemination.
+            No testimonials — only verifiable, structured contributions and capabilities.
           </p>
 
           <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center">
@@ -118,12 +129,12 @@ export default function EngagementPage() {
               href="/contact"
               className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-blue-600 text-white hover:bg-blue-700 transition-colors font-semibold"
             >
-              Request Advisory / Review <ArrowRight className="h-4 w-4 ml-2" />
+              Request Independent Review <ArrowRight className="h-4 w-4 ml-2" />
             </Link>
           </div>
         </AnimatedSection>
 
-        {/* STANDARDS & COMMUNITY CONTRIBUTIONS (EB-1 critical proof block) */}
+        {/* STANDARDS & COMMUNITY CONTRIBUTIONS */}
         <AnimatedSection className="mb-14">
           <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
             <div className="flex items-start gap-4">
@@ -136,7 +147,9 @@ export default function EngagementPage() {
                   <h2 className="text-xl font-bold text-gray-900">
                     Standards & Community Contributions
                   </h2>
-                  <div className="text-sm text-gray-500">Public, dated, verifiable contributions</div>
+                  <div className="text-sm text-gray-500">
+                    Public, dated, verifiable contributions
+                  </div>
                 </div>
 
                 <div className="grid gap-4">
@@ -173,6 +186,41 @@ export default function EngagementPage() {
 
                 <div className="mt-5 text-sm text-gray-600">
                   Note: Links are provided for direct verification of public contributions and timelines.
+                </div>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* EXTERNAL EVALUATION & JUDGING */}
+        <AnimatedSection className="mb-14">
+          <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+            <div className="flex items-start gap-4">
+              <div className="h-12 w-12 rounded-xl bg-blue-50 flex items-center justify-center">
+                <Scale className="h-6 w-6 text-blue-600" />
+              </div>
+
+              <div className="flex-1">
+                <h2 className="text-xl font-bold text-gray-900 mb-3">
+                  External Evaluation & Judging
+                </h2>
+
+                <div className="grid gap-4">
+                  {externalEvaluation.map((e) => (
+                    <div
+                      key={e.title}
+                      className="rounded-2xl border border-gray-100 bg-gray-50 p-5"
+                    >
+                      <div className="flex justify-between gap-2">
+                        <div className="font-semibold text-gray-900">{e.org}</div>
+                        <div className="text-sm text-gray-500">{e.date}</div>
+                      </div>
+                      <div className="text-sm text-gray-600 mt-1">{e.title}</div>
+                      <p className="text-sm text-gray-700 mt-3 leading-relaxed">
+                        {e.summary}
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -236,11 +284,12 @@ export default function EngagementPage() {
               </div>
               <div className="flex-1">
                 <h3 className="text-2xl font-bold mb-2">
-                  Need an independent review or advisory support?
+                  Request an Independent Technical Evaluation or Review
                 </h3>
                 <p className="text-slate-300 leading-relaxed mb-6 max-w-3xl">
-                  If you’re organizing a technical evaluation, preparing a paper, or need an architecture review,
-                  send the context and goals. I’ll reply with scope, expected deliverables, and timelines.
+                  If you are coordinating a technical program, editorial process,
+                  research initiative, or structured evaluation, submit the scope
+                  and objectives for independent review.
                 </p>
                 <Link
                   href="/contact"

@@ -14,7 +14,7 @@ const navigation = [
   { name: 'Publications', href: '/publications' },
   { name: 'SecureBank Copilot', href: '/securebank-copilot' },
   { name: 'Contact', href: '/contact' },
-  { name: 'Engagement', href: '/engagement' }
+  //{ name: 'Engagement', href: '/engagement' }
 ]
 
 export default function Navigation() {
