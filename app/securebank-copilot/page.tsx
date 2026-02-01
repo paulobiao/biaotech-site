@@ -7,23 +7,29 @@ export default function SecureBankCopilotPage() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-blue-950 via-blue-900 to-slate-900 text-white">
         <div className="container mx-auto max-w-6xl px-6 py-28">
+          {/* 🔹 Headline ajustada */}
           <h1 className="text-4xl md:text-6xl font-bold leading-tight">
             SecureBank Copilot
           </h1>
 
-          <p className="mt-4 text-lg text-blue-100 max-w-3xl">
-            An AI copilot that translates cyber incidents into financial loss,
-            regulatory exposure, and executive actions — before damage occurs.
+          <p className="mt-4 text-xl text-blue-100 max-w-3xl">
+            From cyber alerts to <strong>board-ready financial decisions</strong> in minutes.
           </p>
 
+          {/* 🔹 Subheadline com diferencial explícito */}
           <p className="mt-4 max-w-3xl text-blue-200">
-            Powered by Gemini 3, SecureBank Copilot simulates cyber incidents
-            and quantifies financial and regulatory impact <strong>before</strong> incidents occur.
+            Unlike traditional security tools, SecureBank Copilot outputs executive briefings,
+            control gaps, and risk register entries — not raw alerts.
+          </p>
+
+          <p className="mt-4 max-w-3xl text-blue-300">
+            Powered by <strong>Gemini 3</strong>, the system simulates cyber incidents and
+            quantifies financial, operational, and regulatory impact <strong>before</strong> damage occurs.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
-              href="https://youtu.be/xcN0AthI5UY"
+              href="https://youtu.be/8ub0tqwIt5U"
               target="_blank"
               className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-sm font-medium hover:bg-blue-500 transition"
             >
@@ -32,21 +38,12 @@ export default function SecureBankCopilotPage() {
             </Link>
 
             <Link
-              href="https://github.com/paulobiao/securebank-copilot-engine"
+              href="https://github.com/paulobiao/securebank-copilot-gemini3"
               target="_blank"
               className="inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3 text-sm font-medium hover:bg-white/10 transition"
             >
               <Github size={18} />
-              View code
-            </Link>
-
-            <Link
-              href="https://devpost.com/software/securebank-copilot-gemini-3"
-              target="_blank"
-              className="inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3 text-sm font-medium hover:bg-white/10 transition"
-            >
-              Devpost submission
-              <ArrowRight size={16} />
+              View source code
             </Link>
           </div>
         </div>
@@ -76,6 +73,21 @@ export default function SecureBankCopilotPage() {
           Existing tools focus on technical alerts, compliance checklists, or
           post-incident reports — not on decision-ready financial and regulatory insight.
         </p>
+      </section>
+
+      {/* 🔹 Why it matters (novo bloco) */}
+      <section className="bg-white border-t">
+        <div className="container mx-auto max-w-6xl px-6 py-16">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+            Why it matters
+          </h2>
+
+          <ul className="mt-8 grid gap-4 max-w-3xl text-gray-700">
+            <li>• CISOs struggle to translate incidents into financial and regulatory language</li>
+            <li>• Executives delay decisions due to unclear impact</li>
+            <li>• Control gaps are discovered <strong>after</strong> incidents, not before</li>
+          </ul>
+        </div>
       </section>
 
       {/* Solution */}
@@ -109,7 +121,12 @@ export default function SecureBankCopilotPage() {
       <section className="container mx-auto max-w-6xl px-6 py-20">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
           How it works
+          <p className="mt-4 max-w-3xl text-gray-600 text-sm">
+         Designed for financial-sector environments (banking, payments, regulated institutions).
+        </p>
         </h2>
+        
+
 
         <p className="mt-6 max-w-3xl text-gray-700 leading-relaxed">
           SecureBank Copilot uses Gemini 3 as a multi-layer reasoning engine
@@ -130,7 +147,7 @@ export default function SecureBankCopilotPage() {
       <section className="bg-slate-900 text-white">
         <div className="container mx-auto max-w-6xl px-6 py-16 text-center">
           <p className="text-lg text-blue-100">
-            Built with Gemini 3 · SecureBank™ Framework
+            Built with <strong>Gemini 3</strong> · Google AI Studio · SecureBank™ Framework
           </p>
         </div>
       </section>
