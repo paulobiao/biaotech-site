@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXTAUTH_URL || "http://localhost:3000"),
+  metadataBase: new URL("https://biaotech.dev"),
   title: {
     default: "Paulo Fernandes Biao - Professional Portfolio",
     template: "%s | Paulo Fernandes Biao",
