@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     title: "Paulo Fernandes Biao - Professional Portfolio",
     description:
       "Professional portfolio showcasing innovation in technology frameworks.",
-    images: ["/og-image.png"],
+    images: ["https://www.biaotech.dev/og-image.png"],
   },
   robots: {
     index: true,
