@@ -83,7 +83,7 @@ export default function Hero() {
               className="grid grid-cols-3 gap-4 py-8"
             >
               <div className="space-y-2">
-                <div className="text-3xl font-bold text-blue-400">25+</div>
+                <div className="text-3xl font-bold text-blue-400">15+</div>
                 <div className="text-sm text-slate-400">Years in Technology</div>
               </div>
               <div className="space-y-2">
