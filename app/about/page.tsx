@@ -62,7 +62,7 @@ export default function AboutPage() {
 
             <div className="grid grid-cols-3 gap-4">
               <div className="text-center p-4 bg-gradient-to-br from-blue-600/20 to-cyan-600/20 border border-blue-500/30 rounded-xl">
-                <div className="text-3xl font-black bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-1">25+</div>
+                <div className="text-3xl font-black bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-1">15+</div>
                 <div className="text-sm text-slate-400">Years in Technology</div>
               </div>
               <div className="text-center p-4 bg-gradient-to-br from-purple-600/20 to-pink-600/20 border border-purple-500/30 rounded-xl">
