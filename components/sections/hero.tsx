@@ -1,15 +1,14 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, Zap, Shield, Heart, Sparkles } from 'lucide-react'
+import { ArrowRight, Zap, Shield, Heart, MapPin, FileDown } from 'lucide-react'
 import { motion } from 'framer-motion'
-import AnimatedSection from '@/components/ui/animated-section'
 
 const heroFrameworks = [
   {
     icon: Shield,
     label: 'SecureBank™',
+    impact: 'Zero Trust architecture for high-assurance banking systems',
     href: '/frameworks/securebank',
     colorClasses:
       'bg-blue-500/15 text-blue-100 ring-blue-300/40 hover:bg-blue-500/25',
@@ -17,6 +16,7 @@ const heroFrameworks = [
   {
     icon: Heart,
     label: 'HealthGuard™',
+    impact: 'Data integrity & cybersecurity for healthcare ecosystems',
     href: '/frameworks/healthguard',
     colorClasses:
       'bg-emerald-500/15 text-emerald-100 ring-emerald-300/40 hover:bg-emerald-500/25',
@@ -24,6 +24,7 @@ const heroFrameworks = [
   {
     icon: Zap,
     label: 'PhysiDigital™',
+    impact: 'Secure telehealth infrastructure for IoMT environments',
     href: '/frameworks/physi-digital',
     colorClasses:
       'bg-purple-500/15 text-purple-100 ring-purple-300/40 hover:bg-purple-500/25',
@@ -49,15 +50,15 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Text & CTA */}
           <div className="space-y-8">
-            {/* Badge */}
+            {/* Location badge */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-400/30 backdrop-blur-sm w-fit"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-400/30 backdrop-blur-sm w-fit"
             >
-              <Sparkles className="w-4 h-4 text-blue-400" />
-              <span className="text-sm font-semibold text-blue-300">Innovation in Security & Digital Transformation</span>
+              <MapPin className="w-4 h-4 text-blue-400" />
+              <span className="text-sm font-semibold text-blue-300">Open to US opportunities · South Florida</span>
             </motion.div>
 
             {/* Main Heading */}
@@ -65,13 +66,17 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="space-y-4"
+              className="space-y-5"
             >
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-tight text-white">
-                <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">Frameworks for Extraordinary Security</span>
+              <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] font-black leading-[1.1] text-white">
+                Banking Security{' '}
+                <span className="bg-gradient-to-r from-blue-300 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                  &amp; Cloud Infrastructure
+                </span>{' '}
+                Engineer
               </h1>
-              <p className="text-xl md:text-2xl text-slate-300 leading-relaxed max-w-3xl">
-                Innovative security architectures designed to protect critical infrastructures. SecureBank™, HealthGuard™, and PhysiDigital™ deliver Zero Trust security aligned with NIST, ISO 27001, and industry standards.
+              <p className="text-lg md:text-xl text-slate-300 leading-[1.8] max-w-2xl">
+                Building secure, scalable systems for the US market — 15+ years securing financial infrastructure, IoT ecosystems, and cloud-native environments.
               </p>
             </motion.div>
 
@@ -111,10 +116,11 @@ export default function Hero() {
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
-                href="/about"
-                className="px-8 py-4 border-2 border-slate-400 hover:border-slate-300 text-slate-300 hover:text-white font-semibold rounded-lg transition-all duration-300 hover:bg-slate-700/50 backdrop-blur-sm"
+                href="/contact"
+                className="group px-8 py-4 border-2 border-slate-500 hover:border-slate-300 text-slate-300 hover:text-white font-semibold rounded-lg transition-all duration-300 hover:bg-slate-700/50 backdrop-blur-sm flex items-center justify-center gap-2"
               >
-                About Me
+                <FileDown className="w-5 h-5" />
+                Request Resume
               </Link>
             </motion.div>
           </div>
@@ -149,14 +155,14 @@ export default function Hero() {
                           href={framework.href}
                           className={`flex items-center gap-4 p-4 rounded-xl transition-all duration-300 ${framework.colorClasses} border border-current/20 hover:border-current/40`}
                         >
-                          <div className="p-3 rounded-lg bg-current/10 group-hover:bg-current/20 transition-colors">
+                          <div className="p-3 rounded-lg bg-current/10 group-hover:bg-current/20 transition-colors shrink-0">
                             <Icon className="w-6 h-6" />
                           </div>
-                          <div className="flex-1">
+                          <div className="flex-1 min-w-0">
                             <div className="font-semibold text-white">{framework.label}</div>
-                            <div className="text-sm opacity-75">Discover more</div>
+                            <div className="text-xs opacity-70 mt-0.5 leading-snug">{framework.impact}</div>
                           </div>
-                          <ArrowRight className="w-5 h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                          <ArrowRight className="w-5 h-5 shrink-0 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                         </Link>
                       </motion.div>
                     )
@@ -186,9 +192,12 @@ export default function Hero() {
                 href={framework.href}
                 className={`flex items-center gap-4 p-4 rounded-xl transition-all duration-300 ${framework.colorClasses} border border-current/20 hover:border-current/40`}
               >
-                <Icon className="w-6 h-6" />
-                <span className="font-semibold">{framework.label}</span>
-                <ArrowRight className="w-5 h-5 ml-auto" />
+                <Icon className="w-6 h-6 shrink-0" />
+                <div className="flex-1 min-w-0">
+                  <div className="font-semibold">{framework.label}</div>
+                  <div className="text-xs opacity-70 mt-0.5">{framework.impact}</div>
+                </div>
+                <ArrowRight className="w-5 h-5 shrink-0" />
               </Link>
             )
           })}

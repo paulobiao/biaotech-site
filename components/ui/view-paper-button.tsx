@@ -30,7 +30,9 @@ export default function ViewPaperButton({ title, link }: ViewPaperButtonProps) {
 
   return (
     <button
+      type="button"
       onClick={handleClick}
+      aria-label={`View paper: ${title}`}
       className="inline-flex items-center px-4 py-2 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-full text-sm font-medium transition-colors"
     >
       <ExternalLink className="h-4 w-4 mr-2" />

@@ -131,7 +131,7 @@ export default function PeerReviewPage() {
           </p>
 
           <ul className="text-sm text-slate-300 space-y-1.5">
-            <li>• Independent judge for international hackathons and open innovation programs</li>
+            <li>• Independent judge for international competitions and open innovation programs</li>
             <li>• External evaluator of cybersecurity architectures, frameworks and prototypes</li>
             <li>• Reviewer of innovation, research and award submissions in digital trust</li>
             <li>• No employment, equity or financial interest in submitting entities</li>

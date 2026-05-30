@@ -13,6 +13,7 @@ const frameworks = [
     subtitle: 'Banking Security Framework',
     description:
       'Multi-layered security framework that protects digital banking channels and core financial systems, simplifying regulatory compliance and operational risk management.',
+    realWorld: 'Applied to fintech platforms requiring PCI-DSS compliance, protecting transaction pipelines against lateral movement and credential-based attacks.',
     image: 'https://static.abacusaicdn.net/images/cf8680fd-15e7-42fa-bdc1-8ba5d8e97589.jpg',
     icon: Shield,
     color: 'blue',
@@ -30,6 +31,7 @@ const frameworks = [
     subtitle: 'Healthcare Protection System',
     description:
       'Protects patient data, clinical systems, and healthcare workflows with an architecture designed for privacy, availability, and regulatory-grade protection.',
+    realWorld: 'Designed for hospital systems and telehealth platforms handling PHI, enabling secure EHR access without compromising clinical availability.',
     image: 'https://static.abacusaicdn.net/images/c5a74abb-b427-4ace-9178-81d5d432e1d6.jpg',
     icon: Heart,
     color: 'emerald',
@@ -44,9 +46,10 @@ const frameworks = [
   {
     id: 'physi-digital',
     title: 'PhysiDigital™',
-    subtitle: 'Digital Transformation Framework',
+    subtitle: 'Secure IoMT Framework',
     description:
-      'Connects physical operations and digital ecosystems through structured process mapping, integration, and automation to accelerate transformation with measurable impact.',
+      'Bridges physical IoT sensor networks and digital health ecosystems with security-first architecture — protecting data integrity from device to cloud.',
+    realWorld: 'Built for connected medical device environments where MQTT streams and cloud dashboards must maintain tamper-proof audit trails under HIPAA.',
     image: 'https://static.abacusaicdn.net/images/d4efe466-ab21-4428-aaf8-5ba98b5a2fc6.jpg',
     icon: Zap,
     color: 'purple',
@@ -155,9 +158,15 @@ export default function FeaturedFrameworks() {
                     </h3>
 
                     {/* Description */}
-                    <p className="text-slate-300 mb-8 leading-relaxed flex-grow">
+                    <p className="text-slate-300 mb-4 leading-relaxed">
                       {framework.description}
                     </p>
+
+                    {/* Real-world application */}
+                    <div className="flex items-start gap-2 mb-6 p-3 rounded-lg bg-slate-700/30 border border-slate-600/30">
+                      <span className="text-xs font-bold text-slate-400 uppercase tracking-wider mt-0.5 shrink-0">Use case</span>
+                      <p className="text-xs text-slate-300 leading-relaxed flex-grow">{framework.realWorld}</p>
+                    </div>
 
                     {/* Features */}
                     <div className="space-y-3 mb-8 pt-6 border-t border-slate-700/50">

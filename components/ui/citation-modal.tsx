@@ -65,6 +65,8 @@ export function CitationModal({
             <h3 className="text-2xl font-bold text-white">Cite This Work</h3>
             <button
               onClick={onClose}
+              aria-label="Close citation dialog"
+              type="button"
               className="p-2 hover:bg-slate-800 rounded-lg transition-colors"
             >
               <X className="w-6 h-6 text-slate-400" />

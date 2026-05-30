@@ -176,6 +176,7 @@ export default function CertificationsSection() {
             <button
               type="button"
               onClick={() => setSelectedCert(null)}
+              aria-label="Close certification preview"
               className="absolute right-4 top-4 inline-flex items-center justify-center rounded-full bg-black/60 text-white p-1.5 hover:bg-black/80 transition-colors"
             >
               <X className="h-4 w-4" />

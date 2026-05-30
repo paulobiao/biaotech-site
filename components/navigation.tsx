@@ -12,7 +12,7 @@ const navigation = [
   { name: 'Peer Review', href: '/peer-review' },
   { name: 'Frameworks', href: '/frameworks' },
   { name: 'Publications', href: '/publications' },
-  { name: 'SecureBank Copilot', href: '/securebank-copilot' },
+  { name: 'Projects', href: '/securebank-copilot' },
   { name: 'Contact', href: '/contact' },
   //{ name: 'Engagement', href: '/engagement' }
 ]
@@ -23,13 +23,22 @@ export default function Navigation() {
 
   return (
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <div className="flex justify-between items-center h-16">
-          <Link href="/" className="text-lg md:text-xl font-bold text-gray-900">
-            Paulo Fernandes Bião
-          </Link>
+      <div className="container mx-auto px-4 max-w-7xl">
+        <div className="flex justify-between items-center h-14">
+          <div className="flex items-center gap-2 shrink-0">
+            <Link href="/" className="text-base font-bold text-gray-900 whitespace-nowrap">
+              Paulo Fernandes Bião
+            </Link>
+            <span className="hidden lg:inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold whitespace-nowrap">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
+              </span>
+              Available for hire
+            </span>
+          </div>
 
-          <nav className="hidden md:flex items-center space-x-2">
+          <nav className="hidden md:flex items-center gap-0.5">
             {navigation.map((item) => {
               const isActive =
                 item.href === '/'
@@ -41,7 +50,7 @@ export default function Navigation() {
                   key={item.name}
                   href={item.href}
                   className={cn(
-                    'px-3 py-1.5 rounded-full text-sm font-medium transition-colors',
+                    'px-2.5 py-1.5 rounded-full text-xs font-medium transition-colors whitespace-nowrap',
                     isActive
                       ? 'bg-blue-600 text-white shadow-sm'
                       : 'text-gray-600 hover:text-blue-600 hover:bg-blue-50'

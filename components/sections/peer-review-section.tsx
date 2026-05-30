@@ -51,7 +51,7 @@ export default function PeerReviewSection() {
                 </h3>
                 <ul className="space-y-1.5 text-sm text-slate-300">
                   <li>• Academic & technical submissions</li>
-                  <li>• Innovation and hackathon entries</li>
+                  <li>• Innovation and competition entries</li>
                   <li>• Security frameworks & reference architectures</li>
                   <li>• External advisory and judging panels</li>
                 </ul>

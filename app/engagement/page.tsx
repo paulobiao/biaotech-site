@@ -90,7 +90,7 @@ const standardsContributions = [
 
 const externalEvaluation = [
   {
-    org: 'International Hackathons & Open Innovation Programs',
+    org: 'International Competitions & Open Innovation Programs',
     date: '2025 – Present',
     title: 'Technical Judge and Evaluator',
     summary:

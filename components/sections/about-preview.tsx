@@ -65,8 +65,8 @@ export default function AboutPreview() {
                 <div className="h-12 w-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
                   <Users className="h-6 w-6 text-purple-600" />
                 </div>
-                <div className="text-2xl font-bold text-gray-900 mb-1">10+</div>
-                <div className="text-sm text-gray-600">Collaborations</div>
+                <div className="text-2xl font-bold text-gray-900 mb-1">4</div>
+                <div className="text-sm text-gray-600">Devpost Competitions</div>
               </div>
             </div>
 

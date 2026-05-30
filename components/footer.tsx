@@ -11,8 +11,8 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4">Paulo Fernandes Bião</h3>
             <p className="text-gray-400 mb-4">
-              Innovation in technology frameworks for banking security, healthcare protection, 
-              and digital transformation.
+              Banking Security &amp; Cloud Infrastructure Engineer — 15+ years securing financial
+              infrastructure, IoT, and cloud-native environments.
             </p>
             <div className="flex items-center space-x-2 text-gray-400">
               <Globe className="h-4 w-4" />

@@ -2,7 +2,7 @@
 'use client'
 
 import Link from 'next/link'
-import { BookOpen, Star, Users, ArrowRight } from 'lucide-react'
+import { BookOpen, ShieldCheck, Trophy, ArrowRight } from 'lucide-react'
 import AnimatedSection from '@/components/ui/animated-section'
 
 const credentials = [
@@ -18,26 +18,26 @@ const credentials = [
     link: '/publications'
   },
   {
-    category: 'Professional Recognition',
+    category: 'Credentials & Affiliations',
     items: [
-      '50+ Professional Collaborations',
-      '25+ Industry Partnerships',
-      '100% Client Satisfaction Rate'
+      'IEEE IoT Journal — Invited Peer Reviewer since Feb 2026',
+      'OWASP ASVS — Active Contributor',
+      'ISC2 Certified in Cybersecurity (CC)'
     ],
-    icon: Star,
-    color: 'yellow',
-    link: '/testimonials'
+    icon: ShieldCheck,
+    color: 'blue',
+    link: '/about'
   },
   {
-    category: 'Key Achievements',
+    category: 'Research & Competitions',
     items: [
-      'Three Revolutionary Framework Developments',
-      'International Conference Presentations',
-      'Academic and Industry Leadership'
+      '3 original frameworks with DOI on Zenodo & Figshare',
+      '4 projects submitted to global competitions on Devpost',
+      '10+ peer-reviewed publications'
     ],
-    icon: Users,
+    icon: Trophy,
     color: 'green',
-    link: '/about'
+    link: '/publications'
   }
 ]
 
