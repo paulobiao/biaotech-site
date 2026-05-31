@@ -103,9 +103,9 @@ export default function FeaturedFrameworks() {
           className="text-center mb-20"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
-            Frameworks
+            Proprietary
             <span className="block bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">
-              Revolutionary
+              Frameworks
             </span>
           </h2>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">

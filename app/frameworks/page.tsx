@@ -7,7 +7,20 @@ import AnimatedSection from '@/components/ui/animated-section'
 export const metadata: Metadata = {
   title: 'Frameworks',
   description:
-    "Explore Paulo Fernandes Bião's revolutionary frameworks: SecureBank™, HealthGuard™, and PhysiDigital™.",
+    'SecureBank™, HealthGuard™, and PhysiDigital™ — three specialized security and digital transformation frameworks by Paulo Fernandes Bião for banking, healthcare, and enterprise environments.',
+  openGraph: {
+    title: 'Innovation Frameworks — Paulo Fernandes Bião',
+    description:
+      'SecureBank™, HealthGuard™, and PhysiDigital™ — specialized frameworks for banking security, healthcare protection, and digital transformation.',
+    url: 'https://biaotech.dev/frameworks',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Innovation Frameworks by Paulo Fernandes Bião' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Innovation Frameworks — SecureBank™, HealthGuard™, PhysiDigital™',
+    description: 'Three specialized frameworks for banking security, healthcare, and digital transformation by Paulo Fernandes Bião.',
+    images: ['https://www.biaotech.dev/og-image.png'],
+  },
 }
 
 const frameworks = [
@@ -93,17 +106,17 @@ const frameworks = [
 
 export default function FrameworksPage() {
   return (
-    <div className="min-h-screen py-20 bg-gray-50">
+    <div className="min-h-screen py-20 bg-[#0F172A]">
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Header */}
         <AnimatedSection className="text-center mb-16">
-          <p className="text-sm font-semibold tracking-wide text-blue-600 uppercase mb-2">
+          <p className="text-sm font-semibold tracking-wide text-blue-400 uppercase mb-2">
             Strategic Innovation
           </p>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Innovation Frameworks
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
             Three specialized frameworks designed by Paulo Fernandes Bião to address critical
             challenges in banking security, healthcare protection, and digital transformation.
           </p>
@@ -136,16 +149,16 @@ export default function FrameworksPage() {
                 {/* Content */}
                 <div className={index % 2 === 1 ? 'lg:col-start-1' : ''}>
                   <div className="flex items-center mb-4">
-                    <framework.icon className={`h-8 w-8 text-${framework.color}-600 mr-3`} />
+                    <framework.icon className={`h-8 w-8 text-${framework.color}-400 mr-3`} />
                     <div>
-                      <h2 className="text-3xl font-bold text-gray-900">{framework.title}</h2>
-                      <p className={`text-lg text-${framework.color}-600 font-medium`}>
+                      <h2 className="text-3xl font-bold text-white">{framework.title}</h2>
+                      <p className={`text-lg text-${framework.color}-400 font-medium`}>
                         {framework.subtitle}
                       </p>
                     </div>
                   </div>
 
-                  <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+                  <p className="text-lg text-slate-300 mb-8 leading-relaxed">
                     {framework.description}
                   </p>
 
@@ -153,16 +166,16 @@ export default function FrameworksPage() {
                   <div className="grid md:grid-cols-2 gap-8 mb-8">
                     {/* Features */}
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                      <h3 className="text-xl font-semibold text-white mb-3">
                         Key Features
                       </h3>
                       <div className="space-y-2">
                         {framework.features.map((feature, idx) => (
                           <div key={idx} className="flex items-start">
                             <div
-                              className={`mt-1 h-2 w-2 bg-${framework.color}-600 rounded-full mr-3`}
+                              className={`mt-1 h-2 w-2 bg-${framework.color}-400 rounded-full mr-3`}
                             ></div>
-                            <span className="text-gray-700 text-sm md:text-base">
+                            <span className="text-slate-300 text-sm md:text-base">
                               {feature}
                             </span>
                           </div>
@@ -172,14 +185,14 @@ export default function FrameworksPage() {
 
                     {/* Benefits */}
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-3">Benefits</h3>
+                      <h3 className="text-xl font-semibold text-white mb-3">Benefits</h3>
                       <div className="space-y-2">
                         {framework.benefits.map((benefit, idx) => (
                           <div key={idx} className="flex items-start">
                             <div
-                              className={`mt-1 h-2 w-2 bg-${framework.color}-600 rounded-full mr-3`}
+                              className={`mt-1 h-2 w-2 bg-${framework.color}-400 rounded-full mr-3`}
                             ></div>
-                            <span className="text-gray-700 text-sm md:text-base">
+                            <span className="text-slate-300 text-sm md:text-base">
                               {benefit}
                             </span>
                           </div>
@@ -204,17 +217,17 @@ export default function FrameworksPage() {
 
         {/* CTA Section */}
         <AnimatedSection className="text-center mt-20">
-          <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-8 text-white shadow-xl">
+          <div className="bg-slate-800/60 border border-slate-700 rounded-2xl p-8 text-white shadow-xl">
             <h2 className="text-3xl font-bold mb-4">
               Ready to Implement These Frameworks?
             </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
               Get in touch to discuss how these frameworks can be tailored to your
               organization&apos;s architecture, regulatory landscape, and strategic objectives.
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center px-8 py-4 bg-white text-blue-600 rounded-xl hover:bg-gray-50 transition-colors font-semibold shadow-md"
+              className="inline-flex items-center px-8 py-4 bg-blue-600 text-white rounded-xl hover:bg-blue-500 transition-colors font-semibold shadow-md"
             >
               Contact Paulo
               <ArrowRight className="h-4 w-4 ml-2" />

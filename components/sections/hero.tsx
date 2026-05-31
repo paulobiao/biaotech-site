@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { ArrowRight, Zap, Shield, Heart, MapPin, FileDown } from 'lucide-react'
+import { ArrowRight, Zap, Shield, Heart, MapPin, FileDown, Github, ExternalLink, BookOpen } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 const heroFrameworks = [
@@ -89,7 +89,7 @@ export default function Hero() {
             >
               <div className="space-y-2">
                 <div className="text-3xl font-bold text-blue-400">15+</div>
-                <div className="text-sm text-slate-400">Years in Technology</div>
+                <div className="text-sm text-slate-400">Years in Technology &amp; Security Infrastructure</div>
               </div>
               <div className="space-y-2">
                 <div className="text-3xl font-bold text-cyan-400">3</div>
@@ -115,13 +115,53 @@ export default function Hero() {
                 Explore Frameworks
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
-              <Link
-                href="/contact"
+              <a
+                href="/Paulo_Fernandes_Biao_Resume.pdf"
+                download="Paulo_Fernandes_Biao_Resume.pdf"
                 className="group px-8 py-4 border-2 border-slate-500 hover:border-slate-300 text-slate-300 hover:text-white font-semibold rounded-lg transition-all duration-300 hover:bg-slate-700/50 backdrop-blur-sm flex items-center justify-center gap-2"
               >
                 <FileDown className="w-5 h-5" />
-                Request Resume
-              </Link>
+                Download Resume
+              </a>
+            </motion.div>
+
+            {/* Secondary links row */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex flex-wrap gap-3"
+            >
+              <a
+                href="https://github.com/paulobiao"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-600/70 text-slate-400 hover:border-slate-400 hover:text-slate-200 transition-all text-sm font-medium"
+              >
+                <Github className="w-4 h-4" />
+                GitHub
+                <ArrowRight className="w-3 h-3" />
+              </a>
+              <a
+                href="https://api.biaotech.dev/api/health"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-600/70 text-slate-400 hover:border-cyan-500/60 hover:text-cyan-300 transition-all text-sm font-medium"
+              >
+                <ExternalLink className="w-4 h-4" />
+                Live API
+                <ArrowRight className="w-3 h-3" />
+              </a>
+              <a
+                href="https://api.biaotech.dev/api/docs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-600/70 text-slate-400 hover:border-blue-500/60 hover:text-blue-300 transition-all text-sm font-medium"
+              >
+                <BookOpen className="w-4 h-4" />
+                Swagger Docs
+                <ArrowRight className="w-3 h-3" />
+              </a>
             </motion.div>
           </div>
 

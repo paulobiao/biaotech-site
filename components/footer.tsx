@@ -43,34 +43,34 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4">Connect</h4>
             <div className="space-y-3">
-              <Link 
-                href="/contact" 
+              <a
+                href="mailto:contact@biaotech.dev"
                 className="flex items-center text-gray-400 hover:text-white transition-colors"
               >
                 <Mail className="h-4 w-4 mr-2" />
-                Get in Touch
-              </Link>
+                contact@biaotech.dev
+              </a>
+
+              {/* LinkedIn */}
+              <a
+                href="https://linkedin.com/in/paulobiao"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-gray-400 hover:text-white transition-colors"
+              >
+                <Linkedin className="h-4 w-4 mr-2" />
+                linkedin.com/in/paulobiao
+              </a>
 
               {/* GitHub */}
-              <a 
+              <a
                 href="https://github.com/paulobiao"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center text-gray-400 hover:text-white transition-colors"
               >
                 <Github className="h-4 w-4 mr-2" />
-                GitHub
-              </a>
-
-              {/* LinkedIn */}
-              <a 
-                href="https://www.linkedin.com/in/paulobiao/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center text-gray-400 hover:text-white transition-colors"
-              >
-                <Linkedin className="h-4 w-4 mr-2" />
-                LinkedIn
+                github.com/paulobiao
               </a>
             </div>
           </div>

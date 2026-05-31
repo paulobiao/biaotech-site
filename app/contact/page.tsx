@@ -87,8 +87,8 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900 py-20">
-      <div className="container mx-auto px-4 max-w-6xl">
+    <div className="bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900 py-20 pb-32">
+      <div className="container mx-auto px-4 max-w-[900px]">
         {/* HEADER */}
         <motion.div
           className="text-center mb-12"
@@ -358,6 +358,30 @@ export default function ContactPage() {
             </div>
           </motion.div>
         </div>
+
+        {/* Why work with me */}
+        <motion.div
+          className="mt-12 bg-slate-900/60 border border-slate-800 rounded-2xl p-6 md:p-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <h2 className="text-xl font-semibold text-white mb-5">Why work with me?</h2>
+          <ul className="space-y-3">
+            <li className="flex items-start gap-3">
+              <span className="mt-1 h-2 w-2 rounded-full bg-blue-400 flex-shrink-0" />
+              <span className="text-slate-300">8+ years securing critical infrastructure in banking, healthcare, and cloud environments</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-1 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0" />
+              <span className="text-slate-300">Production API live on AWS — not just portfolio code, but running infrastructure</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-1 h-2 w-2 rounded-full bg-emerald-400 flex-shrink-0" />
+              <span className="text-slate-300">Open to remote US roles immediately — authorized to work, no visa sponsorship required</span>
+            </li>
+          </ul>
+        </motion.div>
       </div>
     </div>
   )

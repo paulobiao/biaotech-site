@@ -425,7 +425,7 @@ export default function PublicationsClient() {
               Peer-facing scientific manuscript and supporting scholarly records with DOI for citation.
             </p>
 
-            <div className="space-y-6">
+            <div className="space-y-4">
               {scientificPublications.map((publication, index) => {
                 const isArxiv = publication.platform === 'arXiv'
                 const isOSF = publication.platform === 'OSF'
@@ -460,7 +460,7 @@ export default function PublicationsClient() {
                 return (
                   <div
                     key={`scientific-${index}`}
-                    className={`relative bg-gradient-to-r ${cardTheme.bg} backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 ${cardTheme.border} group`}
+                    className={`relative bg-gradient-to-r ${cardTheme.bg} backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 ${cardTheme.border} group`}
                   >
                     <div
                       className={`absolute -top-3 -right-3 bg-gradient-to-r ${cardTheme.badge} text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg`}
@@ -470,7 +470,7 @@ export default function PublicationsClient() {
 
                     <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-4">
                       <div className="flex-1">
-                        <h4 className="text-2xl font-bold text-gray-900 mb-2 leading-tight">
+                        <h4 className="text-[15px] font-bold text-gray-900 mb-2 leading-tight">
                           {publication.title}
                         </h4>
 
@@ -536,7 +536,7 @@ export default function PublicationsClient() {
                       </p>
                     )}
 
-                    <p className="text-gray-700 leading-relaxed">
+                    <p className="text-gray-700 leading-relaxed line-clamp-2">
                       <strong>Abstract:</strong> {publication.abstract}
                     </p>
                   </div>
@@ -561,14 +561,14 @@ export default function PublicationsClient() {
               {featuredPublications.map((publication, index) => (
                 <div
                   key={`featured-${index}`}
-                  className="relative bg-gradient-to-r from-blue-50 to-cyan-50 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-blue-400 hover:border-blue-500 group"
+                  className="relative bg-gradient-to-r from-blue-50 to-cyan-50 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-blue-400 hover:border-blue-500 group"
                 >
                   <div className="absolute -top-3 -right-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg">
                     Featured
                   </div>
                   <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-4">
                     <div className="flex-1">
-                      <h4 className="text-2xl font-bold text-gray-900 mb-2 leading-tight">
+                      <h4 className="text-[15px] font-bold text-gray-900 mb-2 leading-tight">
                         {publication.title}
                       </h4>
                       <div className="flex flex-wrap items-center gap-4 mb-4">
@@ -620,7 +620,7 @@ export default function PublicationsClient() {
                     </p>
                   )}
 
-                  <p className="text-gray-700 leading-relaxed">
+                  <p className="text-gray-700 leading-relaxed line-clamp-2">
                     <strong>Abstract:</strong> {publication.abstract}
                   </p>
                 </div>
@@ -638,15 +638,15 @@ export default function PublicationsClient() {
             return (
               <AnimatedSection key={platform}>
                 <h3 className="text-2xl font-semibold text-gray-900 mb-4">{platform}</h3>
-                <div className="space-y-6">
+                <div className="space-y-4">
                   {list.map((publication, index) => (
                     <div
                       key={`${platform}-${index}`}
-                      className="relative bg-gradient-to-r from-blue-50 to-cyan-50 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-blue-300 hover:border-blue-400 group"
+                      className="relative bg-gradient-to-r from-blue-50 to-cyan-50 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-blue-300 hover:border-blue-400 group"
                     >
                       <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-4 relative">
                         <div className="flex-1">
-                          <h4 className="text-xl font-bold text-gray-900 mb-2 leading-tight">
+                          <h4 className="text-[15px] font-bold text-gray-900 mb-2 leading-tight">
                             {publication.title}
                           </h4>
                           <div className="flex flex-wrap items-center gap-4 mb-4">
@@ -683,7 +683,7 @@ export default function PublicationsClient() {
                         </p>
                       )}
 
-                      <p className="text-gray-700 leading-relaxed">
+                      <p className="text-gray-700 leading-relaxed line-clamp-2">
                         <strong>Abstract:</strong> {publication.abstract}
                       </p>
                     </div>

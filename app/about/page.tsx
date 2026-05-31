@@ -8,7 +8,20 @@ import CertificationsSection from '@/components/sections/CertificationsSection'
 export const metadata: Metadata = {
   title: 'About',
   description:
-    "Learn about Paulo Fernandes Biao's professional background, education, and career journey in technology innovation.",
+    'Paulo Fernandes Bião — 15+ years in banking security, cloud infrastructure, and IoT. IEEE IoT Journal Peer Reviewer. Creator of SecureBank™, HealthGuard™, and PhysiDigital™ frameworks. Open to US roles.',
+  openGraph: {
+    title: 'About Paulo Fernandes Bião — Banking Security & Cloud Engineer',
+    description:
+      '15+ years securing financial infrastructure, IoT ecosystems, and cloud-native environments. IEEE IoT Journal Peer Reviewer. Open to US opportunities.',
+    url: 'https://biaotech.dev/about',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'About Paulo Fernandes Bião' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About Paulo Fernandes Bião',
+    description: '15+ years in banking security, cloud infrastructure, and IoT. IEEE IoT Peer Reviewer. Open to US roles.',
+    images: ['https://www.biaotech.dev/og-image.png'],
+  },
 }
 
 export default function AboutPage() {
@@ -63,7 +76,7 @@ export default function AboutPage() {
             <div className="grid grid-cols-3 gap-4">
               <div className="text-center p-4 bg-gradient-to-br from-blue-600/20 to-cyan-600/20 border border-blue-500/30 rounded-xl">
                 <div className="text-3xl font-black bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-1">15+</div>
-                <div className="text-sm text-slate-400">Years in Technology</div>
+                <div className="text-sm text-slate-400">Years in Technology &amp; Security Infrastructure</div>
               </div>
               <div className="text-center p-4 bg-gradient-to-br from-purple-600/20 to-pink-600/20 border border-purple-500/30 rounded-xl">
                 <div className="text-3xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-1">3</div>
