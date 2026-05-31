@@ -87,7 +87,7 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900 py-20 pb-32">
+    <div className="bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900 py-20 pb-12">
       <div className="container mx-auto px-4 max-w-[900px]">
         {/* HEADER */}
         <motion.div

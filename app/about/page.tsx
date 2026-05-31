@@ -37,7 +37,7 @@ export default function AboutPage() {
             Paulo Fernandes Biao
           </h1>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Technology innovator and systems architect specializing in security frameworks and digital transformation for critical industries.
+            Systems analyst and cloud engineer with 8+ years securing critical infrastructure across banking, IoT, and cloud-native environments. Currently targeting US-based remote roles in cloud and cybersecurity.
           </p>
         </AnimatedSection>
 
