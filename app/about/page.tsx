@@ -8,18 +8,18 @@ import CertificationsSection from '@/components/sections/CertificationsSection'
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Paulo Fernandes Bião — 15+ years in banking security, cloud infrastructure, and IoT. IEEE IoT Journal Peer Reviewer. Creator of SecureBank™, HealthGuard™, and PhysiDigital™ frameworks. Open to US roles.',
+    'Paulo Biao — Security & Cloud Engineer with over a decade securing systems for financial institutions in Brazil, now focused on the cloud. Creator of SecureBank™, HealthGuard™, and PhysiDigital™ frameworks. Open to US roles.',
   openGraph: {
-    title: 'About Paulo Fernandes Bião — Banking Security & Cloud Engineer',
+    title: 'About Paulo Biao — Security & Cloud Engineer',
     description:
-      '15+ years securing financial infrastructure, IoT ecosystems, and cloud-native environments. IEEE IoT Journal Peer Reviewer. Open to US opportunities.',
+      'Over a decade securing systems for financial institutions in Brazil, now focused on the cloud. Creator of SecureBank™, HealthGuard™, and PhysiDigital™ frameworks. IEEE IoT Journal Peer Reviewer. Open to US opportunities.',
     url: 'https://biaotech.dev/about',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'About Paulo Fernandes Bião' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'About Paulo Biao' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About Paulo Fernandes Bião',
-    description: '15+ years in banking security, cloud infrastructure, and IoT. IEEE IoT Peer Reviewer. Open to US roles.',
+    title: 'About Paulo Biao',
+    description: 'Over a decade securing systems for financial institutions in Brazil, now focused on the cloud. Creator of SecureBank™, HealthGuard™, PhysiDigital™. IEEE IoT Peer Reviewer. Open to US roles.',
     images: ['https://www.biaotech.dev/og-image.png'],
   },
 }
@@ -34,10 +34,10 @@ export default function AboutPage() {
             About
           </p>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-4">
-            Paulo Fernandes Biao
+            Paulo Biao
           </h1>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Systems analyst and cloud engineer with 8+ years securing critical infrastructure across banking, IoT, and cloud-native environments. Currently targeting US-based remote roles in cloud and cybersecurity.
+            Security &amp; Cloud Engineer with a background protecting systems for financial institutions in Brazil, now focused on the cloud. Currently targeting US-based remote roles in cloud and security.
           </p>
         </AnimatedSection>
 
@@ -54,7 +54,7 @@ export default function AboutPage() {
             <div className="relative w-[320px] h-[420px] md:w-[360px] md:h-[480px]">
               <Image
                 src="/pauloNN.jpg"
-                alt="Paulo Fernandes Biao"
+                alt="Paulo Biao"
                 fill
                 className="object-cover rounded-xl"
                 priority
@@ -67,7 +67,7 @@ export default function AboutPage() {
           <div className="flex flex-col justify-center">
             <h2 className="text-4xl font-black text-white mb-6">Professional Overview</h2>
             <p className="text-lg text-slate-300 mb-4 leading-relaxed">
-              Paulo Fernandes Biao is a seasoned technology professional with a strong track record in systems architecture, security, and digital transformation. Throughout his career, he has designed and implemented solutions that connect complex technical environments with real business outcomes.
+              Paulo Biao is a seasoned technology professional with a strong track record in systems architecture, security, and digital transformation. Throughout his career, he has designed and implemented solutions that connect complex technical environments with real business outcomes.
             </p>
             <p className="text-lg text-slate-300 mb-8 leading-relaxed">
               His work on the SecureBank™, HealthGuard™, and PhysiDigital™ frameworks reflects a structured and strategic approach to solving challenges in banking, healthcare, and enterprise operations—always with a focus on resilience, scalability, and long-term impact.
@@ -75,8 +75,8 @@ export default function AboutPage() {
 
             <div className="grid grid-cols-3 gap-4">
               <div className="text-center p-4 bg-gradient-to-br from-blue-600/20 to-cyan-600/20 border border-blue-500/30 rounded-xl">
-                <div className="text-3xl font-black bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-1">15+</div>
-                <div className="text-sm text-slate-400">Years in Technology &amp; Security Infrastructure</div>
+                <div className="text-3xl font-black bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-1">10+</div>
+                <div className="text-sm text-slate-400">Years Experience</div>
               </div>
               <div className="text-center p-4 bg-gradient-to-br from-purple-600/20 to-pink-600/20 border border-purple-500/30 rounded-xl">
                 <div className="text-3xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-1">3</div>

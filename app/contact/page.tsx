@@ -370,7 +370,7 @@ export default function ContactPage() {
           <ul className="space-y-3">
             <li className="flex items-start gap-3">
               <span className="mt-1 h-2 w-2 rounded-full bg-blue-400 flex-shrink-0" />
-              <span className="text-slate-300">8+ years securing critical infrastructure in banking, healthcare, and cloud environments</span>
+              <span className="text-slate-300">Over a decade securing systems for financial institutions in Brazil, now focused on the cloud</span>
             </li>
             <li className="flex items-start gap-3">
               <span className="mt-1 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0" />

@@ -69,14 +69,14 @@ export default function Hero() {
               className="space-y-5"
             >
               <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] font-black leading-[1.1] text-white">
-                Banking Security{' '}
+                Security{' '}
                 <span className="bg-gradient-to-r from-blue-300 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                  &amp; Cloud Infrastructure
+                  &amp; Cloud
                 </span>{' '}
                 Engineer
               </h1>
               <p className="text-lg md:text-xl text-slate-300 leading-[1.8] max-w-2xl">
-                Building secure, scalable systems for the US market — 15+ years securing financial infrastructure, IoT ecosystems, and cloud-native environments.
+                Security engineer with a background protecting systems for financial institutions in Brazil, now focused on the cloud — completing a postgraduate degree in Cloud Computing and the AWS Solutions Architect certification, and building production infrastructure on AWS.
               </p>
             </motion.div>
 
@@ -88,8 +88,8 @@ export default function Hero() {
               className="grid grid-cols-3 gap-4 py-8"
             >
               <div className="space-y-2">
-                <div className="text-3xl font-bold text-blue-400">15+</div>
-                <div className="text-sm text-slate-400">Years in Technology &amp; Security Infrastructure</div>
+                <div className="text-3xl font-bold text-blue-400">10+</div>
+                <div className="text-sm text-slate-400">Years Experience</div>
               </div>
               <div className="space-y-2">
                 <div className="text-3xl font-bold text-cyan-400">3</div>

@@ -12,13 +12,13 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   metadataBase: new URL("https://biaotech.dev"),
   title: {
-    default: "Paulo Fernandes Bião — Banking Security & Cloud Infrastructure Engineer",
-    template: "%s | Paulo Fernandes Bião",
+    default: "Paulo Biao — Security & Cloud Engineer",
+    template: "%s | Paulo Biao",
   },
   description:
-    "Banking Security & Cloud Infrastructure Engineer with 15+ years securing financial infrastructure, IoT ecosystems, and cloud-native environments. Creator of SecureBank™, HealthGuard™, and PhysiDigital™. IEEE IoT Journal Peer Reviewer. Open to US opportunities.",
+    "Security & Cloud Engineer with over a decade securing systems for financial institutions in Brazil, now focused on the cloud. Creator of SecureBank™, HealthGuard™, and PhysiDigital™. IEEE IoT Journal Peer Reviewer. Open to US opportunities.",
   keywords: [
-    "Paulo Fernandes Biao",
+    "Paulo Biao",
     "banking security engineer",
     "cloud security engineer",
     "cybersecurity South Florida",
@@ -35,30 +35,30 @@ export const metadata: Metadata = {
     "ISC2 certified cybersecurity",
     "EB-2 NIW cybersecurity",
   ],
-  authors: [{ name: "Paulo Fernandes Bião" }],
-  creator: "Paulo Fernandes Bião",
+  authors: [{ name: "Paulo Biao" }],
+  creator: "Paulo Biao",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "/",
-    title: "Paulo Fernandes Bião — Banking Security & Cloud Infrastructure Engineer",
+    title: "Paulo Biao — Security & Cloud Engineer",
     description:
-      "15+ years securing financial infrastructure, IoT ecosystems, and cloud-native environments. Creator of SecureBank™, HealthGuard™, and PhysiDigital™ frameworks. IEEE IoT Journal Peer Reviewer. Open to US opportunities.",
-    siteName: "Paulo Fernandes Bião — biaotech.dev",
+      "Over a decade securing systems for financial institutions in Brazil, now focused on the cloud. Creator of SecureBank™, HealthGuard™, and PhysiDigital™ frameworks. IEEE IoT Journal Peer Reviewer. Open to US opportunities.",
+    siteName: "Paulo Biao — biaotech.dev",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Paulo Fernandes Bião — Banking Security & Cloud Infrastructure Engineer",
+        alt: "Paulo Biao — Security & Cloud Engineer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Paulo Fernandes Bião — Banking Security & Cloud Infrastructure Engineer",
+    title: "Paulo Biao — Security & Cloud Engineer",
     description:
-      "15+ years securing financial infrastructure, IoT, and cloud environments. Creator of SecureBank™, HealthGuard™, PhysiDigital™. IEEE IoT Peer Reviewer. Open to US roles.",
+      "Over a decade securing systems for financial institutions in Brazil, now focused on the cloud. Creator of SecureBank™, HealthGuard™, PhysiDigital™. IEEE IoT Peer Reviewer. Open to US roles.",
     images: ["https://www.biaotech.dev/og-image.png"],
   },
   robots: {

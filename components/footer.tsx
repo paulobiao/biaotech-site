@@ -9,10 +9,10 @@ export default function Footer() {
           
           {/* Brand */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Paulo Fernandes Bião</h3>
+            <h3 className="text-xl font-bold mb-4">Paulo Biao</h3>
             <p className="text-gray-400 mb-4">
-              Banking Security &amp; Cloud Infrastructure Engineer — 15+ years securing financial
-              infrastructure, IoT, and cloud-native environments.
+              Security &amp; Cloud Engineer — Over a decade securing systems for financial
+              institutions in Brazil, now focused on the cloud.
             </p>
             <div className="flex items-center space-x-2 text-gray-400">
               <Globe className="h-4 w-4" />
@@ -78,7 +78,7 @@ export default function Footer() {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-400 text-sm">
-            © {new Date().getFullYear()} Paulo Fernandes Bião. Professional Portfolio.
+            © {new Date().getFullYear()} Paulo Biao. Professional Portfolio.
           </p>
         </div>
       </div>

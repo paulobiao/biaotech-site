@@ -27,7 +27,7 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-14">
           <div className="flex items-center gap-2 shrink-0">
             <Link href="/" className="text-base font-bold text-gray-900 whitespace-nowrap">
-              Paulo Fernandes Bião
+              Paulo Biao
             </Link>
             <span className="hidden lg:inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold whitespace-nowrap">
               <span className="relative flex h-1.5 w-1.5">

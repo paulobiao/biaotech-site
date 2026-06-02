@@ -22,7 +22,7 @@ export default function AboutPreview() {
           >
             <Image
               src="/pauloNN.jpg"
-              alt="Paulo Fernandes Bião"
+              alt="Paulo Biao"
               fill
               className="object-contain"
               priority
@@ -33,7 +33,7 @@ export default function AboutPreview() {
           {/* Content */}
           <AnimatedSection delay={0.2}>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Meet Paulo Fernandes Bião
+              Meet Paulo Biao
             </h2>
             <p className="text-lg text-gray-700 mb-6 leading-relaxed">
               A distinguished technology innovator and academic leader dedicated to developing 
@@ -51,7 +51,7 @@ export default function AboutPreview() {
                 <div className="h-12 w-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
                   <Award className="h-6 w-6 text-blue-600" />
                 </div>
-                <div className="text-2xl font-bold text-gray-900 mb-1">15+</div>
+                <div className="text-2xl font-bold text-gray-900 mb-1">10+</div>
                 <div className="text-sm text-gray-600">Years Experience</div>
               </div>
               <div className="text-center">
