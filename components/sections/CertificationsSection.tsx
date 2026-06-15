@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
-import { BadgeCheck, X, ExternalLink } from 'lucide-react'
+import { BadgeCheck, X, ExternalLink, Clock } from 'lucide-react'
 import AnimatedSection from '@/components/ui/animated-section'
 
 type Certification = {
@@ -14,6 +14,7 @@ type Certification = {
   pdfUrl?: string
   verifyUrl?: string
   credentialId?: string
+  inProgress?: boolean
 }
 
 const certifications: Certification[] = [
@@ -41,17 +42,14 @@ const certifications: Certification[] = [
     credentialId: '2612923193PB',
   },
 
-  // 🔹 ISC2
+  // 🔹 ISC2 (in progress — exam not yet taken)
   {
     id: 'isc2-cc',
     title: 'ISC2 – Certified in Cybersecurity (CC)',
     subtitle: 'ISC2 • Cybersecurity Fundamentals',
     image: '/certifications/isc2-cc.png',
-    alt: 'ISC2 Certified in Cybersecurity (CC) certificate',
-    pdfUrl: '/certificates/isc2-cc.pdf',
-    verifyUrl:
-      'https://isc2.obrizum.io/org/cc/certificate/488aa94a-29ce-4ccd-b060-ebb49c4c3ef8',
-    credentialId: '82f7d5ae-7051-420d-b6c8-4d5d465686cd',
+    alt: 'ISC2 Certified in Cybersecurity (CC)',
+    inProgress: true,
   },
 
   // 🔹 Scrum
@@ -138,27 +136,44 @@ export default function CertificationsSection() {
           </p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {certifications.map((cert) => (
-              <button
-                key={cert.id}
-                type="button"
-                onClick={() => setSelectedCert(cert)}
-                className="bg-gray-50 rounded-xl p-4 shadow-sm flex flex-col items-center text-center hover:shadow-md transition cursor-pointer"
-              >
-                <div className="relative w-24 h-24 mb-3">
-                  <Image
-                    src={cert.image}
-                    alt={cert.alt}
-                    fill
-                    className="object-contain rounded-lg"
-                  />
+            {certifications.map((cert) =>
+              cert.inProgress ? (
+                <div
+                  key={cert.id}
+                  className="bg-gray-50 rounded-xl p-4 shadow-sm flex flex-col items-center text-center relative"
+                >
+                  <div className="relative w-24 h-24 mb-3 flex items-center justify-center bg-blue-50 rounded-lg border-2 border-dashed border-blue-200">
+                    <Clock className="w-10 h-10 text-blue-400" />
+                  </div>
+                  <h3 className="text-sm font-semibold text-gray-900">{cert.title}</h3>
+                  <p className="text-xs text-gray-600 mt-1">{cert.subtitle}</p>
+                  <span className="mt-2 inline-flex items-center gap-1 text-xs font-semibold px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 border border-amber-200">
+                    <Clock className="w-3 h-3" />
+                    In Progress
+                  </span>
                 </div>
-                <h3 className="text-sm font-semibold text-gray-900">
-                  {cert.title}
-                </h3>
-                <p className="text-xs text-gray-600 mt-1">{cert.subtitle}</p>
-              </button>
-            ))}
+              ) : (
+                <button
+                  key={cert.id}
+                  type="button"
+                  onClick={() => setSelectedCert(cert)}
+                  className="bg-gray-50 rounded-xl p-4 shadow-sm flex flex-col items-center text-center hover:shadow-md transition cursor-pointer"
+                >
+                  <div className="relative w-24 h-24 mb-3">
+                    <Image
+                      src={cert.image}
+                      alt={cert.alt}
+                      fill
+                      className="object-contain rounded-lg"
+                    />
+                  </div>
+                  <h3 className="text-sm font-semibold text-gray-900">
+                    {cert.title}
+                  </h3>
+                  <p className="text-xs text-gray-600 mt-1">{cert.subtitle}</p>
+                </button>
+              )
+            )}
           </div>
         </div>
       </AnimatedSection>

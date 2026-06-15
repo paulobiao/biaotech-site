@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     "NIST PCI-DSS compliance",
     "IEEE IoT peer reviewer",
     "OWASP ASVS",
-    "ISC2 certified cybersecurity",
+    "ISC2 cybersecurity candidate",
     "EB-2 NIW cybersecurity",
   ],
   authors: [{ name: "Paulo Biao" }],

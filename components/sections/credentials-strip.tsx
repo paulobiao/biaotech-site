@@ -32,8 +32,8 @@ const credentials = [
   {
     icon: Award,
     label: 'ISC2 CC',
-    sub: 'Certified in Cybersecurity',
-    detail: 'International standard',
+    sub: 'Exam In Progress',
+    detail: 'Studying · Exam Scheduled',
     color: 'text-purple-400',
     bg: 'bg-purple-500/10 border-purple-500/30',
   },

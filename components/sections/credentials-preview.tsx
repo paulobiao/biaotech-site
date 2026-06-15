@@ -22,7 +22,7 @@ const credentials = [
     items: [
       'IEEE IoT Journal — Invited Peer Reviewer since Feb 2026',
       'OWASP ASVS — Active Contributor',
-      'ISC2 Certified in Cybersecurity (CC)'
+      'ISC2 Certified in Cybersecurity (CC) — In Progress'
     ],
     icon: ShieldCheck,
     color: 'blue',

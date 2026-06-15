@@ -136,7 +136,7 @@ export default function AboutPage() {
                     aligned with emerging technologies and industry best practices, including:
                   </p>
                   <ul className="list-disc list-inside text-gray-700 space-y-1">
-                    <li>ISC2 – Certified in Cybersecurity (CC)</li>
+                    <li>ISC2 – Certified in Cybersecurity (CC) <span className="text-amber-600 font-medium">(In Progress)</span></li>
                     <li>Scrum Alliance – Certified Scrum Master (CSM)</li>
                     <li>Oracle Cloud Infrastructure 2024 Foundations</li>
                     <li>Oracle Cloud Infrastructure 2024 Data Foundations</li>

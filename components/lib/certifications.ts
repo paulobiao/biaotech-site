@@ -20,6 +20,7 @@ export type CertificationItem = {
   imageUrl?: string       // thumb em /public/certifications
   highlight?: boolean
   notes?: string
+  inProgress?: boolean
 }
 
 // 🔹 SOMENTE CERTIFICAÇÕES OFICIAIS (exames / badges)
@@ -64,14 +65,9 @@ export const officialCertifications: CertificationItem[] = [
     issuer: 'ISC2',
     category: 'Cybersecurity',
     level: 'Certification',
-    date: '2025-05-21',
-    credentialId: '82f7d5ae-7051-420d-b6c8-4d5d465686cd',
-    verifyUrl:
-      'https://isc2.obrizum.io/org/cc/certificate/488aa94a-29ce-4ccd-b060-ebb49c4c3ef8',
-    imageUrl: '/certifications/isc2-cc.jpg',
-    certificateUrl: '/certificates/isc2-cc.pdf',
     highlight: true,
-    notes: 'Entry-level certification validating core cybersecurity knowledge from ISC2.',
+    inProgress: true,
+    notes: 'Entry-level certification from ISC2 — currently studying for the exam.',
   },
   {
     id: 'scrum-csm',
