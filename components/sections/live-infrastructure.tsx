@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import Link from 'next/link'
 import { ExternalLink, RefreshCw, Wifi, WifiOff, Database, Clock, Server, Activity } from 'lucide-react'
 
@@ -35,7 +35,6 @@ export default function LiveInfrastructure() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
   const [lastRefresh, setLastRefresh] = useState<Date | null>(null)
-  const [countdown, setCountdown] = useState(30)
 
   const fetchHealth = useCallback(async () => {
     setLoading(true)
@@ -45,33 +44,19 @@ export default function LiveInfrastructure() {
       if (!res.ok) throw new Error('Non-OK response')
       const json = await res.json()
       setData(json)
-      setLastRefresh(new Date())
-      setCountdown(30)
     } catch {
       setError(true)
       setData(null)
-      setLastRefresh(new Date())
-      setCountdown(30)
     } finally {
+      setLastRefresh(new Date())
       setLoading(false)
     }
   }, [])
 
+  // Single check on page load — no polling.
   useEffect(() => {
     fetchHealth()
   }, [fetchHealth])
-
-  useEffect(() => {
-    const interval = setInterval(fetchHealth, 30000)
-    return () => clearInterval(interval)
-  }, [fetchHealth])
-
-  useEffect(() => {
-    const tick = setInterval(() => {
-      setCountdown((c) => (c > 0 ? c - 1 : 30))
-    }, 1000)
-    return () => clearInterval(tick)
-  }, [lastRefresh])
 
   const isOk = !error && data?.status === 'ok'
   const dbConnected = data?.database === 'connected' || data?.database === 'ok'
@@ -84,18 +69,28 @@ export default function LiveInfrastructure() {
       <div className="relative z-10 container mx-auto px-4 max-w-5xl">
         {/* Section header */}
         <div className="mb-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 mb-4">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
-            </span>
-            <span className="text-xs font-semibold text-emerald-400 tracking-wide uppercase">Live Infrastructure</span>
-          </div>
+          {isOk ? (
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 mb-4">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+              </span>
+              <span className="text-xs font-semibold text-emerald-400 tracking-wide uppercase">API Online</span>
+            </div>
+          ) : (
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-500/10 border border-slate-500/30 mb-4">
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-slate-400" />
+              <span className="text-xs font-semibold text-slate-400 tracking-wide uppercase">
+                {loading ? 'Checking…' : 'API Offline'}
+              </span>
+            </div>
+          )}
           <h2 className="text-3xl md:text-4xl font-black text-white mb-3">
-            Production API — Real-Time Status
+            Backend API — Status Check
           </h2>
           <p className="text-slate-400 max-w-xl mx-auto text-sm leading-relaxed">
-            This API is live on AWS EC2, not a mock. Node.js · PostgreSQL · Docker · GitHub Actions CI/CD.
+            Backend API deployed on AWS EC2 — Node.js · PostgreSQL · Docker · GitHub Actions CI/CD.
+            The instance runs on demand and may be stopped to save costs; status below is checked live.
           </p>
         </div>
 
@@ -113,23 +108,33 @@ export default function LiveInfrastructure() {
               onClick={fetchHealth}
               disabled={loading}
               className="flex items-center gap-1.5 text-xs text-slate-400 hover:text-slate-200 transition-colors disabled:opacity-50"
-              aria-label="Refresh status"
+              aria-label="Check status"
             >
               <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} />
-              <span className="font-mono">refresh in {countdown}s</span>
+              <span className="font-mono">Check status</span>
             </button>
           </div>
 
           {/* Terminal body */}
           <div className="p-6 font-mono text-sm">
-            {loading && !data && (
+            {loading && !data && !error && (
               <div className="flex items-center gap-3 text-slate-400 py-8 justify-center">
                 <RefreshCw className="w-4 h-4 animate-spin" />
-                <span>Fetching health data…</span>
+                <span>Checking API status…</span>
               </div>
             )}
 
-            {(data || error) && (
+            {error && (
+              <div className="flex flex-col items-center gap-2 text-slate-400 py-8 text-center">
+                <WifiOff className="w-5 h-5 text-slate-500" />
+                <span className="text-slate-300">API offline — the EC2 instance is not currently running.</span>
+                <span className="text-xs text-slate-500">
+                  This is demo infrastructure started on demand. Use “Check status” to try again.
+                </span>
+              </div>
+            )}
+
+            {data && (
               <div className="space-y-4">
                 {/* Status row */}
                 <div className="flex items-center justify-between flex-wrap gap-3">
@@ -148,7 +153,7 @@ export default function LiveInfrastructure() {
                   ) : (
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-500/15 border border-red-500/40 text-red-400 text-xs font-semibold">
                       <WifiOff className="w-3 h-3" />
-                      {error ? 'unreachable' : data?.status ?? 'unknown'}
+                      {data?.status ?? 'unknown'}
                     </span>
                   )}
                 </div>
@@ -163,7 +168,7 @@ export default function LiveInfrastructure() {
                     <div>
                       <div className="text-xs text-slate-500 mb-0.5">DATABASE</div>
                       <div className={`text-sm font-semibold ${dbConnected ? 'text-emerald-400' : 'text-red-400'}`}>
-                        {data?.database ?? (error ? 'unreachable' : '—')}
+                        {data?.database ?? '—'}
                       </div>
                     </div>
                   </div>
@@ -207,17 +212,15 @@ export default function LiveInfrastructure() {
                 </div>
 
                 {/* Raw JSON preview */}
-                {data && (
-                  <div className="mt-2 p-3 rounded-lg bg-black/40 border border-slate-700/30 text-xs text-slate-400 overflow-x-auto">
-                    <span className="text-slate-600">$ </span>
-                    <span className="text-emerald-400/80">curl</span>
-                    <span className="text-slate-300"> https://api.biaotech.dev/api/health</span>
-                    <br />
-                    <pre className="mt-1 text-slate-300/70 whitespace-pre-wrap break-all">
-                      {JSON.stringify(data, null, 2)}
-                    </pre>
-                  </div>
-                )}
+                <div className="mt-2 p-3 rounded-lg bg-black/40 border border-slate-700/30 text-xs text-slate-400 overflow-x-auto">
+                  <span className="text-slate-600">$ </span>
+                  <span className="text-emerald-400/80">curl</span>
+                  <span className="text-slate-300"> https://api.biaotech.dev/api/health</span>
+                  <br />
+                  <pre className="mt-1 text-slate-300/70 whitespace-pre-wrap break-all">
+                    {JSON.stringify(data, null, 2)}
+                  </pre>
+                </div>
               </div>
             )}
           </div>
