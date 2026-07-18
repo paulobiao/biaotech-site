@@ -2,9 +2,10 @@
 
 export default function CurrentlyBuilding() {
   const items = [
-    'AWS Solutions Architect certification in progress',
+    'Studying toward AWS certifications',
     'Cloud Computing Postgraduate — PUC Minas (exp. Nov 2026)',
-    'Open to US cybersecurity and cloud roles',
+    'Peer reviewer — IEEE Internet of Things Journal',
+    'Open to US cloud and technology roles',
   ]
 
   return (
