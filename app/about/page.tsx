@@ -1,17 +1,29 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { GraduationCap, Briefcase, BookOpen, Code2 } from 'lucide-react'
+import {
+  GraduationCap,
+  Briefcase,
+  BookOpen,
+  Code2,
+  CircleCheck,
+  ShieldCheck,
+  RefreshCw,
+  Cloud,
+  Database,
+  Lock,
+  CircleDashed,
+} from 'lucide-react'
 import AnimatedSection from '@/components/ui/animated-section'
 import CertificationsSection from '@/components/sections/CertificationsSection'
 
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Paulo Biao — systems analyst with a decade of field experience in electronic security systems (CCTV, alarms, monitoring) for banking environments, now focused on cloud computing. Graduate student in Cloud Computing at PUC Minas. Peer reviewer, IEEE Internet of Things Journal.',
+    'Paulo Biao — systems analyst with a decade of field experience in electronic security systems (CCTV, alarms, monitoring) for banking environments, now focused on cloud computing. Postgraduate in Cloud Computing (PUC Minas). Peer reviewer, IEEE Internet of Things Journal.',
   openGraph: {
     title: 'About Paulo Biao — Systems Analyst | Cloud Computing',
     description:
-      'A decade maintaining CCTV, alarm and monitoring systems for banks in Brazil, now building in the cloud. Graduate student in Cloud Computing (PUC Minas). Peer reviewer, IEEE Internet of Things Journal.',
+      'A decade maintaining CCTV, alarm and monitoring systems for banks in Brazil, now building in the cloud. Postgraduate in Cloud Computing (PUC Minas). Peer reviewer, IEEE Internet of Things Journal.',
     url: 'https://biaotech.dev/about',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'About Paulo Biao' }],
   },
@@ -23,6 +35,14 @@ export const metadata: Metadata = {
     images: ['https://www.biaotech.dev/og-image.png'],
   },
 }
+
+const certifications = [
+  { icon: ShieldCheck, color: 'text-purple-400', label: 'ISC² — Certified in Cybersecurity (CC)' },
+  { icon: RefreshCw, color: 'text-sky-400', label: 'Scrum Master (CSM)' },
+  { icon: Cloud, color: 'text-amber-400', label: 'Oracle Cloud 2024 Foundations' },
+  { icon: Database, color: 'text-amber-400', label: 'Oracle Cloud 2024 Data Foundations' },
+  { icon: Lock, color: 'text-red-400', label: 'Fortinet — Fundamentals & Associate' },
+]
 
 export default function AboutPage() {
   return (
@@ -53,8 +73,8 @@ export default function AboutPage() {
             </p>
             <p className="text-lg text-slate-300 mb-8 leading-relaxed">
               I then moved into software: a bachelor&apos;s degree in Systems Analysis and
-              Development, backend and cloud engineering, and today a postgraduate degree in Cloud
-              Computing. My current work sits at the intersection of both worlds — cloud
+              Development, backend and cloud engineering, and a completed postgraduate degree in
+              Cloud Computing. My current work sits at the intersection of both worlds — cloud
               architecture applied to the reliability of distributed devices.
             </p>
 
@@ -69,7 +89,7 @@ export default function AboutPage() {
                 <div className="text-3xl font-black bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent mb-1">
                   4
                 </div>
-                <div className="text-sm text-slate-400">Global Hackathons 2025–26</div>
+                <div className="text-sm text-slate-400">Global Hackathons 2025-26</div>
               </div>
               <div className="text-center p-4 bg-gradient-to-br from-purple-600/20 to-pink-600/20 border border-purple-500/30 rounded-xl">
                 <div className="text-3xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-1">
@@ -125,41 +145,71 @@ export default function AboutPage() {
 
           <AnimatedSection>
             <div className="bg-slate-900/70 border border-slate-700/60 rounded-2xl p-8">
-              <div className="flex items-center mb-6">
+              <div className="flex items-center mb-8">
                 <GraduationCap className="h-8 w-8 text-blue-400 mr-3" />
                 <h2 className="text-3xl font-bold text-white">Education</h2>
               </div>
-              <div className="space-y-6">
-                <div className="border-l-4 border-emerald-500 pl-6">
-                  <h3 className="text-xl font-semibold text-white mb-2">
-                    Bachelor&apos;s Degree — Systems Analysis and Development (Estácio)
-                  </h3>
-                  <p className="text-slate-300">
-                    2017–2020. Technical foundation in software engineering, systems design and
-                    information technology.
-                  </p>
+
+              <div className="border-2 border-emerald-500 rounded-xl p-6 bg-emerald-950/30 mb-4">
+                <div className="flex justify-between items-start flex-wrap gap-3">
+                  <div>
+                    <div className="text-xs font-semibold tracking-widest uppercase text-emerald-300 mb-1.5">
+                      Postgraduate degree
+                    </div>
+                    <div className="text-xl font-semibold text-white">Cloud Computing — PUC Minas</div>
+                  </div>
+                  <span className="inline-flex items-center gap-1.5 bg-emerald-500/15 border border-emerald-500 text-emerald-300 text-sm font-medium px-3 py-1.5 rounded-full">
+                    <CircleCheck className="w-4 h-4" />
+                    Completed · Aug 2026
+                  </span>
                 </div>
-                <div className="border-l-4 border-emerald-500 pl-6">
-                  <h3 className="text-xl font-semibold text-white mb-2">
-                    Postgraduate — Cloud Computing (PUC Minas)
-                  </h3>
-                  <p className="text-slate-300">
-                    In progress, expected completion Nov 2026. Cloud solution architecture,
-                    distributed systems, scalability, containerization, automation, IT governance
-                    and information security.
-                  </p>
+                <p className="text-sm text-slate-300 leading-relaxed mt-4 mb-3">
+                  Cloud solution architecture, distributed systems, scalability, containerization,
+                  automation, IT governance and information security.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {['Cloud architecture', 'Distributed systems', 'Containerization', 'Information security'].map(
+                    (t) => (
+                      <span key={t} className="text-xs bg-slate-800 text-slate-400 px-2.5 py-1 rounded-md">
+                        {t}
+                      </span>
+                    )
+                  )}
                 </div>
-                <div className="border-l-4 border-emerald-500 pl-6">
-                  <h3 className="text-xl font-semibold text-white mb-2">Certifications</h3>
-                  <ul className="list-disc list-inside text-slate-300 space-y-1">
-                    <li>ISC² — Certified in Cybersecurity (CC)</li>
-                    <li>Scrum Alliance — Certified Scrum Master (CSM)</li>
-                    <li>Oracle Cloud Infrastructure 2024 Foundations</li>
-                    <li>Oracle Cloud Infrastructure 2024 Data Foundations</li>
-                    <li>Fortinet — Certified Fundamentals &amp; Associate</li>
-                    <li className="text-slate-400">Studying toward AWS certifications</li>
-                  </ul>
+              </div>
+
+              <div className="border border-slate-700 rounded-xl p-5 bg-slate-900/50 mb-8">
+                <div className="text-xs font-semibold tracking-widest uppercase text-slate-500 mb-1.5">
+                  Bachelor&apos;s degree
                 </div>
+                <div className="text-base font-semibold text-white">
+                  Systems Analysis and Development — Estácio
+                </div>
+                <p className="text-sm text-slate-400 mt-2">
+                  2017–2020 · software engineering, systems design, information technology
+                </p>
+              </div>
+
+              <div className="text-xs font-semibold tracking-widest uppercase text-slate-500 mb-3">
+                Certifications
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {certifications.map((c) => {
+                  const Icon = c.icon
+                  return (
+                    <span
+                      key={c.label}
+                      className="inline-flex items-center gap-1.5 text-sm bg-slate-800 text-slate-300 px-3.5 py-1.5 rounded-lg border border-slate-700"
+                    >
+                      <Icon className={`w-4 h-4 ${c.color}`} />
+                      {c.label}
+                    </span>
+                  )
+                })}
+                <span className="inline-flex items-center gap-1.5 text-sm bg-slate-900/50 text-slate-500 px-3.5 py-1.5 rounded-lg border border-dashed border-slate-700">
+                  <CircleDashed className="w-4 h-4" />
+                  Studying toward AWS
+                </span>
               </div>
             </div>
           </AnimatedSection>

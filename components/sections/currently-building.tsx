@@ -3,7 +3,7 @@
 export default function CurrentlyBuilding() {
   const items = [
     'Studying toward AWS certifications',
-    'Cloud Computing Postgraduate — PUC Minas (exp. Nov 2026)',
+    'PSOP — physical security observability platform (in development)',
     'Peer reviewer — IEEE Internet of Things Journal',
     'Open to US cloud and technology roles',
   ]
