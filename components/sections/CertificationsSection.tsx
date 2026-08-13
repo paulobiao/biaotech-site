@@ -42,14 +42,13 @@ const certifications: Certification[] = [
     credentialId: '2612923193PB',
   },
 
-  // 🔹 ISC2 (in progress — exam not yet taken)
+  // 🔹 ISC2 CC — course conclusion & final assessment completed (not the certification exam)
   {
     id: 'isc2-cc',
-    title: 'ISC2 – Certified in Cybersecurity (CC)',
-    subtitle: 'ISC2 • Cybersecurity Fundamentals',
+    title: 'ISC² CC — Course Completed',
+    subtitle: 'ISC² • CC coursework & final assessment',
     image: '/certifications/isc2-cc.png',
-    alt: 'ISC2 Certified in Cybersecurity (CC)',
-    inProgress: true,
+    alt: 'ISC2 CC Course Conclusion and Final Assessment certificate',
   },
 
   // 🔹 Scrum
@@ -82,7 +81,16 @@ const certifications: Certification[] = [
     pdfUrl: '/certificates/oci-data-foundations.pdf',
     credentialId: '314009349OCI2024DCFA',
   },
-
+    {
+    id: 'oracle-agentic-ai',
+    title: 'Oracle Agentic AI Certified Foundations Associate',
+    subtitle: 'Oracle University • Agentic AI',
+    image: '/certifications/agentic-ai.png',
+    alt: 'Oracle Agentic AI Certified Foundations Associate certificate',
+    pdfUrl: '/certificates/agentic-ai.png',
+    credentialId: '314009349AAI26OFA',
+  },
+  
   // 🔹 Cisco
   {
     id: 'cisco-intro-cyber',
