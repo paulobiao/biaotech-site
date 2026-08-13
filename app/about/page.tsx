@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 }
 
 const certifications = [
-  { icon: ShieldCheck, color: 'text-purple-400', label: 'ISC² — Certified in Cybersecurity (CC)' },
+  { icon: ShieldCheck, color: 'text-purple-400', label: 'ISC² CC — course & final assessment' },
   { icon: RefreshCw, color: 'text-sky-400', label: 'Scrum Master (CSM)' },
   { icon: Cloud, color: 'text-amber-400', label: 'Oracle Cloud 2024 Foundations' },
   { icon: Database, color: 'text-amber-400', label: 'Oracle Cloud 2024 Data Foundations' },

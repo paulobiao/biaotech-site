@@ -1,39 +1,53 @@
 'use client'
 
 import Link from 'next/link'
-import { BookOpen, ShieldCheck, FileText, Award } from 'lucide-react'
+import { BookOpen, GraduationCap, Trophy, Award, type LucideIcon } from 'lucide-react'
 
-const credentials = [
+type Credential = {
+  icon: LucideIcon
+  label: string
+  sub: string
+  detail: string
+  href?: string
+  external?: boolean
+  color: string
+  bg: string
+}
+
+const credentials: Credential[] = [
   {
     icon: BookOpen,
     label: 'IEEE IoT Journal',
     sub: 'Invited Peer Reviewer',
-    detail: 'Feb 2026 – present',
+    detail: 'Verified via Web of Science',
+    href: 'https://orcid.org/0009-0008-6757-3766',
+    external: true,
     color: 'text-blue-400',
     bg: 'bg-blue-500/10 border-blue-500/30',
   },
   {
-    icon: ShieldCheck,
-    label: 'OWASP ASVS',
-    sub: 'Contributor',
-    detail: 'Application Security',
-    color: 'text-red-400',
-    bg: 'bg-red-500/10 border-red-500/30',
-  },
-  {
-    icon: FileText,
-    label: '10+ Publications',
-    sub: 'Peer-Reviewed Research',
-    detail: 'Zenodo · Figshare · arXiv',
-    href: '/publications',
+    icon: GraduationCap,
+    label: 'PUC Minas',
+    sub: 'Cloud Computing Postgraduate',
+    detail: 'Completed · Aug 2026',
     color: 'text-emerald-400',
     bg: 'bg-emerald-500/10 border-emerald-500/30',
   },
   {
+    icon: Trophy,
+    label: '4 Global Hackathons',
+    sub: 'Devpost Submissions',
+    detail: 'Google DeepMind · Elastic · 2025–26',
+    href: 'https://devpost.com/paulo86',
+    external: true,
+    color: 'text-cyan-400',
+    bg: 'bg-cyan-500/10 border-cyan-500/30',
+  },
+  {
     icon: Award,
-    label: 'ISC2 CC',
-    sub: 'Exam In Progress',
-    detail: 'Studying · Exam Scheduled',
+    label: 'Oracle Certified',
+    sub: 'Agentic AI Foundations Associate',
+    detail: 'Oracle University · 2026',
     color: 'text-purple-400',
     bg: 'bg-purple-500/10 border-purple-500/30',
   },
@@ -66,11 +80,18 @@ export default function CredentialsStrip() {
 
             if (cred.href) {
               return (
-                <Link key={cred.label} href={cred.href} className="block h-full">
+                <Link
+                  key={cred.label}
+                  href={cred.href}
+                  target={cred.external ? '_blank' : undefined}
+                  rel={cred.external ? 'noopener noreferrer' : undefined}
+                  className="block h-full"
+                >
                   {inner}
                 </Link>
               )
             }
+
             return <div key={cred.label}>{inner}</div>
           })}
         </div>
