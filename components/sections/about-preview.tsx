@@ -37,7 +37,7 @@ export default function AboutPreview() {
             </h2>
             <p className="text-lg text-gray-700 mb-6 leading-relaxed">
               A distinguished technology innovator and academic leader dedicated to developing 
-              revolutionary frameworks that address critical challenges in banking security, 
+              cloud architecture applied to the reliability of distributed security systems, 
               healthcare protection, and digital transformation.
             </p>
             <p className="text-lg text-gray-700 mb-8 leading-relaxed">

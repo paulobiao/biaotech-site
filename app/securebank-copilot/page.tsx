@@ -311,7 +311,7 @@ export default function SecureBankCopilotPage() {
       <section className="bg-slate-900 text-white">
         <div className="container mx-auto max-w-6xl px-6 py-16 text-center">
           <p className="text-lg text-blue-100">
-            Built with <strong>Gemini 3</strong> · Google AI Studio · SecureBank™ Framework
+            Built with <strong>Gemini 3</strong> · Google AI Studio · SecureBank open-source study
           </p>
         </div>
       </section>

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'SecureBank Copilot — AI-Powered Banking Security Decision System',
     description:
-      'From cyber alerts to board-ready financial decisions in minutes. Built on the SecureBank™ framework with Gemini AI.',
+      'From cyber alerts to board-ready financial decisions in minutes. A Gemini 3 hackathon project™ framework with Gemini AI.',
   },
 }
 
