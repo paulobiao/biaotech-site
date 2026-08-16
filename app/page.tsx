@@ -7,6 +7,7 @@ import LiveInfrastructure from '@/components/sections/live-infrastructure'
 import CurrentlyBuilding from '@/components/sections/currently-building'
 import CredentialsStrip from '@/components/sections/credentials-strip'
 import Hackathons from '@/components/sections/hackathons'
+import Psop from '@/components/sections/psop'
 
 export default function HomePage() {
   return (
@@ -16,6 +17,7 @@ export default function HomePage() {
       <LiveInfrastructure />
       <CredentialsStrip />
       <Hackathons />
+      <Psop />
       <LiveProjects />
       <AboutPreview />
       <CertificationsSection />
