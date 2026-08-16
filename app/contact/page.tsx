@@ -103,7 +103,7 @@ export default function ContactPage() {
             Let&apos;s Connect
           </h1>
           <p className="text-base md:text-lg text-slate-300 max-w-3xl mx-auto">
-            If you&apos;re interested in implementing frameworks, exploring
+            If you're interested in discussing cloud and infrastructure work, exploring
             collaborations, or discussing security and digital transformation
             projects, feel free to reach out using the form below.
           </p>
@@ -314,7 +314,7 @@ export default function ContactPage() {
               <p className="text-sm text-slate-300 flex items-start">
                 <GraduationCap className="h-4 w-4 text-blue-400 mr-2 mt-0.5" />
                 Collaboration on research, publications, and speaking
-                engagements related to security frameworks, critical
+                engagements related to cloud infrastructure and monitoring projects
                 infrastructure, and digital transformation.
               </p>
             </div>
