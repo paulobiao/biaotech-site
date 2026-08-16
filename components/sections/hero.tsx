@@ -14,9 +14,9 @@ const heroHighlights = [
   },
   {
     icon: Video,
-    label: 'Camera Fleet Monitor',
-    impact: 'Cloud health monitoring for IP camera fleets — in development (lab stage)',
-    href: 'https://github.com/paulobiao',
+    label: 'PSOP',
+    impact: 'Physical Security Observability Platform — device health & incidents, lab-validated',
+    href: 'https://github.com/paulobiao/psop',
     colorClasses: 'bg-emerald-500/15 text-emerald-100 ring-emerald-300/40 hover:bg-emerald-500/25',
   },
   {

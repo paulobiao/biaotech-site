@@ -1,5 +1,14 @@
+'use client'
+
+import { useState } from 'react'
 import Image from 'next/image'
 import { Activity, ShieldCheck, Server, Bell } from 'lucide-react'
+
+const shots = [
+  { id: 'dashboard', label: 'Dashboard', src: '/psop/dashboard.png', alt: 'PSOP dashboard monitoring cameras, recorders and network devices in real time' },
+  { id: 'sessions', label: 'Access & sessions', src: '/psop/sessions.png', alt: 'PSOP access security showing sessions, RBAC and audit trail' },
+  { id: 'login', label: 'Secure login', src: '/psop/login.png', alt: 'PSOP secure sign-in screen' },
+]
 
 const highlights = [
   { icon: Activity, text: 'Real-time device health: online / degraded / offline status with heartbeat and MTTR' },
@@ -9,6 +18,8 @@ const highlights = [
 ]
 
 export default function Psop() {
+  const [active, setActive] = useState(shots[0])
+
   return (
     <section className="relative py-20 bg-slate-950 overflow-hidden">
       <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
@@ -31,10 +42,27 @@ export default function Psop() {
           </p>
         </div>
 
+        <div className="flex justify-center gap-2 mb-4 flex-wrap">
+          {shots.map((s) => (
+            <button
+              key={s.id}
+              onClick={() => setActive(s)}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                active.id === s.id
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-slate-800/60 text-slate-400 hover:text-white hover:bg-slate-700/60 border border-slate-700/50'
+              }`}
+            >
+              {s.label}
+            </button>
+          ))}
+        </div>
+
         <div className="rounded-2xl border border-slate-700/60 bg-slate-900/60 p-2 md:p-3 mb-8 shadow-2xl shadow-black/40">
           <Image
-            src="/psop/dashboard.png"
-            alt="PSOP dashboard showing real-time monitoring of cameras, recorders and network devices"
+            key={active.id}
+            src={active.src}
+            alt={active.alt}
             width={1700}
             height={1280}
             className="rounded-xl w-full h-auto"
