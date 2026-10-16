@@ -15,7 +15,7 @@ export type SkillGroup = {
 }
 
 /**
- * Every entry here is traceable to the resume (public/Paulo_Fernandes_Biao_Resume.pdf),
+ * Every entry here is traceable to the resume (public/Paulo_Fernandes_Biao_Resume_Final.pdf),
  * package.json, or a project's documented tech stack (lib/projects-data.ts and the
  * project body sections) — except entries Paulo listed directly (e.g. Java, C#).
  * ECS, ECR and CloudWatch are deliberately absent until validated hands-on in BiaoTech Cloud Lab.
@@ -35,7 +35,7 @@ export const skillGroups: SkillGroup[] = [
       { id: 'docker', name: 'Docker', context: 'Containerized services', icon: 'docker', accent: '#2496ED' },
       { id: 'docker-compose', name: 'Docker Compose', context: 'Multi-container environments', icon: 'compose', accent: '#2496ED' },
       { id: 'terraform', name: 'Terraform', context: 'Infrastructure as Code', icon: 'terraform', accent: '#844FBA' },
-      { id: 'nginx', name: 'Nginx', context: 'Reverse proxy & HTTPS', icon: 'nginx', accent: '#14B8A6' },
+      { id: 'nginx', name: 'Nginx', context: 'Web server · SPA hosting', icon: 'nginx', accent: '#14B8A6' },
       { id: 'githubactions', name: 'GitHub Actions', context: 'CI/CD pipelines', icon: 'githubactions', accent: '#8250DF' },
     ],
   },
@@ -46,10 +46,8 @@ export const skillGroups: SkillGroup[] = [
     skills: [
       { id: 'typescript', name: 'TypeScript', context: 'Application & API layer', icon: 'typescript', accent: '#3178C6' },
       { id: 'javascript', name: 'JavaScript', context: 'Web & application development', icon: 'javascript', accent: '#F7DF1E' },
-      { id: 'nodejs', name: 'Node.js', context: 'Production REST APIs', icon: 'nodejs', accent: '#3C873A' },
+      { id: 'nodejs', name: 'Node.js', context: 'REST APIs', icon: 'nodejs', accent: '#3C873A' },
       { id: 'python', name: 'Python', context: 'Automation, tooling & data workflows', icon: 'python', accent: '#4B8BBE' },
-      { id: 'java', name: 'Java', context: 'Application development', icon: 'java', accent: '#E76F00' },
-      { id: 'csharp', name: 'C#', context: 'Application development', icon: 'csharp', accent: '#9B4F96' },
       { id: 'sql', name: 'SQL', context: 'Queries & relational data', icon: 'sql', accent: '#60A5FA' },
       { id: 'json', name: 'JSON', context: 'APIs & structured data', icon: 'json', accent: '#CBD5E1' },
       { id: 'restapis', name: 'REST APIs', context: 'API design & integration', icon: 'rest', accent: '#0D9488' },
@@ -83,7 +81,7 @@ export const skillGroups: SkillGroup[] = [
     label: 'Physical Security & IoT',
     accent: '#94a3b8',
     skills: [
-      { id: 'cctv', name: 'CCTV', context: '10+ years, banking sites', icon: 'cctv', accent: '#F0596E' },
+      { id: 'cctv', name: 'CCTV', context: '2005–2020 · banking sites', icon: 'cctv', accent: '#F0596E' },
       { id: 'nvr-dvr', name: 'NVR / DVR', context: 'Video recording systems', icon: 'recorder', accent: '#F87171' },
       { id: 'onvif', name: 'ONVIF', context: 'Camera integration protocol', icon: 'onvif', accent: '#2DD4BF' },
       { id: 'rtsp', name: 'RTSP', context: 'IP video streaming', icon: 'rtsp', accent: '#F472B6' },
@@ -104,7 +102,7 @@ export const skillGroups: SkillGroup[] = [
       { id: 'cicd', name: 'CI/CD', context: 'Automated build & delivery', icon: 'cicd', accent: '#2DD4BF' },
       { id: 'vscode', name: 'VS Code', context: 'Development environment', icon: 'vscode', accent: '#23A9F2' },
       { id: 'postman', name: 'Postman', context: 'API testing', icon: 'postman', accent: '#FF6C37' },
-      { id: 'observability', name: 'Observability', context: 'Device health, telemetry, MTTR', icon: 'observability', accent: '#34D399' },
+      { id: 'observability', name: 'Observability', context: 'Device health & telemetry', icon: 'observability', accent: '#34D399' },
     ],
   },
 ]

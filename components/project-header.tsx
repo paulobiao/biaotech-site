@@ -46,8 +46,9 @@ export default function ProjectHeader({ project }: { project: Project }) {
           className="flex shrink-0 items-center gap-2 rounded-md border px-3 py-1.5 font-mono text-[9px] font-bold uppercase tracking-[0.18em]"
           style={{ borderColor: `${statusColor}4d`, background: `${statusColor}1a`, color: statusColor }}
         >
-          <SignalDot accent={statusColor} size={5} />
+          <SignalDot accent={statusColor} size={5} active={!project.status.detail} />
           {project.status.label}
+          {project.status.detail && <span className="text-[var(--pb-ink-55)]">· {project.status.detail}</span>}
         </span>
       </motion.div>
     </header>

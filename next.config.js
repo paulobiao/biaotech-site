@@ -23,7 +23,12 @@ const nextConfig = {
   swcMinify: true,
   async redirects() {
     // BlueWave was the first real-world implementation; the platform is now presented as FSOP.
-    return [{ source: '/projects/bluewave', destination: '/projects/fsop', permanent: true }]
+    // SecureBank Copilot now appears as one of the hackathon entries on /experience.
+    // Temporary, so the route can be rebuilt later without browsers caching the redirect.
+    return [
+      { source: '/projects/bluewave', destination: '/projects/fsop', permanent: true },
+      { source: '/securebank-copilot', destination: '/experience#hackathons', permanent: false },
+    ]
   },
 };
 

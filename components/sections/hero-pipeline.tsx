@@ -1,16 +1,18 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Camera, Network, Cloud, Radar } from 'lucide-react'
+import { Camera, Network, Code2, Cloud, Radar } from 'lucide-react'
 import { useSafeReducedMotion } from '@/components/signal-node'
 
+// Same five stages as the Engineering Journey on /about, in compact form.
 // Literal hex (not CSS var()) — these values get an alpha suffix appended below,
 // which only works with hex colors, not var() references.
 const stages = [
-  { id: 'field', label: 'Field', sub: 'CCTV · Access Control', icon: Camera, accent: '#94a3b8' },
-  { id: 'systems', label: 'Systems', sub: 'Networks · Integration', icon: Network, accent: '#7c93c9' },
-  { id: 'cloud', label: 'Cloud', sub: 'AWS · Distributed Systems', icon: Cloud, accent: '#2f6fed' },
-  { id: 'observability', label: 'Observability', sub: 'Telemetry · Intelligence', icon: Radar, accent: '#22d3ee' },
+  { id: 'field', label: 'Physical Security', sub: 'CCTV · Alarms · Monitoring', icon: Camera, accent: '#94a3b8' },
+  { id: 'systems', label: 'Systems', sub: 'Networks · Remote configuration', icon: Network, accent: '#7c93c9' },
+  { id: 'software', label: 'Software', sub: 'APIs · Testing · CI/CD', icon: Code2, accent: '#4d8dff' },
+  { id: 'cloud', label: 'Cloud', sub: 'AWS · Cloud architecture', icon: Cloud, accent: '#2f6fed' },
+  { id: 'intelligence', label: 'Intelligent Infrastructure', sub: 'Evidence · Observability', icon: Radar, accent: '#22d3ee' },
 ]
 
 export default function HeroPipeline() {
@@ -52,7 +54,7 @@ export default function HeroPipeline() {
             </motion.div>
 
             {next && (
-              <div className="relative flex h-8 w-12 shrink-0 items-center justify-center">
+              <div className="relative flex h-6 w-12 shrink-0 items-center justify-center">
                 <div
                   className="h-full w-px"
                   style={{ background: `linear-gradient(180deg, ${stage.accent}70, ${next.accent}70)` }}

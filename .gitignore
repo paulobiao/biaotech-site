@@ -2,11 +2,12 @@
 .next
 out
 dist
+tsconfig.tsbuildinfo
 
-# Dependências
+# Dependencies
 node_modules
 
-# Ambiente
+# Environment
 .env
 .env.local
 .env.development.local
@@ -16,7 +17,9 @@ node_modules
 # Prisma
 prisma/dev.db
 
-# SO / editor
+# OS / editor
 .DS_Store
 .vscode
-node_modules
+
+# Original (unredacted) documents — public copies live in public/documents/
+/documents/

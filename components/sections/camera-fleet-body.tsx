@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Camera, Radio, Cloud, Database } from 'lucide-react'
+import { ArrowUpRight, Camera, Cloud, Database, Github, Radio } from 'lucide-react'
 import { SignalTag, useSafeReducedMotion } from '@/components/signal-node'
 import GlassCard from '@/components/ui/glass-card'
 
@@ -92,7 +92,7 @@ export default function CameraFleetBody() {
                   )}
                   <Camera size={16} color="#c8beff" strokeWidth={1.6} />
                 </div>
-                <span className="font-mono text-[7px] font-bold uppercase tracking-[0.14em] text-white/30">CAM-0{i + 1}</span>
+                <span className="font-mono text-[8.5px] font-bold uppercase tracking-[0.14em] text-white/30">CAM-0{i + 1}</span>
               </div>
             ))}
 
@@ -100,32 +100,44 @@ export default function CameraFleetBody() {
               <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[#7c5cff]/40 bg-white/[0.04]">
                 <Radio size={17} color="#c8beff" strokeWidth={1.6} />
               </div>
-              <span className="whitespace-nowrap font-mono text-[7px] font-bold uppercase tracking-[0.14em] text-white/35">Gateway</span>
+              <span className="whitespace-nowrap font-mono text-[8.5px] font-bold uppercase tracking-[0.14em] text-white/35">Gateway</span>
             </div>
 
             <div className="absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-2" style={{ left: `${fleetCore.x}%`, top: `${fleetCore.y}%` }}>
               <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[#7c5cff]/40" style={{ boxShadow: '0 0 24px 3px rgba(124,92,255,0.18)', background: 'rgba(124,92,255,0.06)' }}>
                 <Cloud size={20} color="#c8beff" strokeWidth={1.6} />
               </div>
-              <span className="whitespace-nowrap font-mono text-[7px] font-bold uppercase tracking-[0.14em] text-white/40">AWS IoT Core</span>
+              <span className="whitespace-nowrap font-mono text-[8.5px] font-bold uppercase tracking-[0.14em] text-white/40">AWS IoT Core</span>
             </div>
 
             <div className="absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-2" style={{ left: `${fleetDb.x}%`, top: `${fleetDb.y}%` }}>
               <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[#22d3ee]/40" style={{ boxShadow: '0 0 28px 4px rgba(34,211,238,0.2)', background: 'rgba(34,211,238,0.06)' }}>
                 <Database size={19} color="#7fe3f2" strokeWidth={1.6} />
               </div>
-              <span className="whitespace-nowrap font-mono text-[7px] font-bold uppercase tracking-[0.14em] text-[var(--pb-cyan)]">DynamoDB</span>
+              <span className="whitespace-nowrap font-mono text-[8.5px] font-bold uppercase tracking-[0.14em] text-[var(--pb-cyan)]">DynamoDB</span>
             </div>
           </div>
         </GlassCard>
       </motion.div>
 
-      <div className="mt-10 flex flex-wrap gap-2 border-t border-[var(--pb-border)] pt-8">
-        {stack.map((t) => (
-          <span key={t} className="rounded-sm border border-[var(--pb-border)] px-2.5 py-1 font-mono text-[8px] font-bold uppercase tracking-[0.14em] text-[var(--pb-ink-35)]">
-            {t}
-          </span>
-        ))}
+      <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-[var(--pb-border)] pt-8">
+        <div className="flex flex-wrap gap-2">
+          {stack.map((t) => (
+            <span key={t} className="rounded-sm border border-[var(--pb-border)] px-2.5 py-1 font-mono text-[9px] font-bold uppercase tracking-[0.14em] text-[var(--pb-ink-55)]">
+              {t}
+            </span>
+          ))}
+        </div>
+        <a
+          href="https://github.com/paulobiao/camera-fleet-monitor"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group inline-flex items-center gap-2 text-[10.5px] font-bold uppercase tracking-[0.16em] text-[var(--pb-ink)] transition hover:text-[var(--pb-cyan)]"
+        >
+          <Github className="h-3.5 w-3.5" />
+          View repository
+          <ArrowUpRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </a>
       </div>
     </div>
   )

@@ -5,11 +5,12 @@ import FeaturedProject from '@/components/featured-project'
 import SkillsPreview from '@/components/sections/skills-preview'
 import SectionHeader from '@/components/section-header'
 import GlassCard from '@/components/ui/glass-card'
+import TechnicalWorkCard from '@/components/technical-work-card'
 import { getProject } from '@/lib/projects-data'
 
 const psop = getProject('psop')!
 const fsop = getProject('fsop')!
-const dsop = getProject('dsop')!
+const technical = [getProject('biaotech-api')!, getProject('biaotech-cloud-lab')!]
 
 export default function HomePage() {
   return (
@@ -22,7 +23,7 @@ export default function HomePage() {
         <SectionHeader
           kicker="Featured Work"
           title="Systems for the real world"
-          description="Engineering projects across physical infrastructure, field operations and digital safety."
+          description="Platforms built from field experience, and the cloud work behind them."
           action={
             <Link
               href="/projects"
@@ -33,11 +34,16 @@ export default function HomePage() {
             </Link>
           }
         />
-        {/* Staggered editorial layout on xl; natural PSOP → FSOP → DSOP sequence below. */}
+        {/* Staggered editorial layout on xl: PSOP leads; the cloud work sits beneath it; FSOP to the side. */}
         <div className="grid grid-cols-1 gap-y-16 xl:grid-cols-12 xl:gap-x-14 xl:gap-y-20">
           <FeaturedProject project={psop} priority className="xl:col-span-7" />
           <FeaturedProject project={fsop} className="xl:col-span-5 xl:row-span-2 xl:mt-32" />
-          <FeaturedProject project={dsop} compact className="xl:col-span-7" />
+          <div className="flex flex-col gap-4 xl:col-span-7">
+            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--pb-ink-55)]">Cloud &amp; delivery</p>
+            {technical.map((p) => (
+              <TechnicalWorkCard key={p.slug} project={p} />
+            ))}
+          </div>
         </div>
       </section>
 
@@ -78,8 +84,8 @@ export default function HomePage() {
               <span style={{ color: 'var(--pb-cyan)' }}>next system.</span>
             </h2>
             <p className="mt-3 max-w-md text-[13px] leading-[1.7] text-[var(--pb-ink-55)]">
-              Available for senior cloud infrastructure, security observability
-              and intelligent systems roles.
+              Open to roles in cloud infrastructure, systems analysis and
+              operational observability.
             </p>
           </div>
           <Link

@@ -2,14 +2,13 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Download, Github, Activity, FileCode2, ArrowRight } from 'lucide-react'
+import { Download, Github, FileCode2, ArrowRight } from 'lucide-react'
 import { SignalTag } from '@/components/signal-node'
 import HeroPipeline from '@/components/sections/hero-pipeline'
 
 const quickLinks = [
   { label: 'GitHub', href: 'https://github.com/paulobiao', icon: Github },
-  { label: 'API Status', href: 'https://api.biaotech.dev/api/health', icon: Activity },
-  { label: 'Swagger', href: 'https://api.biaotech.dev/api/docs', icon: FileCode2 },
+  { label: 'API Source', href: 'https://github.com/paulobiao/biaotech-api', icon: FileCode2 },
 ]
 
 export default function HomeHero() {
@@ -17,7 +16,7 @@ export default function HomeHero() {
     <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-14">
       <div>
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-          <SignalTag accent="var(--pb-blue)">Paulo Biao · Systems · Cloud · Physical Security</SignalTag>
+          <SignalTag accent="var(--pb-blue)">Paulo Biao · Systems &amp; Cloud Analyst</SignalTag>
         </motion.div>
 
         <motion.h1
@@ -47,8 +46,9 @@ export default function HomeHero() {
           transition={{ duration: 0.7, delay: 0.16 }}
           className="mt-5 max-w-md text-[14px] leading-[1.7] text-[var(--pb-ink-55)]"
         >
-          A decade in the field with physical security systems. Now building
-          the cloud platforms and APIs that watch over them.
+          Fifteen years with electronic security systems in Brazil. Now building
+          the software and cloud platforms that make that kind of infrastructure
+          observable.
         </motion.p>
 
         <motion.div
@@ -66,7 +66,7 @@ export default function HomeHero() {
             <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
           </Link>
           <a
-            href="/Paulo_Fernandes_Biao_Resume.pdf"
+            href="/Paulo_Fernandes_Biao_Resume_Final.pdf"
             download
             className="group flex items-center gap-2.5 rounded-md border border-[var(--pb-border)] px-6 py-3.5 text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--pb-ink)] transition-all duration-200 hover:border-[var(--pb-cyan)]/40"
           >

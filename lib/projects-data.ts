@@ -1,6 +1,8 @@
 export type ProjectStatus = {
   label: string
   tone: 'cyan' | 'blue' | 'violet' | 'emerald' | 'teal' | 'neutral'
+  /** Environment qualifier (e.g. "Currently offline"). A qualified status renders a still dot, not a live pulse. */
+  detail?: string
 }
 
 export type GalleryImage = {
@@ -34,6 +36,8 @@ export type Project = {
   status: ProjectStatus
   accent: string
   positioning?: string
+  /** Short honesty qualifier shown on compact cards (e.g. what is designed vs. deployed). */
+  note?: string
   cover?: { src: string; alt: string; caption?: string }
   links?: { label: string; href: string }[]
   gallery?: GalleryImage[]
@@ -239,7 +243,7 @@ export const projects: Project[] = [
       {
         title: 'Product',
         body: [
-          'Screenshots from the first real-world implementation, BlueWave Plumbing.',
+          'Screenshots from the first real-world implementation, BlueWave Plumbing. Client names and contact details are redacted.',
         ],
         points: [
           'Customers and price book',
@@ -338,12 +342,12 @@ export const projects: Project[] = [
     number: '05',
     name: 'BiaoTech API',
     primary: false,
-    fullName: 'Production REST API & Cloud Infrastructure',
-    category: 'Production REST API & Cloud Infrastructure',
+    fullName: 'Cloud-Deployed REST API & CI/CD',
+    category: 'Cloud-Deployed REST API & CI/CD',
     description:
-      'A production REST API on AWS EC2 with automated CI/CD, JWT auth and live Swagger documentation.',
-    tags: ['NODE.JS', 'POSTGRESQL', 'DOCKER', 'AWS EC2'],
-    status: { label: 'Live', tone: 'emerald' },
+      'A TypeScript/Express REST API with JWT auth, RBAC and PostgreSQL, tested in CI and deployed to AWS EC2 through GitHub Actions.',
+    tags: ['TYPESCRIPT', 'EXPRESS', 'POSTGRESQL', 'AWS EC2', 'GITHUB ACTIONS'],
+    status: { label: 'Deployed project', tone: 'blue', detail: 'Currently offline' },
     accent: 'var(--pb-blue)',
   },
   {
@@ -358,6 +362,21 @@ export const projects: Project[] = [
     tags: ['AWS IOT CORE', 'DYNAMODB', 'TERRAFORM', 'PYTHON'],
     status: { label: 'Lab / Experiment', tone: 'neutral' },
     accent: 'rgba(255,255,255,0.6)',
+  },
+  {
+    slug: 'biaotech-cloud-lab',
+    number: '07',
+    name: 'BiaoTech Cloud Lab',
+    primary: false,
+    fullName: 'Infrastructure as Code & Cloud Operations',
+    category: 'Infrastructure as Code & Cloud Operations',
+    description:
+      'Cost-aware AWS infrastructure architecture built with Terraform, containerized workloads and automated CI, with least-privilege GitHub OIDC design and explicit zero-spend guardrails.',
+    note: 'AWS architecture defined in Terraform — not deployed.',
+    tags: ['AWS', 'TERRAFORM', 'DOCKER', 'GITHUB ACTIONS', 'CI/CD'],
+    status: { label: 'Design validated', tone: 'violet' },
+    accent: '#7c5cff',
+    links: [{ label: 'GitHub', href: 'https://github.com/paulobiao/biaotech-cloud-lab' }],
   },
 ]
 

@@ -52,7 +52,7 @@ export default function IdentityPanel() {
       <div className="flex flex-1 flex-col px-6 pb-6 pt-4">
         <h1 className="text-[15px] font-bold tracking-[-0.01em] text-[var(--pb-ink)]">Paulo Biao</h1>
         <p className="mt-1 font-mono text-[9px] font-bold uppercase tracking-[0.12em] text-[var(--pb-cyan)]">
-          Systems · Cloud · Physical Security
+          Systems &amp; Cloud Analyst
         </p>
 
         <p className="mt-3 text-[13px] leading-[1.6] text-[var(--pb-ink-55)]">
@@ -63,7 +63,7 @@ export default function IdentityPanel() {
         <div className="mt-3 flex items-center gap-2">
           <SignalDot accent="#34d399" size={5} />
           <span className="font-mono text-[9.5px] font-bold uppercase leading-[1.5] tracking-[0.14em] text-[var(--pb-ink-55)]">
-            Deerfield Beach, FL · Open to Relocation
+            South Florida · Open to relocation
           </span>
         </div>
 
@@ -117,7 +117,7 @@ export default function IdentityPanel() {
 
           <div className="grid grid-cols-2 gap-2">
             <a
-              href="/Paulo_Fernandes_Biao_Resume.pdf"
+              href="/Paulo_Fernandes_Biao_Resume_Final.pdf"
               download
               className="group flex items-center justify-center gap-1.5 rounded-md border border-[var(--pb-border)] px-2 py-2.5 text-[10px] font-bold uppercase tracking-[0.1em] text-[var(--pb-ink)] transition hover:border-[var(--pb-cyan)]/40"
             >
@@ -135,7 +135,7 @@ export default function IdentityPanel() {
             </Link>
           </div>
 
-          <span className="font-mono text-[7.5px] text-[var(--pb-ink-35)]">© {new Date().getFullYear()} Paulo Biao</span>
+          <span className="font-mono text-[9px] text-[var(--pb-ink-35)]">© {new Date().getFullYear()} Paulo Biao</span>
         </div>
       </div>
     </aside>

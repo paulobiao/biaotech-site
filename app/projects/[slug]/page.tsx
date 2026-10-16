@@ -5,8 +5,11 @@ import { getProject, primaryProjects } from '@/lib/projects-data'
 
 export const dynamicParams = false
 
+// Projects with a dedicated route (app/projects/<slug>/page.tsx) are excluded here.
+const dedicatedPages = new Set(['psop'])
+
 export function generateStaticParams() {
-  return primaryProjects.map((p) => ({ slug: p.slug }))
+  return primaryProjects.filter((p) => !dedicatedPages.has(p.slug)).map((p) => ({ slug: p.slug }))
 }
 
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {

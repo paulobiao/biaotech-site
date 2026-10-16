@@ -27,8 +27,8 @@ export default function MobileHeader() {
           </span>
           <span className="leading-none">
             <span className="block text-[13px] font-bold text-[var(--pb-ink)]">Paulo Biao</span>
-            <span className="mt-0.5 block font-mono text-[7px] font-bold uppercase tracking-[0.16em] text-[var(--pb-cyan)]">
-              Systems · Cloud · Security
+            <span className="mt-0.5 block font-mono text-[8.5px] font-bold uppercase tracking-[0.14em] text-[var(--pb-cyan)]">
+              Systems &amp; Cloud Analyst
             </span>
           </span>
         </Link>
@@ -46,8 +46,8 @@ export default function MobileHeader() {
         <div className="border-t border-[var(--pb-border)] px-5 pb-6">
           <div className="flex items-center gap-2 pt-4">
             <SignalDot accent="#34d399" size={5} />
-            <span className="font-mono text-[8px] font-bold uppercase tracking-[0.16em] text-[var(--pb-ink-35)]">
-              Deerfield Beach, FL · Open to Relocation
+            <span className="font-mono text-[9px] font-bold uppercase tracking-[0.14em] text-[var(--pb-ink-55)]">
+              South Florida · Open to relocation
             </span>
           </div>
 
@@ -88,7 +88,7 @@ export default function MobileHeader() {
           </div>
 
           <a
-            href="/Paulo_Fernandes_Biao_Resume.pdf"
+            href="/Paulo_Fernandes_Biao_Resume_Final.pdf"
             download
             className="mt-4 flex items-center justify-between rounded-md border border-[var(--pb-border)] px-4 py-3 text-[10.5px] font-bold uppercase tracking-[0.16em] text-[var(--pb-ink)]"
           >

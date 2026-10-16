@@ -1,20 +1,14 @@
 import type { Metadata } from 'next'
-import ProjectHeader from '@/components/project-header'
 import BiaotechBody from '@/components/sections/biaotech-body'
 import { getProject } from '@/lib/projects-data'
 
 export const metadata: Metadata = {
-  title: 'BiaoTech API — Production REST API & Cloud Infrastructure',
+  title: 'BiaoTech API — Cloud-Deployed REST API & CI/CD',
   description:
-    'A production REST API deployed on AWS EC2 with automated CI/CD, JWT authentication and live Swagger documentation.',
+    'Case study: a TypeScript/Express REST API with JWT auth, RBAC and PostgreSQL, tested in CI and deployed to AWS EC2 through GitHub Actions.',
 }
 
+/** Uses its own hero (architecture visual) instead of the shared ProjectHeader. */
 export default function BiaotechApiPage() {
-  const project = getProject('biaotech-api')!
-  return (
-    <div>
-      <ProjectHeader project={project} />
-      <BiaotechBody />
-    </div>
-  )
+  return <BiaotechBody project={getProject('biaotech-api')!} />
 }

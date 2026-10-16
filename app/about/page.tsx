@@ -4,19 +4,36 @@ import Link from 'next/link'
 import { ArrowRight, ArrowUpRight, BookOpen } from 'lucide-react'
 import { SignalTag } from '@/components/signal-node'
 import SectionHeader from '@/components/section-header'
-import CapabilityCard from '@/components/capability-card'
+import EngineeringJourney from '@/components/engineering-journey'
 import GlassCard from '@/components/ui/glass-card'
-import { experienceStages } from '@/lib/experience-data'
 
 // Dates as stated on each document. Estácio link serves a web copy with personal identifiers redacted.
-const education = [
+type Education = {
+  credential: string
+  institution: string
+  institutionFull: string
+  program: string
+  dates: string
+  href: string
+  linkLabel: string
+  accent: string
+  note?: string
+  verify?: { href: string; code: string }
+}
+
+const education: Education[] = [
   {
     credential: 'Postgraduate · Lato Sensu Specialization',
     institution: 'PUC Minas',
     institutionFull: 'Pontifícia Universidade Católica de Minas Gerais',
-    program: 'Postgraduate Degree in Cloud Computing',
-    dates: 'Completed August 2026 · Certificate issued October 2026',
+    program: 'Postgraduate Specialization in Cloud Computing (Computação em Nuvem) · 384 hours',
+    dates: 'Completed August 10, 2026 · Certificate issued October 6, 2026',
     href: '/documents/education/paulo-biao-cloud-computing-postgraduate-puc-minas.pdf',
+    linkLabel: 'View certificate',
+    verify: {
+      href: 'https://web.sistemas.pucminas.br/GAD/DOC/Verificador',
+      code: 'A47E7E23D9C142ACF72848D5CBE05B3B',
+    },
     accent: 'var(--pb-blue)',
   },
   {
@@ -26,6 +43,7 @@ const education = [
     program: 'Technology Degree in Systems Analysis and Development',
     dates: 'Completed July 2020 · Degree conferred November 2020',
     href: '/documents/education/paulo-biao-systems-analysis-development-estacio.pdf',
+    linkLabel: 'View diploma',
     accent: '#2dd4bf',
     note: 'Personal identifiers redacted',
   },
@@ -34,11 +52,11 @@ const education = [
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Paulo Biao — systems analyst with a decade of field experience in electronic security systems (CCTV, alarms, monitoring) for banking environments, now focused on cloud computing. Postgraduate in Cloud Computing (PUC Minas). Peer reviewer, IEEE Internet of Things Journal.',
+    'Paulo Biao — Systems & Cloud Analyst. 15 years with electronic security systems in Brazil (CCTV, alarms, monitoring and networked sites for banking environments), now building software and cloud platforms. Postgraduate specialization in Cloud Computing (PUC Minas). Peer reviewer, IEEE Internet of Things Journal.',
   openGraph: {
-    title: 'About Paulo Biao — Systems Analyst | Cloud Computing',
+    title: 'About Paulo Biao — Systems & Cloud Analyst',
     description:
-      'A decade maintaining CCTV, alarm and monitoring systems for banks in Brazil, now building in the cloud. Postgraduate in Cloud Computing (PUC Minas). Peer reviewer, IEEE Internet of Things Journal.',
+      '15 years with CCTV, alarm and monitoring systems for banking environments in Brazil, now building software and cloud platforms. Postgraduate specialization in Cloud Computing (PUC Minas). Peer reviewer, IEEE Internet of Things Journal.',
     url: 'https://biaotech.dev/about',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'About Paulo Biao' }],
   },
@@ -46,8 +64,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'About Paulo Biao',
     description:
-      'A decade in electronic security systems for banking environments, now focused on cloud computing. Peer reviewer, IEEE Internet of Things Journal.',
-    images: ['https://www.biaotech.dev/og-image.png'],
+      '15 years with electronic security systems for banking environments, now building software and cloud platforms. Peer reviewer, IEEE Internet of Things Journal.',
+    images: ['/og-image.png'],
   },
 }
 
@@ -58,7 +76,7 @@ export default function AboutPage() {
         <div>
           <SignalTag accent="var(--pb-blue)">About</SignalTag>
           <h1 className="mt-5 text-[clamp(2.25rem,4.8vw,3.75rem)] font-black leading-[1.02] tracking-[-0.03em] text-[var(--pb-ink)]">
-            A decade in the field.
+            Fifteen years in the field.
             <br />
             Now building the{' '}
             <span style={{ background: 'linear-gradient(100deg, #2f6fed 0%, #22d3ee 55%, #2dd4bf 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent' }}>
@@ -66,11 +84,17 @@ export default function AboutPage() {
             </span>
           </h1>
           <p className="mt-5 max-w-lg text-[13.5px] leading-[1.75] text-[var(--pb-ink-55)]">
-            I spent over ten years installing, monitoring and maintaining CCTV, alarm and
-            access systems across bank branches and corporate sites in Brazil — the kind of
-            work where you learn how distributed equipment actually fails, and what it
-            costs when a recording isn&rsquo;t there when someone needs it. That experience
-            now shapes how I build cloud systems.
+            From 2005 to 2020 I worked with electronic security systems in Brazil — CCTV,
+            alarms and monitoring for bank branches, retail and corporate sites. Much of it
+            was systems work: networked devices, remote configuration, and IP and GPRS
+            communications between sites and monitoring. It is where I learned how distributed
+            equipment actually fails, and what it costs when a recording isn&rsquo;t there when
+            someone needs it.
+          </p>
+          <p className="mt-4 max-w-lg text-[13.5px] leading-[1.75] text-[var(--pb-ink-55)]">
+            That experience now shapes the software and cloud work: a technology degree, a
+            postgraduate specialization in Cloud Computing, and platforms such as PSOP that
+            turn the reliability of physical infrastructure into evidence an operator can inspect.
           </p>
           <div className="mt-7 flex flex-wrap items-center gap-3">
             <Link
@@ -102,15 +126,18 @@ export default function AboutPage() {
 
       <section className="mt-20 md:mt-28">
         <SectionHeader
-          kicker="Field — Systems — Software — Cloud — Intelligent Infrastructure"
-          title="The evolution"
-          description="Five disciplines, one continuous line — physical infrastructure becoming digital infrastructure."
+          kicker="Engineering journey"
+          title="From physical security to intelligent infrastructure"
+          description="One continuous line, not a career change — each stage grew out of the one before it."
         />
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
-          {experienceStages.map((item, i) => (
-            <CapabilityCard key={item.id} item={item} index={i} />
-          ))}
-        </div>
+        <EngineeringJourney />
+        <Link
+          href="/experience"
+          className="group mt-8 inline-flex items-center gap-2 text-[10.5px] font-bold uppercase tracking-[0.16em] text-[var(--pb-ink)] transition hover:text-[var(--pb-cyan)]"
+        >
+          Each stage in detail
+          <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
+        </Link>
       </section>
 
       <section className="mt-20 md:mt-28">
@@ -131,14 +158,23 @@ export default function AboutPage() {
                   href={e.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`View diploma — ${e.program}, ${e.institution} (PDF, opens in a new tab)`}
+                  aria-label={`${e.linkLabel} — ${e.program}, ${e.institution} (PDF, opens in a new tab)`}
                   className="group inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--pb-ink)] transition hover:text-[var(--pb-cyan)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--pb-cyan)]"
                 >
-                  View diploma
+                  {e.linkLabel}
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" style={{ color: e.accent }} />
                 </a>
                 {e.note && <span className="text-[10.5px] text-[var(--pb-ink-35)]">{e.note}</span>}
               </div>
+              {e.verify && (
+                <p className="mt-3 text-[11px] leading-[1.6] text-[var(--pb-ink-35)]">
+                  Verifiable at{' '}
+                  <a href={e.verify.href} target="_blank" rel="noopener noreferrer" className="underline decoration-[var(--pb-border-strong)] underline-offset-2 transition hover:text-[var(--pb-cyan)]">
+                    PUC Minas document verification
+                  </a>{' '}
+                  with code <span className="break-all font-mono text-[10.5px] text-[var(--pb-ink-55)]">{e.verify.code}</span>
+                </p>
+              )}
             </GlassCard>
           ))}
         </div>

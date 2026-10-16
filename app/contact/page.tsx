@@ -43,14 +43,12 @@ export default function ContactPage() {
   const [success, setSuccess] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
 
+  // Success clears itself; a delivery error stays visible because it carries the fallback address.
   useEffect(() => {
-    if (!success && !error) return
-    const timer = setTimeout(() => {
-      setSuccess(null)
-      setError(null)
-    }, 5000)
+    if (!success) return
+    const timer = setTimeout(() => setSuccess(null), 6000)
     return () => clearTimeout(timer)
-  }, [success, error])
+  }, [success])
 
   function handleChange(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     const { name, value } = e.target
@@ -74,11 +72,11 @@ export default function ContactPage() {
         throw new Error('Error sending message')
       }
 
-      setSuccess('Message sent successfully! I will get back to you soon.')
+      setSuccess('Message sent. I will reply by email.')
       setForm({ name: '', email: '', company: '', phone: '', subject: '', message: '' })
     } catch (err) {
       console.error(err)
-      setError('Could not send your message. Please try again.')
+      setError('Your message could not be sent. Please email contact@biaotech.dev directly.')
     } finally {
       setIsSubmitting(false)
     }
@@ -104,7 +102,7 @@ export default function ContactPage() {
           </span>
         </h1>
         <p className="mt-5 text-[14px] leading-[1.75] text-[var(--pb-ink-55)]">
-          Cloud infrastructure, security observability, IoT and platform engineering —
+          Cloud infrastructure, systems analysis and operational observability —
           reach out using the form below or directly by email.
         </p>
       </motion.div>
@@ -221,8 +219,8 @@ export default function ContactPage() {
           <GlassCard className="p-5">
             <h3 className="text-[13px] font-bold text-[var(--pb-ink)]">Project collaboration</h3>
             <p className="mt-2 text-[12.5px] leading-[1.7] text-[var(--pb-ink-55)]">
-              Security architectures, cloud infrastructure and platform engineering for
-              banking, physical security and critical enterprise environments.
+              Cloud infrastructure, systems analysis and operational visibility for
+              physical security and distributed device environments.
             </p>
           </GlassCard>
 
@@ -274,19 +272,19 @@ export default function ContactPage() {
         className="mt-8"
       >
         <GlassCard className="p-6 md:p-8">
-          <h2 className="mb-5 text-[13px] font-black uppercase tracking-[0.14em] text-[var(--pb-ink)]">Why work with me</h2>
-          <ul className="grid gap-4 sm:grid-cols-3">
+          <h2 className="mb-6 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--pb-ink-55)]">Technical foundation</h2>
+          <dl className="grid gap-6 sm:grid-cols-3 sm:gap-8">
             {[
-              { text: 'Over a decade securing systems for financial institutions in Brazil, now focused on the cloud', accent: 'var(--pb-blue)' },
-              { text: 'Production API live on AWS — not just portfolio code, but running infrastructure', accent: 'var(--pb-cyan)' },
-              { text: 'Open to remote US roles immediately — authorized to work, no visa sponsorship required', accent: '#34d399' },
+              { value: '15 Years', detail: 'Physical & electronic security systems · Brazil · 2005–2020', accent: 'var(--pb-blue)' },
+              { value: 'Software + Cloud', detail: 'APIs, testing, CI/CD, AWS and infrastructure design', accent: 'var(--pb-cyan)' },
+              { value: 'IEEE', detail: 'Internet of Things Journal · Peer reviewer', accent: 'var(--pb-violet)' },
             ].map((item) => (
-              <li key={item.text} className="flex items-start gap-2.5">
-                <span className="mt-1.5 h-[5px] w-[5px] shrink-0 rounded-full" style={{ background: item.accent }} />
-                <span className="text-[12.5px] leading-[1.7] text-[var(--pb-ink-55)]">{item.text}</span>
-              </li>
+              <div key={item.value} className="border-l-2 pl-4" style={{ borderColor: item.accent }}>
+                <dt className="text-[17px] font-black tracking-[-0.02em] text-[var(--pb-ink)]">{item.value}</dt>
+                <dd className="mt-1 text-[12.5px] leading-[1.6] text-[var(--pb-ink-55)]">{item.detail}</dd>
+              </div>
             ))}
-          </ul>
+          </dl>
         </GlassCard>
       </motion.div>
     </div>

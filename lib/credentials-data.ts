@@ -61,14 +61,14 @@ export const credentials: Credential[] = [
   {
     id: 'cisco-intro-cyber',
     title: 'Cisco Cybersecurity',
-    subtitle: 'Networking',
+    subtitle: 'Intro · Course completed',
     image: '/certifications/cisco-intro-cyber.png',
     alt: 'Cisco Introduction to Cybersecurity',
   },
   {
     id: 'ibm-cyber-fundamentals',
     title: 'IBM Cybersecurity',
-    subtitle: 'Fundamentals',
+    subtitle: 'Fundamentals · Course completed',
     image: '/certifications/ibm-cyber-fundamentals.png',
     alt: 'IBM Cybersecurity Fundamentals',
   },
