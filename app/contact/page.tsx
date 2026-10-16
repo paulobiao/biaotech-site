@@ -8,9 +8,13 @@ import {
   ArrowRight,
   CheckCircle2,
   AlertCircle,
+  Github,
+  Linkedin,
   Send,
 } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { SignalTag, SignalDot } from '@/components/signal-node'
+import GlassCard from '@/components/ui/glass-card'
 
 type FormData = {
   name: string
@@ -20,6 +24,10 @@ type FormData = {
   subject?: string
   message: string
 }
+
+const fieldClass =
+  'w-full rounded-md border border-[var(--pb-border)] bg-[var(--pb-surface)] px-3.5 py-3 text-[13px] text-[var(--pb-ink)] placeholder-[var(--pb-ink-35)] outline-none transition focus:border-[var(--pb-cyan)]/40 focus:ring-2 focus:ring-[var(--pb-cyan)]/10'
+const labelClass = 'mb-1.5 block text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--pb-ink-55)]'
 
 export default function ContactPage() {
   const [form, setForm] = useState<FormData>({
@@ -35,7 +43,6 @@ export default function ContactPage() {
   const [success, setSuccess] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
 
-  // clears messages after a few seconds
   useEffect(() => {
     if (!success && !error) return
     const timer = setTimeout(() => {
@@ -45,9 +52,7 @@ export default function ContactPage() {
     return () => clearTimeout(timer)
   }, [success, error])
 
-  function handleChange(
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) {
+  function handleChange(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     const { name, value } = e.target
     setForm((prev) => ({ ...prev, [name]: value }))
   }
@@ -70,14 +75,7 @@ export default function ContactPage() {
       }
 
       setSuccess('Message sent successfully! I will get back to you soon.')
-      setForm({
-        name: '',
-        email: '',
-        company: '',
-        phone: '',
-        subject: '',
-        message: '',
-      })
+      setForm({ name: '', email: '', company: '', phone: '', subject: '', message: '' })
     } catch (err) {
       console.error(err)
       setError('Could not send your message. Please try again.')
@@ -87,51 +85,46 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900 py-20 pb-12">
-      <div className="container mx-auto px-4 max-w-[900px]">
-        {/* HEADER */}
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <p className="text-xs md:text-sm font-semibold tracking-[0.25em] text-blue-400 uppercase mb-3">
-            Contact
-          </p>
-          <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
-            Let&apos;s Connect
-          </h1>
-          <p className="text-base md:text-lg text-slate-300 max-w-3xl mx-auto">
-            If you're interested in discussing cloud and infrastructure work, exploring
-            collaborations, or discussing security and digital transformation
-            projects, feel free to reach out using the form below.
-          </p>
-        </motion.div>
-
-        <div className="grid lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] gap-10 items-start">
-          {/* FORM */}
-          <motion.div
-            className="bg-slate-900/70 border border-slate-800 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.6)] p-6 md:p-8 backdrop-blur"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+    <div className="mx-auto max-w-[1100px] px-6 py-14 md:px-10 md:py-20">
+      <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="mb-12 max-w-2xl">
+        <div className="mb-5">
+          <SignalTag accent="var(--pb-blue)">Contact</SignalTag>
+        </div>
+        <h1 className="text-[clamp(2.25rem,4.8vw,3.75rem)] font-black leading-[0.98] tracking-[-0.03em] text-[var(--pb-ink)]">
+          Let&rsquo;s talk about{' '}
+          <span
+            style={{
+              background: 'linear-gradient(100deg, #2f6fed 0%, #22d3ee 55%, #2dd4bf 100%)',
+              WebkitBackgroundClip: 'text',
+              backgroundClip: 'text',
+              color: 'transparent',
+            }}
           >
-            <div className="flex items-center justify-between mb-6">
+            the next system.
+          </span>
+        </h1>
+        <p className="mt-5 text-[14px] leading-[1.75] text-[var(--pb-ink-55)]">
+          Cloud infrastructure, security observability, IoT and platform engineering —
+          reach out using the form below or directly by email.
+        </p>
+      </motion.div>
+
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1.4fr_1fr] lg:items-start">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}>
+          <GlassCard className="p-6 md:p-8">
+            <div className="mb-6 flex items-center justify-between">
               <div>
-                <h2 className="text-2xl font-semibold text-white mb-1">
-                  Send a Message
-                </h2>
-                <p className="text-sm text-slate-400">
-                  I usually respond within 1–2 business days.
-                </p>
+                <h2 className="text-lg font-black tracking-[-0.02em] text-[var(--pb-ink)]">Send a message</h2>
+                <p className="mt-1 text-[12px] text-[var(--pb-ink-55)]">I usually respond within 1–2 business days.</p>
               </div>
-              <div className="hidden md:flex h-10 w-10 items-center justify-center rounded-full bg-blue-600/90">
-                <Send className="h-5 w-5 text-white" />
+              <div
+                className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-md md:flex"
+                style={{ background: 'linear-gradient(120deg, var(--pb-blue), #1c8fae)' }}
+              >
+                <Send className="h-4 w-4 text-white" />
               </div>
             </div>
 
-            {/* Feedback de sucesso/erro */}
             <AnimatePresence>
               {success && (
                 <motion.div
@@ -139,250 +132,163 @@ export default function ContactPage() {
                   initial={{ opacity: 0, y: -8 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -8 }}
-                  className="mb-4 flex items-start gap-3 rounded-xl border border-emerald-700/60 bg-emerald-900/40 px-4 py-3"
+                  className="mb-5 flex items-start gap-3 border border-emerald-200 bg-emerald-50 px-4 py-3"
                 >
-                  <CheckCircle2 className="h-5 w-5 text-emerald-400 mt-0.5" />
-                  <p className="text-sm text-emerald-100">{success}</p>
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
+                  <p className="text-[13px] text-emerald-800">{success}</p>
                 </motion.div>
               )}
-
               {error && (
                 <motion.div
                   key="error"
                   initial={{ opacity: 0, y: -8 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -8 }}
-                  className="mb-4 flex items-start gap-3 rounded-xl border border-red-700/60 bg-red-900/40 px-4 py-3"
+                  className="mb-5 flex items-start gap-3 border border-red-200 bg-red-50 px-4 py-3"
                 >
-                  <AlertCircle className="h-5 w-5 text-red-300 mt-0.5" />
-                  <p className="text-sm text-red-100">{error}</p>
+                  <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-red-600" />
+                  <p className="text-[13px] text-red-800">{error}</p>
                 </motion.div>
               )}
             </AnimatePresence>
 
             <form className="space-y-5" onSubmit={handleSubmit}>
-              {/* Name + Email */}
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid gap-4 md:grid-cols-2">
                 <div>
-                  <label className="block text-xs font-medium text-slate-300 mb-1.5">
-                    Name *
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    required
-                    value={form.name}
-                    onChange={handleChange}
-                    className="w-full rounded-lg border border-slate-700 bg-slate-900/60 px-3 py-2.5 text-sm text-slate-100 placeholder-slate-500 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Your full name"
-                  />
+                  <label className={labelClass}>Name *</label>
+                  <input type="text" name="name" required value={form.name} onChange={handleChange} className={fieldClass} placeholder="Your full name" />
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-slate-300 mb-1.5">
-                    Email *
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    value={form.email}
-                    onChange={handleChange}
-                    className="w-full rounded-lg border border-slate-700 bg-slate-900/60 px-3 py-2.5 text-sm text-slate-100 placeholder-slate-500 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="your.email@example.com"
-                  />
+                  <label className={labelClass}>Email *</label>
+                  <input type="email" name="email" required value={form.email} onChange={handleChange} className={fieldClass} placeholder="your.email@example.com" />
                 </div>
               </div>
 
-              {/* Company + Phone */}
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid gap-4 md:grid-cols-2">
                 <div>
-                  <label className="block text-xs font-medium text-slate-300 mb-1.5">
-                    Company / Organization
-                  </label>
-                  <input
-                    type="text"
-                    name="company"
-                    value={form.company}
-                    onChange={handleChange}
-                    className="w-full rounded-lg border border-slate-700 bg-slate-900/60 px-3 py-2.5 text-sm text-slate-100 placeholder-slate-500 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Your organization"
-                  />
+                  <label className={labelClass}>Company / Organization</label>
+                  <input type="text" name="company" value={form.company} onChange={handleChange} className={fieldClass} placeholder="Your organization" />
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-slate-300 mb-1.5">
-                    Phone
-                  </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={form.phone}
-                    onChange={handleChange}
-                    className="w-full rounded-lg border border-slate-700 bg-slate-900/60 px-3 py-2.5 text-sm text-slate-100 placeholder-slate-500 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="+1 (555) 000-0000"
-                  />
+                  <label className={labelClass}>Phone</label>
+                  <input type="tel" name="phone" value={form.phone} onChange={handleChange} className={fieldClass} placeholder="+1 (555) 000-0000" />
                 </div>
               </div>
 
-              {/* Subject */}
               <div>
-                <label className="block text-xs font-medium text-slate-300 mb-1.5">
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  name="subject"
-                  value={form.subject}
-                  onChange={handleChange}
-                  className="w-full rounded-lg border border-slate-700 bg-slate-900/60 px-3 py-2.5 text-sm text-slate-100 placeholder-slate-500 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="Brief subject of your inquiry"
-                />
+                <label className={labelClass}>Subject</label>
+                <input type="text" name="subject" value={form.subject} onChange={handleChange} className={fieldClass} placeholder="Brief subject of your inquiry" />
               </div>
 
-              {/* Message */}
               <div>
-                <label className="block text-xs font-medium text-slate-300 mb-1.5">
-                  Message *
-                </label>
+                <label className={labelClass}>Message *</label>
                 <textarea
                   name="message"
                   required
                   rows={5}
                   value={form.message}
                   onChange={handleChange}
-                  className="w-full rounded-lg border border-slate-700 bg-slate-900/60 px-3 py-2.5 text-sm text-slate-100 placeholder-slate-500 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className={fieldClass}
                   placeholder="Please share details about your inquiry, project, or collaboration interest..."
                 />
               </div>
 
-              {/* Button */}
-              <div className="pt-2">
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="inline-flex items-center justify-center w-full md:w-auto px-6 py-3 rounded-xl bg-blue-600 text-white font-semibold text-sm hover:bg-blue-500 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
-                  <ArrowRight className="h-4 w-4 ml-2" />
-                </button>
-              </div>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="group flex w-full items-center justify-center gap-2.5 rounded-md px-6 py-3.5 text-[11px] font-bold uppercase tracking-[0.18em] text-white transition-all duration-200 hover:opacity-90 disabled:opacity-50 md:w-auto"
+                style={{ background: 'linear-gradient(120deg, var(--pb-blue), #1c8fae)' }}
+              >
+                {isSubmitting ? 'Sending…' : 'Send Message'}
+                <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
+              </button>
             </form>
-          </motion.div>
+          </GlassCard>
+        </motion.div>
 
-          {/* INFO LATERAL */}
-          <motion.div
-            className="space-y-6"
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-          >
-            {/* Email direto */}
-            <div className="bg-slate-900/80 border border-slate-800 rounded-2xl shadow-lg p-6">
-              <h3 className="text-lg font-semibold text-white mb-2">
-                Email Communication
-              </h3>
-              <p className="text-sm text-slate-300 mb-3">
-                Prefer to write directly? You can also reach me via email:
-              </p>
-              <div className="inline-flex items-center rounded-full bg-slate-800/70 px-3 py-2">
-                <Mail className="h-4 w-4 text-blue-400 mr-2" />
-                <a
-                  href="mailto:contact@biaotech.dev"
-                  className="text-sm text-blue-300 hover:text-blue-200"
-                >
-                  contact@biaotech.dev
-                </a>
-              </div>
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.18 }} className="space-y-4">
+          <GlassCard className="p-5">
+            <div className="mb-3 flex items-center gap-2">
+              <SignalDot accent="var(--pb-blue)" size={5} />
+              <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-[var(--pb-ink-35)]">Direct email</span>
             </div>
+            <a href="mailto:contact@biaotech.dev" className="group flex items-center gap-2 text-[13px] font-bold text-[var(--pb-ink)] transition hover:text-[var(--pb-cyan)]">
+              <Mail className="h-3.5 w-3.5" />
+              contact@biaotech.dev
+            </a>
+          </GlassCard>
 
-            {/* Project Collaboration */}
-            <div className="bg-slate-900/70 border border-slate-800 rounded-2xl shadow-lg p-6">
-              <h3 className="text-lg font-semibold text-white mb-2">
-                Project Collaboration
-              </h3>
-              <p className="text-sm text-slate-300">
-                Security architectures, framework implementation, and digital
-                transformation initiatives for banking, healthcare, and critical
-                enterprise environments.
-              </p>
+          <GlassCard className="p-5">
+            <h3 className="text-[13px] font-bold text-[var(--pb-ink)]">Project collaboration</h3>
+            <p className="mt-2 text-[12.5px] leading-[1.7] text-[var(--pb-ink-55)]">
+              Security architectures, cloud infrastructure and platform engineering for
+              banking, physical security and critical enterprise environments.
+            </p>
+          </GlassCard>
+
+          <GlassCard className="p-5">
+            <h3 className="flex items-center gap-2 text-[13px] font-bold text-[var(--pb-ink)]">
+              <GraduationCap className="h-3.5 w-3.5 text-[var(--pb-violet)]" />
+              Academic & research
+            </h3>
+            <p className="mt-2 text-[12.5px] leading-[1.7] text-[var(--pb-ink-55)]">
+              Open to collaboration on research and publications related to cloud
+              infrastructure, IoT reliability and observability.
+            </p>
+          </GlassCard>
+
+          <GlassCard className="p-5">
+            <h3 className="mb-3 text-[13px] font-bold text-[var(--pb-ink)]">Find me online</h3>
+            <div className="flex flex-col gap-2">
+              <a
+                href="https://www.linkedin.com/in/paulobiao"
+                target="_blank"
+                rel="noreferrer"
+                className="group flex items-center gap-2.5 text-[12.5px] font-semibold text-[var(--pb-ink-55)] transition hover:text-[var(--pb-cyan)]"
+              >
+                <Linkedin className="h-3.5 w-3.5 shrink-0 text-[var(--pb-ink-35)] transition group-hover:text-[var(--pb-cyan)]" />
+                LinkedIn — /in/paulobiao
+              </a>
+              <a
+                href="https://github.com/paulobiao"
+                target="_blank"
+                rel="noreferrer"
+                className="group flex items-center gap-2.5 text-[12.5px] font-semibold text-[var(--pb-ink-55)] transition hover:text-[var(--pb-ink)]"
+              >
+                <Github className="h-3.5 w-3.5 shrink-0 text-[var(--pb-ink-35)] transition group-hover:text-[var(--pb-ink)]" />
+                GitHub — /paulobiao
+              </a>
             </div>
-
-            {/* Academic / Research */}
-            <div className="bg-slate-900/70 border border-slate-800 rounded-2xl shadow-lg p-6">
-              <h3 className="text-lg font-semibold text-white mb-2">
-                Academic & Research
-              </h3>
-              <p className="text-sm text-slate-300 flex items-start">
-                <GraduationCap className="h-4 w-4 text-blue-400 mr-2 mt-0.5" />
-                Collaboration on research, publications, and speaking
-                engagements related to cloud infrastructure and monitoring projects
-                infrastructure, and digital transformation.
-              </p>
-            </div>
-
-            {/* Social / Connect */}
-            <div className="bg-slate-900/70 border border-slate-800 rounded-2xl shadow-lg p-6">
-              <h3 className="text-lg font-semibold text-white mb-4">Find Me Online</h3>
-              <div className="flex flex-col gap-3">
-                <a
-                  href="https://www.linkedin.com/in/paulobiao"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-4 py-2.5 rounded-xl bg-blue-600/10 border border-blue-500/30 text-blue-300 hover:bg-blue-600/20 hover:text-blue-200 transition-all text-sm font-medium"
-                >
-                  <svg className="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                  LinkedIn — /in/paulobiao
-                </a>
-                <a
-                  href="https://github.com/paulobiao"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-4 py-2.5 rounded-xl bg-slate-700/40 border border-slate-600/40 text-slate-300 hover:bg-slate-700/70 hover:text-white transition-all text-sm font-medium"
-                >
-                  <svg className="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-                  GitHub — /paulobiao
-                </a>
-                <a
-                  href="https://devpost.com/paulo86"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-4 py-2.5 rounded-xl bg-orange-500/10 border border-orange-500/30 text-orange-300 hover:bg-orange-500/20 hover:text-orange-200 transition-all text-sm font-medium"
-                >
-                  <svg className="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.002 1.61L0 12.004 6.002 22.39h11.996L24 12.004 17.998 1.61zm1.593 16.526l-3.801-6.131 3.801-6.13h8.81l3.8 6.13-3.8 6.131z"/></svg>
-                  Devpost — /paulo86
-                </a>
-              </div>
-              <p className="mt-4 text-xs text-slate-500 flex items-center gap-1.5">
-                <svg className="w-3.5 h-3.5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                Response time: within 2 business days
-              </p>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Why work with me */}
-        <motion.div
-          className="mt-12 bg-slate-900/60 border border-slate-800 rounded-2xl p-6 md:p-8"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
-          <h2 className="text-xl font-semibold text-white mb-5">Why work with me?</h2>
-          <ul className="space-y-3">
-            <li className="flex items-start gap-3">
-              <span className="mt-1 h-2 w-2 rounded-full bg-blue-400 flex-shrink-0" />
-              <span className="text-slate-300">Over a decade securing systems for financial institutions in Brazil, now focused on the cloud</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="mt-1 h-2 w-2 rounded-full bg-cyan-400 flex-shrink-0" />
-              <span className="text-slate-300">Production API live on AWS — not just portfolio code, but running infrastructure</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="mt-1 h-2 w-2 rounded-full bg-emerald-400 flex-shrink-0" />
-              <span className="text-slate-300">Open to remote US roles immediately — authorized to work, no visa sponsorship required</span>
-            </li>
-          </ul>
+            <p className="mt-4 flex items-center gap-1.5 text-[10.5px] text-[var(--pb-ink-35)]">
+              <SignalDot accent="#34d399" size={5} />
+              Response time: within 2 business days
+            </p>
+          </GlassCard>
         </motion.div>
       </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        className="mt-8"
+      >
+        <GlassCard className="p-6 md:p-8">
+          <h2 className="mb-5 text-[13px] font-black uppercase tracking-[0.14em] text-[var(--pb-ink)]">Why work with me</h2>
+          <ul className="grid gap-4 sm:grid-cols-3">
+            {[
+              { text: 'Over a decade securing systems for financial institutions in Brazil, now focused on the cloud', accent: 'var(--pb-blue)' },
+              { text: 'Production API live on AWS — not just portfolio code, but running infrastructure', accent: 'var(--pb-cyan)' },
+              { text: 'Open to remote US roles immediately — authorized to work, no visa sponsorship required', accent: '#34d399' },
+            ].map((item) => (
+              <li key={item.text} className="flex items-start gap-2.5">
+                <span className="mt-1.5 h-[5px] w-[5px] shrink-0 rounded-full" style={{ background: item.accent }} />
+                <span className="text-[12.5px] leading-[1.7] text-[var(--pb-ink-55)]">{item.text}</span>
+              </li>
+            ))}
+          </ul>
+        </GlassCard>
+      </motion.div>
     </div>
   )
 }

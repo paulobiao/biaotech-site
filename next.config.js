@@ -21,6 +21,10 @@ const nextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
   swcMinify: true,
+  async redirects() {
+    // BlueWave was the first real-world implementation; the platform is now presented as FSOP.
+    return [{ source: '/projects/bluewave', destination: '/projects/fsop', permanent: true }]
+  },
 };
 
 module.exports = nextConfig;

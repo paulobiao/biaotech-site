@@ -294,3 +294,153 @@ input:focus, textarea:focus, select:focus {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* =========================================================
+   BIAOTECH 2026 — FUTURE EDITORIAL / SPATIAL TECHNOLOGY
+   ========================================================= */
+
+::selection {
+  background: #5b4fff;
+  color: white;
+}
+
+body {
+  background: #05070d;
+  color: #eef2fa;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #05070d; }
+::-webkit-scrollbar-thumb { background: rgba(226, 232, 255, 0.2); border-radius: 0; }
+::-webkit-scrollbar-thumb:hover { background: rgba(226, 232, 255, 0.35); }
+
+/* =========================================================
+   TECHNOLOGY CORE — orbit / signal / particle motion system
+   ========================================================= */
+
+@keyframes orbit-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes orbit-spin-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes node-pulse {
+  0%, 100% { opacity: 0.45; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.5); }
+}
+
+@keyframes particle-float {
+  0%, 100% { transform: translate(0, 0); opacity: 0.25; }
+  50% { transform: translate(4px, -12px); opacity: 0.75; }
+}
+
+@keyframes core-pulse {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.08); }
+}
+
+@keyframes signal-travel {
+  to { stroke-dashoffset: -240; }
+}
+
+.animate-orbit-slow { animation: orbit-spin 100s linear infinite; transform-origin: center; }
+.animate-orbit-slower { animation: orbit-spin-reverse 150s linear infinite; transform-origin: center; }
+.animate-node-pulse { animation: node-pulse 3.6s ease-in-out infinite; }
+.animate-particle-float { animation: particle-float 7s ease-in-out infinite; }
+.animate-core-pulse { animation: core-pulse 4.2s ease-in-out infinite; }
+.animate-signal { animation: signal-travel 3.2s linear infinite; }
+
+/* =========================================================
+   PAULO BIAO 2026 — physical → cloud intelligence
+   Observatory over deep space. Dark navy, electric blue, cyan.
+   ========================================================= */
+
+:root {
+  /* surfaces */
+  --pb-void: #05070d;
+  --pb-navy: #070b16;
+  --pb-navy-soft: #0b1220;
+  --pb-surface: rgba(15, 23, 42, 0.55);
+  --pb-surface-strong: rgba(13, 20, 36, 0.82);
+  --pb-surface-solid: #0d1424;
+
+  /* borders / lines */
+  --pb-border: rgba(226, 232, 255, 0.12);
+  --pb-border-strong: rgba(226, 232, 255, 0.22);
+  --pb-line-dark: rgba(255, 255, 255, 0.1);
+
+  /* foreground (renamed but kept for legacy components: light text on dark ground) */
+  --pb-paper: #070b16;
+  --pb-paper-soft: #0b1220;
+  --pb-white: #0d1424;
+  --pb-ink: #eef2fa;
+  --pb-ink-70: rgba(238, 242, 250, 0.75);
+  --pb-ink-55: rgba(238, 242, 250, 0.58);
+  --pb-ink-35: rgba(238, 242, 250, 0.4);
+  --pb-ink-15: rgba(226, 232, 255, 0.14);
+
+  --pb-white-55: rgba(255, 255, 255, 0.55);
+  --pb-white-35: rgba(255, 255, 255, 0.35);
+
+  /* accent */
+  --pb-blue: #2f6fed;
+  --pb-violet: #7c5cff;
+  --pb-cyan: #22d3ee;
+}
+
+@keyframes pb-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-pb-marquee { animation: pb-marquee 34s linear infinite; }
+
+@keyframes pb-dash {
+  to { stroke-dashoffset: -220; }
+}
+.animate-pb-dash { animation: pb-dash 5s linear infinite; }
+
+@keyframes pb-twinkle {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.9; }
+}
+.animate-pb-twinkle { animation: pb-twinkle 4.5s ease-in-out infinite; }
+
+/* Shell chrome (identity sidebar / mobile header) — a translucent instrument
+   panel over the cosmic environment, not a flat opaque black bar. */
+.pb-shell-surface {
+  background:
+    radial-gradient(130% 65% at 0% 0%, rgba(56, 189, 248, 0.16), transparent 58%),
+    radial-gradient(110% 60% at 100% 100%, rgba(124, 92, 255, 0.1), transparent 62%),
+    linear-gradient(165deg, rgba(32, 48, 88, 0.75) 0%, rgba(22, 34, 64, 0.82) 55%, rgba(17, 26, 50, 0.86) 100%);
+  backdrop-filter: blur(22px) saturate(1.25);
+  -webkit-backdrop-filter: blur(22px) saturate(1.25);
+}
+.pb-shell-edge-r {
+  box-shadow: inset -1px 0 0 rgba(34, 211, 238, 0.14), 6px 0 30px -18px rgba(47, 111, 237, 0.35);
+}
+.pb-shell-edge-b {
+  box-shadow: inset 0 -1px 0 rgba(34, 211, 238, 0.14), 0 6px 30px -18px rgba(47, 111, 237, 0.35);
+}
+
+/* Fixed atmospheric environment — the real nebula photo, layered with a
+   CSS starfield underneath (visible only where the photo doesn't cover)
+   and a readability overlay on top so content always stays legible. */
+.pb-space-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-repeat: no-repeat, no-repeat, repeat, repeat, no-repeat;
+  background-position: center 30%, center 30%, 0 0, 20px 30px, center;
+  background-size: cover, cover, 3px 3px, 3px 3px, cover;
+  background-image:
+    linear-gradient(180deg, rgba(5, 7, 13, 0.55) 0%, rgba(5, 7, 13, 0.72) 55%, rgba(5, 7, 13, 0.92) 100%),
+    url('/space-background.png'),
+    radial-gradient(circle, rgba(255, 255, 255, 0.55) 0.5px, transparent 1px),
+    radial-gradient(circle, rgba(180, 200, 255, 0.4) 0.5px, transparent 1px),
+    linear-gradient(180deg, #05070d 0%, #0a0f1e 60%, #070b16 100%);
+}
